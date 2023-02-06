@@ -18,7 +18,7 @@ const cardXp = () => {
         <p className="subtitle has-text-ash pt-4">December 2021 - present (Remote, start-up)</p>
       </div>
       <div className="card-content">
-        <div className="is-size-4 has-text-white">
+        <div className="is-size-5 has-text-white">
           <ul>
             <li><CheckCircle /> Identifying the ideal products with help from project managers and creative thinkers within the team. </li>
             <li><CheckCircle /> Documentations and code compiling to improve performance and reduce system load for other developers.</li>

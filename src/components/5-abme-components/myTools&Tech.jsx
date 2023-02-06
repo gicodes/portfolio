@@ -14,23 +14,23 @@ const Tools = () => {
           textAlign: 'center',
         }}>
           <div className='RonMouse'>
-            <DiJavascript1 style={{ color: 'yellow' }} className='is-size-1' />
+            <DiJavascript1 style={{ color: 'yellow' }} className='is-size-2' />
             <p>Javascript</p>
           </div>
           <div className='RonMouse'>
-            <DiMongodb style={{ color: 'darkgreen' }} className='is-size-1' />
+            <DiMongodb style={{ color: 'darkgreen' }} className='is-size-2' />
             <p> MongoDB</p>
           </div>
           <div className='RonMouse'>
-            <SiExpress style={{ color: 'yellow' }} className='is-size-1' />
+            <SiExpress style={{ color: 'yellow' }} className='is-size-2' />
             <p>Express</p>
           </div>
           <div className='RonMouse'>
-            <FaReact style={{ color: '#87CEFA' }} className='is-size-1' />
+            <FaReact style={{ color: '#87CEFA' }} className='is-size-2' />
             <p>React</p>
           </div>
           <div className='RonMouse'>
-            <DiNodejsSmall style={{ color: 'limegreen' }} className='is-size-1' />
+            <DiNodejsSmall style={{ color: 'limegreen' }} className='is-size-2' />
             <p>Node</p>
           </div>
         </div>
@@ -42,23 +42,23 @@ const Tools = () => {
           textAlign: 'center'
         }}>
           <div className='RonMouse'>
-            <FaDocker style={{ color: '#87CEFA' }} className='is-size-1' />
+            <FaDocker style={{ color: '#87CEFA' }} className='is-size-2' />
             <p>Dockerhub</p>
           </div>
           <div className='RonMouse'>
-            <SiVercel style={{ color: '#FAFAD2' }} className='is-size-1' />
+            <SiVercel style={{ color: '#FAFAD2' }} className='is-size-2' />
             <p>Vercel Edge</p>
           </div>
           <div className='RonMouse'>
-            <FaPython style={{ color: '#9370DB	' }} className='is-size-1' />
+            <FaPython style={{ color: '#9370DB	' }} className='is-size-2' />
             <p>Python</p>
           </div>
           <div className='RonMouse'>
-            <SiMysql style={{ color: 'darkorange' }} className='is-size-1' />
+            <SiMysql style={{ color: 'darkorange' }} className='is-size-2' />
             <p>MySQL</p>
           </div>
           <div className='RonMouse'>
-            <FaGithub className='is-size-1' />
+            <FaGithub className='is-size-2' />
             <p>Github</p>
           </div>
         </div>

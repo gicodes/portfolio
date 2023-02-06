@@ -17,11 +17,11 @@ const Resume = () => {
 
   return (
     <div className='container'>
-      <div className='column'>
+      <div className='column pl-6'>
         <button className='button is-large is-BC'
           onClick={handleOpen}
           onClose={handleClose}
-          style={{ marginTop: '2.5em' }}>
+          >
           <span className='has-text-success'>View Resume</span>
         </button>
         <Modal

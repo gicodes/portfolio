@@ -13,32 +13,30 @@ import Footer from './components/9-footer-components/footer';
 const App = () => {
   return (
     <div className='Body'>
-      <div className='inner'>
-        <div>
-          <SocialHeader />
-        </div>
-        <div>
-          <SquareTerminal />
-        </div>
-        <br />
-        <div>
-          <Summary />
-        </div>
-        <div>
-          <Resume />
-        </div>
-        <div>
-          <AboutMe />
-        </div>
-        <div>
-          <Xperience />
-        </div>
-        <div>
-          <PrevProject />
-        </div>
-        <div>
-          <Footer />
-        </div>
+      <div>
+        <SocialHeader />
+      </div>
+      <div>
+        <SquareTerminal />
+      </div>
+      <br />
+      <div>
+        <Summary />
+      </div>
+      <div>
+        <Resume />
+      </div>
+      <div>
+        <AboutMe />
+      </div>
+      <div>
+        <Xperience />
+      </div>
+      <div>
+        <PrevProject />
+      </div>
+      <div>
+        <Footer />
       </div>
     </div>
   );

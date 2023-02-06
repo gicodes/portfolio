@@ -12,7 +12,10 @@ const FooterDesc = () => {
             textAlign: 'center',
             fontWeight: 'bold',
           }}>
-          Ok so, Let's Connect! </div>
+          Ok, Let's Connect!
+          <i className="fa-solid fa-handshake 
+          is-choco pl-2"></i>
+        </div>
         <p
           className='subtitle sp-fonts'
           style={{

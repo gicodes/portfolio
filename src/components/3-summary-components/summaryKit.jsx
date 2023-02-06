@@ -5,7 +5,7 @@ const Summary = () => {
   return (
     <Hero>
       <div className='container'>
-        <div className='columns is-gapless'>
+        <div className='columns mr-6'>
           <div className='column is-three-quarters'>
             <div className='ApplyBodyBC space-up ml-6'>
               <p className='is-size-4 sp-fonts 

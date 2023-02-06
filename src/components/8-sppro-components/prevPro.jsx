@@ -19,7 +19,7 @@ const Projects = () => {
         {divider}
       </div>
       <br />
-      <div className="container">
+      <div className="container pr-5 pl-5">
         <div className="columns">
           <div className="column is-three-fifths">
             <Card1 />

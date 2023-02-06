@@ -8,14 +8,15 @@ import CardXps from "./cardXps";
 const Xperience = () => {
   return (
     <Hero>
-      <div className="container" style={{ marginTop: '15em' }}>
+      <div className="container"
+        style={{ marginTop: '15em' }}>
         <div className="divider is-light">
           <p className="is-size-2 
             nom-fonts has-text-success">Experience
           </p>
         </div>
         <br />
-        <div className="columns">
+        <div className="columns pr-5 pl-5">
           <div className="column is-half">
           </div>
           <Divider />

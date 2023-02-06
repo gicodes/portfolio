@@ -74,6 +74,10 @@
   color: #999999;
 }
 
+.is-choco {
+  color: chocolate;
+}
+
 .image-list {
   border-radius: 2%;
 }

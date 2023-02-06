@@ -18,7 +18,7 @@ const cardXps = () => {
         <p className="subtitle has-text-ash pt-4">December 2022 - present (Remote)</p>
       </div>
       <div className="card-content">
-        <div className="is-size-4 has-text-white">
+        <div className="is-size-5 has-text-white">
           <ul>
             <li><CheckCircle /> Developing full-stack applications to clients from anywhere in the world.</li>
             <li><CheckCircle /> Networking & collaborating with other developers to deliver large-scale apps.</li>

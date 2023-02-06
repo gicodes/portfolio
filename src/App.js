@@ -1,4 +1,6 @@
 import './App.css';
+import './index.css'
+
 
 import SocialHeader from './components/1-header-components/social-header';
 import SquareTerminal from './components/2-terminal-components/fa-square-terminal';

@@ -2,10 +2,10 @@ const SocialHeader = () => {
 
   return (
     <nav
-      className='navbar container'
+      className='navbar container is-fluid'
       style={{ backgroundColor: '#282c30' }}
       aria-label='main navigation' role='navigation'
-      >
+    >
       <div className='navbar-end pt-6'>
         <div className='level-item sp-fonts'>
           <p className='control'>

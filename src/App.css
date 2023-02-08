@@ -1,7 +1,6 @@
 @import "~@creativebulma/bulma-divider";
 
 *.Body {
-  background-color: #282c30;
   background: #282c30;
   font-family: 'Roboto';
   color: 'white';

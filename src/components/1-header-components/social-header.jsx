@@ -5,7 +5,8 @@ const SocialHeader = () => {
       className='navbar container'
       style={{ backgroundColor: '#282c30' }}
       aria-label='main navigation' role='navigation'
-      >
+    >
+
       <div className='navbar-end pt-6'>
         <div className='level-item sp-fonts'>
           <p className='control'>
@@ -58,6 +59,7 @@ const SocialHeader = () => {
           </p>
         </div>
       </div>
+
     </nav>
   )
 }

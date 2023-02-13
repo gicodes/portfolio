@@ -5,13 +5,18 @@ import { DiMongodb, DiNodejsSmall, DiJavascript1 } from 'react-icons/di';
 
 const Tools = () => {
   return (
-    <div style={{ marginTop: '2.2em' }}>
-      <div style={{ display: 'flex', flexDirection: 'column' }}>
+    <div style={{
+      marginTop: '2.2em'
+    }}>
+      <div style={{
+        display: 'flex',
+        flexDirection: 'column'
+      }}>
         <div style={{
           display: 'flex',
           flexFlow: 'row',
-          justifyContent: 'space-between',
           textAlign: 'center',
+          justifyContent: 'space-between',
         }}>
           <div className='RonMouse'>
             <DiJavascript1 style={{ color: 'yellow' }} className='is-size-1' />
@@ -34,12 +39,13 @@ const Tools = () => {
             <p>Node</p>
           </div>
         </div>
+
         <div style={{
-          paddingTop: '2.2em',
           display: 'flex',
           flexFlow: 'row',
+          textAlign: 'center',
+          paddingTop: '2.2em',
           justifyContent: 'space-between',
-          textAlign: 'center'
         }}>
           <div className='RonMouse'>
             <FaDocker style={{ color: '#87CEFA' }} className='is-size-1' />

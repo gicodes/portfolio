@@ -7,11 +7,6 @@ import IconButton from '@mui/material/IconButton';
 import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';
 
-import FrontPage from '../../../src/images/film-farm-00.png';
-import Compare from '../../../src/images/film-farm-03.png';
-import Second from '../../../src/images/film-farm-01.png';
-import First from '../../../src/images/film-farm-02.png';
-
 const style = {
   position: 'absolute',
   border: '2px solid #000',
@@ -24,32 +19,40 @@ const style = {
   bgcolor: 'white',
 };
 
-
-const TitlebarImageList = () => {
+const ImageListKit = (itemData) => {
 
   const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const handleOpen = () => setOpen(true);
 
   return (
     <ImageList
       className='image-list'
-      sx={{ width: 525, height: 470 }}
+      sx={{
+        height: {
+          xs: 300,
+          sm: 400,
+          md: 500,
+        },
+      }}
     >
       {
         itemData.map((item) => (
-          <ImageListItem key={item.img}>
+          <ImageListItem key={item.img}
+            sx={{
+            }}
+          >
             <img
-              onClick={handleOpen}
               src={`${item.img}?w=248&fit=crop&auto=format`}
               srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
               alt={item.title}
               loading="lazy"
+              onClick={handleOpen}
             />
             <Modal
               open={open}
               onClose={handleClose}
-              aria-labelledby="card3 modal"
+              aria-labelledby="card modal"
             >
               <Box sx={style}>
                 <img
@@ -70,30 +73,10 @@ const TitlebarImageList = () => {
             />
           </ImageListItem>
         ))}
-    </ImageList>
-  );
+    </ImageList >
+
+  )
 }
 
 
-const itemData = [
-  {
-    img: FrontPage,
-    title: 'Front Page',
-  },
-  {
-    img: First,
-    title: 'Primary Search',
-    author: '@gicodes',
-  },
-  {
-    img: Second,
-    title: 'Secondary Search',
-  },
-  {
-    img: Compare,
-    title: 'Compare Search',
-  },
-];
-
-
-export default TitlebarImageList;
+export default ImageListKit;

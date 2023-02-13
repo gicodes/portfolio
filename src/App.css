@@ -1,35 +1,23 @@
 @import "~@creativebulma/bulma-divider";
 
+
 *.Body {
-  background-color: #282c30;
   background: #282c30;
   font-family: 'Roboto';
   min-height: 100vh;
-  max-width: 100%;
+  max-width: 100vw;
   color: 'white';
 }
 
-.inner {
-  background-color: #282c30;
-  background: #282c30;
-  margin-left: 100px;
-  padding-top: 50px;
-}
-
 .is-BC {
-  background-color: #282c30;
-}
-
-.hrDark {
-  background-color: #606060;
-  line-height: 20px;
-  height: 1px
+  background: #282c30;
 }
 
 .RonMouse:hover {
   transition: duration(0.1);
   transform: scale(1.3);
 }
+
 
 .Avatar {
   border-radius: 50%;
@@ -47,25 +35,8 @@
   }
 }
 
-.space-x {
-  padding-right: 1em;
-}
-
-.space-up {
-  margin-top: 2em;
-}
-
-
-.srs-font {
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
-}
-
 .sp-fonts {
   font-family: monospace
-}
-
-.sps-fonts {
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 .nom-fonts {
@@ -81,6 +52,14 @@
 
 .has-text-ash {
   color: #999999;
+}
+
+.is-choco {
+  color: chocolate;
+}
+
+.is-sunset {
+  color: #fd5c60;
 }
 
 .image-list {

@@ -1,6 +1,8 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
+import Grid from '@mui/material/Unstable_Grid2/Grid2';
+
 import MyResume from '../../images/myResume.jpg';
 
 const style = {
@@ -16,14 +18,19 @@ const Resume = () => {
   const handleOpen = () => setOpen(true);
 
   return (
-    <div className='container'>
-      <div className='column pl-6 mt-5'>
-        <button className='button is-large is-BC'
-          onClick={handleOpen}
-          onClose={handleClose}
-        >
-          <span className='has-text-success'>View Resume</span>
-        </button>
+    <Grid container>
+      <div className='column mt-5'>
+        <Grid item sm={12} md={12}
+          style={{
+            display: 'flex',
+            justifyContent: 'center'
+          }}>
+          <button className='button is-large is-BC'
+            onClick={handleOpen}
+            onClose={handleClose}>
+            <span className='has-text-success'>View Resume</span>
+          </button>
+        </Grid>
         <Modal
           open={open}
           aria-label="resume-modal"
@@ -47,7 +54,7 @@ const Resume = () => {
           </Box>
         </Modal>
       </div>
-    </div>
+    </Grid >
   )
 }
 

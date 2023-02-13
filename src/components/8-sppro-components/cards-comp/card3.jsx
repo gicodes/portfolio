@@ -1,6 +1,6 @@
 const Card3 = () => {
   return (
-    <div className="container" style={{ paddingTop: '3.5em' }}>
+    <div className="container">
       <div className="has-text-light is-size-5">
         <p className="title has-text-success"> Film Farm</p>
         <ul>

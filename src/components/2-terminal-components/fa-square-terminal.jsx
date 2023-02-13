@@ -1,18 +1,25 @@
+import Grid from "@mui/material/Unstable_Grid2/Grid2";
+
 const SquareTerminal = () => {
+
   return (
-    <div className='level is-mobile'>
-      <div className='field is-grouped'>
-        <a href='/' className='srs-font is-size-2'>
-          <span className='icon space-x'>
-            <i className='fa-solid fa-terminal has-text-success'></i>              </span>
-          <span className='has-text-white sps-fonts'>
-            gi.codes
-          </span>
-        </a>
+    <Grid container>
+      <div className='level'>
+        <div className='field is-grouped mt-6 pl-6'>
+          <a href='/' className='is-size-3'>
+            <span className='icon'>
+              <i
+                className='fa-solid fa-terminal 
+              fa-beat-fade has-text-white'
+              >
+              </i>
+            </span>
+          </a>
+        </div>
       </div>
-      <p className='control'></p>
-    </div>
+    </Grid>
   );
 };
+
 
 export default SquareTerminal;

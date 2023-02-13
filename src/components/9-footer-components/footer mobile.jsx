@@ -1,5 +1,5 @@
 import Hero from "../0-hero-components/hero-kits";
-import Desc from "./footDesc";
+import Desc from "./footDesc mobile";
 
 
 const Footer = () => {
@@ -11,6 +11,7 @@ const Footer = () => {
   )
 
   return (
+
     <footer className='footer container'
       style={{ backgroundColor: '#282c30' }}>
       <Hero>
@@ -68,13 +69,12 @@ const Footer = () => {
 
         <hr style={{ background: '#505050' }} />
         <br />
-        <div style={{ marginTop: '2em' }}>
+        <div>
           {closingStatement}
         </div>
       </Hero>
     </footer>
   )
 }
-
 
 export default Footer;

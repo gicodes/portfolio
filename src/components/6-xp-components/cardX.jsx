@@ -18,7 +18,7 @@ const cardX = () => {
         <p className="subtitle has-text-ash pt-4">March 2022 - present (Remote, start-up)</p>
       </div>
       <div className="card-content">
-        <div className="is-size-4 has-text-white">
+        <div className="is-size-5 has-text-white">
           <ul>
             <li><CheckCircle /> Designing user interfaces and interaction (UI).</li>
             <li><CheckCircle /> Building SPAs that can be available to end users.</li>

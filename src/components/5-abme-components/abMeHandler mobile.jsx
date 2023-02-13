@@ -1,4 +1,4 @@
-// import MyPortrait from "../../images/myPort.jpeg";
+import MyPortrait from "../../images/myPortrait0.jpeg";
 import Tools from "./myTools&Tech mobile";
 
 const AboutMe = () => {
@@ -9,7 +9,7 @@ const AboutMe = () => {
   )
 
   return (
-    <div className='container is-fluid'>
+    <div className='container is-fluid mt-6'>
       <div className='columns'>
         <div className='column'
           style={{
@@ -18,9 +18,9 @@ const AboutMe = () => {
             justifyContent: 'center'
           }}>
           <img
-            // src={MyPortrait}
+            src={MyPortrait}
             alt='My portrait'
-            className="image is-3by4"
+            className="image"
           />
         </div>
 

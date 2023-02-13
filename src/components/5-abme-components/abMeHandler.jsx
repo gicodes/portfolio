@@ -1,5 +1,5 @@
+import MyPortrait from "../../images/myPortrait0.jpeg";
 import Hero from "../0-hero-components/hero-kits";
-// import MyPortrait from "../../images/MyPic";
 import Tools from "./myTools&Tech";
 
 const AboutMe = () => {
@@ -13,11 +13,17 @@ const AboutMe = () => {
     <Hero>
       <div className='container mt-6'>
         <div className='columns is-mobile'>
-          <div className='column is-two-fifths'>
+          <div className='column is-two-fifths'
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}>
             <img
-              src='MyPortrait'
+              src={MyPortrait}
               alt='My portrait'
-              className="image is-3by4" />
+              className="image"
+            />
           </div>
           <div className='column is-three-fifths'>
             <div className='card-content nom-fonts'>
@@ -50,11 +56,10 @@ const AboutMe = () => {
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </Hero>
+        </div >
+      </div >
+    </Hero >
   )
 }
-
 
 export default AboutMe;

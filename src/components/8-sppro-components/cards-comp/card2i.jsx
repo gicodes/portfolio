@@ -8,13 +8,12 @@ import Grid from '@mui/material/Unstable_Grid2/Grid2';
 const style = {
   position: 'absolute',
   border: '2px solid #000',
-  transform: 'translate(-50%, -50%)',
-  left: '50%',
   top: '50%',
-  width: 999,
-  height: 400,
+  left: '50%',
   boxShadow: 24,
   bgcolor: 'white',
+  transform: 'translate(-50%, -50%)',
+  width: { xs: '100%', sm: '100%', md: 'auto' },
 };
 
 const MazeCard = () => {

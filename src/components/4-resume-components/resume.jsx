@@ -17,7 +17,7 @@ const Resume = () => {
 
   return (
     <div className='container'>
-      <div className='column pl-6 mt-5'>
+      <div className='column mt-5'>
         <button className='button is-large is-BC'
           onClick={handleOpen}
           onClose={handleClose}

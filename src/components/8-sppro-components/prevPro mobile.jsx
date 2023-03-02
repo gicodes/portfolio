@@ -1,6 +1,8 @@
 import Grid from "@mui/material/Unstable_Grid2/Grid2";
 import Hero from "../0-hero-components/hero-kits";
 
+import Card0 from "./cards-comp/card0";
+import Card0i from "./cards-comp/card0i";
 import Card1 from "./cards-comp/card1";
 import Card1i from "./cards-comp/card1i";
 import Card2 from "./cards-comp/card2";
@@ -24,6 +26,19 @@ const Projects = () => {
         </div>
         <br />
         <div className="container">
+          <div className="columns" style={{ marginRight: '0', marginLeft: '0' }}>
+            <div className="column is-three-fifths">
+              <Card0 />
+            </div>
+            <div className="column"
+              style={{
+                display: 'flex',
+                alignItems: 'center'
+              }}>
+              <Card0i />
+            </div>
+          </div>
+          <br />
           <div className="columns" style={{ marginRight: '0', marginLeft: '0' }}>
             <div className="column is-three-fifths">
               <Card1 />

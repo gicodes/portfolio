@@ -1,7 +1,7 @@
 import Grid from '@mui/material/Unstable_Grid2/Grid2';
 
-import { SiExpress, SiMysql, SiVercel } from 'react-icons/si';
-import { FaPython, FaReact, FaDocker, FaGithub } from 'react-icons/fa';
+import { SiExpress, SiMysql, SiVercel, SiNetlify, SiFirebase } from 'react-icons/si';
+import { FaPython, FaReact, FaGithub } from 'react-icons/fa';
 import { DiMongodb, DiNodejsSmall, DiJavascript1 } from 'react-icons/di';
 
 
@@ -39,16 +39,16 @@ const Tools = () => {
             <p>React</p>
           </div>
           <div className='RonMouse'>
-            <DiNodejsSmall style={{ color: 'limegreen' }} className='is-size-2' />
+            <DiNodejsSmall style={{ color: 'cornflowerblue' }} className='is-size-2' />
             <p>NodeJS</p>
           </div>
           <div className='RonMouse'>
-            <FaDocker style={{ color: '#87CEFA' }} className='is-size-2' />
-            <p>Dockerhub</p>
+            <SiFirebase style={{ color: 'gold' }} className='is-size-2' />
+            <p>Firebase</p>
           </div>
           <div className='RonMouse'>
             <SiVercel style={{ color: '#FAFAD2' }} className='is-size-2' />
-            <p>Vercel Edge</p>
+            <p>Vercel</p>
           </div>
           <div className='RonMouse'>
             <FaPython style={{ color: '#9370DB	' }} className='is-size-2' />
@@ -57,6 +57,10 @@ const Tools = () => {
           <div className='RonMouse'>
             <SiMysql style={{ color: 'darkorange' }} className='is-size-2' />
             <p>MySQL</p>
+          </div>
+          <div className='RonMouse'>
+            <SiNetlify style={{ color: 'powderblue' }} className='is-size-2' />
+            <p>Netlify</p>
           </div>
           <div className='RonMouse'>
             <FaGithub className='is-size-2' />

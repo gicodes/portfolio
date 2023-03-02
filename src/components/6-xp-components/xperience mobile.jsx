@@ -1,5 +1,6 @@
 import Grid from "@mui/material/Unstable_Grid2/Grid2";
 import Hero from "../0-hero-components/hero-kits";
+import AdFlyer from "../../images/My project-1.png";
 
 import CardX from "./cardX";
 import CardXp from "./cardXp";
@@ -50,6 +51,11 @@ const Xperience = () => {
           </div>
           <div className="column is-half">
           </div>
+          <img
+            src={AdFlyer}
+            alt='My portrait'
+            className="image"
+          />
         </div>
       </Hero>
     </Grid>

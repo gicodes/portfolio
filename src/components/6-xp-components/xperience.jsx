@@ -1,5 +1,6 @@
 import Hero from "../0-hero-components/hero-kits";
 
+import AdFlyer from "../../images/My project-1.png"
 import Divider from "./divider";
 import CardX from "./cardX";
 import CardXp from "./cardXp";
@@ -54,6 +55,16 @@ const Xperience = () => {
           </div>
           <Divider />
           <div className="column is-half">
+            <div>
+              <img
+                style={{
+                  height: '550px',
+                }}
+                src={AdFlyer}
+                alt='Ad Flyer'
+                className="image"
+              />
+            </div>
           </div>
         </div>
       </div>

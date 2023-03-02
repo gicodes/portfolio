@@ -1,5 +1,5 @@
-import { SiExpress, SiMysql, SiVercel } from 'react-icons/si';
-import { FaPython, FaReact, FaDocker, FaGithub } from 'react-icons/fa';
+import { SiExpress, SiMysql, SiVercel, SiNetlify, SiFirebase } from 'react-icons/si';
+import { FaPython, FaReact, FaGithub } from 'react-icons/fa';
 import { DiMongodb, DiNodejsSmall, DiJavascript1 } from 'react-icons/di';
 
 
@@ -35,38 +35,42 @@ const Tools = () => {
             <p>React</p>
           </div>
           <div className='RonMouse'>
-            <DiNodejsSmall style={{ color: 'limegreen' }} className='is-size-1' />
+            <DiNodejsSmall style={{ color: '	#6495ED' }} className='is-size-1' />
             <p>Node</p>
           </div>
         </div>
+      </div>
 
-        <div style={{
-          display: 'flex',
-          flexFlow: 'row',
-          textAlign: 'center',
-          paddingTop: '2.2em',
-          justifyContent: 'space-between',
-        }}>
-          <div className='RonMouse'>
-            <FaDocker style={{ color: '#87CEFA' }} className='is-size-1' />
-            <p>Dockerhub</p>
-          </div>
-          <div className='RonMouse'>
-            <SiVercel style={{ color: '#FAFAD2' }} className='is-size-1' />
-            <p>Vercel Edge</p>
-          </div>
-          <div className='RonMouse'>
-            <FaPython style={{ color: '#9370DB	' }} className='is-size-1' />
-            <p>Python</p>
-          </div>
-          <div className='RonMouse'>
-            <SiMysql style={{ color: 'darkorange' }} className='is-size-1' />
-            <p>MySQL</p>
-          </div>
-          <div className='RonMouse'>
-            <FaGithub className='is-size-1' />
-            <p>Github</p>
-          </div>
+      <div style={{
+        display: 'flex',
+        flexFlow: 'row',
+        textAlign: 'center',
+        paddingTop: '2.2em',
+        justifyContent: 'space-between',
+      }}>
+        <div className='RonMouse'>
+          <SiFirebase style={{ color: '#FFD700' }} className='is-size-1' />
+          <p>Firebase</p>
+        </div>
+        <div className='RonMouse'>
+          <SiVercel style={{ color: '#FAFAD2' }} className='is-size-1' />
+          <p>Vercel</p>
+        </div>
+        <div className='RonMouse'>
+          <FaPython style={{ color: '#9370DB	' }} className='is-size-1' />
+          <p>Python</p>
+        </div>
+        <div className='RonMouse'>
+          <SiMysql style={{ color: 'darkorange' }} className='is-size-1' />
+          <p>MySQL</p>
+        </div>
+        <div className='RonMouse'>
+          <SiNetlify style={{ color: 'powderblue' }} className='is-size-1' />
+          <p>Netlify</p>
+        </div>
+        <div className='RonMouse'>
+          <FaGithub className='is-size-1' />
+          <p>Github</p>
         </div>
       </div>
     </div>

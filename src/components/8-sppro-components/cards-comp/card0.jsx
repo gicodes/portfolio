@@ -2,7 +2,7 @@ const Card1 = () => {
   return (
     <div className="container">
       <div className="has-text-light is-size-5">
-        <p className="title has-text-success"> Afro Fashion</p>
+        <p className="title has-text-warning"> Afro Fashion</p>
         <ul>
           <li>A complex shopify application built with React and Node JS.</li>
           <li>Complete e-commerce features with google auth and Stripe payment.</li>

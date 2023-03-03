@@ -35,8 +35,8 @@ const Tools = () => {
             <p>React</p>
           </div>
           <div className='RonMouse'>
-            <DiNodejsSmall style={{ color: '	#6495ED' }} className='is-size-1' />
-            <p>Node</p>
+            <DiNodejsSmall style={{ color: 'limegreen' }} className='is-size-1' />
+            <p>Node.JS</p>
           </div>
         </div>
       </div>

@@ -51,11 +51,13 @@ const Xperience = () => {
           </div>
           <div className="column is-half">
           </div>
+          <Grid>
           <img
             src={AdFlyer}
             alt='My portrait'
             className="image"
           />
+          </Grid>
         </div>
       </Hero>
     </Grid>

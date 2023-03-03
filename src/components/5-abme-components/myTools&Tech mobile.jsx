@@ -39,8 +39,8 @@ const Tools = () => {
             <p>React</p>
           </div>
           <div className='RonMouse'>
-            <DiNodejsSmall style={{ color: 'cornflowerblue' }} className='is-size-2' />
-            <p>NodeJS</p>
+            <DiNodejsSmall style={{ color: 'limegreen' }} className='is-size-2' />
+            <p>Node.JS</p>
           </div>
           <div className='RonMouse'>
             <SiFirebase style={{ color: 'gold' }} className='is-size-2' />

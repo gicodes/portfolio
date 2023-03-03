@@ -1,4 +1,5 @@
 import Hero from "../0-hero-components/hero-kits";
+import Grid from "@mui/material/Unstable_Grid2/Grid2";
 
 import AdFlyer from "../../images/My project-1.png"
 import Divider from "./divider";
@@ -17,6 +18,7 @@ const Xperience = () => {
   )
 
   return (
+    <Grid>
     <Hero>
       <div className="container pr-5 pl-5">
         <div>
@@ -55,7 +57,14 @@ const Xperience = () => {
           </div>
           <Divider />
           <div className="column is-half">
-            <div>
+            <Grid 
+            style={{
+              marginTop: "2em",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "flex-end"
+            }}
+            >
               <img
                 style={{
                   height: '550px',
@@ -64,11 +73,12 @@ const Xperience = () => {
                 alt='Ad Flyer'
                 className="image"
               />
-            </div>
+            </Grid>
           </div>
         </div>
       </div>
     </Hero>
+    </Grid>
   )
 }
 

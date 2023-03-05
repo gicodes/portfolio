@@ -7,17 +7,17 @@
 ## Component Structure
   The main components of this application can be found under the *src* directory like so;
   
-v src
-  v components 
-    > 0-hero-components
-    > 1-header-components
-    > 2-terminal-components
-    > 3-summary-components
-    > 4-resume-components
-    > 5-abme-components
-    > 6-xp-components
-    > 8-sppro-components
-    > 9-footer-components
+* v src
+  * v components 
+    * > 0-hero-components
+    * > 1-header-components
+    * > 2-terminal-components
+    * > 3-summary-components
+    * > 4-resume-components
+    * > 5-abme-components
+    * > 6-xp-components
+    * > 8-sppro-components
+    * > 9-footer-components
    
 
 ## 0-hero-components
@@ -54,7 +54,6 @@ The sppro components show the 'PREVIOUS PROJECTS' and images section, and render
 
 ## 9-footer-components
 The footer components run the footer and contact icons section and renders to both mobile and larger viewports.
-
 
 
 # Designed & Developed by Gideon, I

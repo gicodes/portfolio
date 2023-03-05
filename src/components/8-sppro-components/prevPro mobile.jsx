@@ -39,7 +39,7 @@ const Projects = () => {
             </div>
           </div>
           <br />
-          <div className="columns" style={{ marginRight: '0', marginLeft: '0' }}>
+          <div className="columns mt-6" style={{ marginRight: '0', marginLeft: '0' }}>
             <div className="column is-three-fifths">
               <Card1 />
             </div>
@@ -52,7 +52,7 @@ const Projects = () => {
             </div>
           </div>
           <br />
-          <div className="columns" style={{ marginRight: '0', marginLeft: '0' }}>
+          <div className="columns mt-6" style={{ marginRight: '0', marginLeft: '0' }}>
             <div className="column is-three-fifths">
               <Card3 />
             </div>
@@ -65,7 +65,7 @@ const Projects = () => {
             </div>
           </div>
           <br />
-          <div className="columns" style={{ marginRight: '0', marginLeft: '0' }}>
+          <div className="columns mt-6" style={{ marginRight: '0', marginLeft: '0' }}>
             <div className="column is-three-fifths">
               <Card2 />
             </div>

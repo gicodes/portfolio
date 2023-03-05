@@ -7,8 +7,8 @@
 ## Component Structure
   The main components of this application can be found under the *src* directory like so;
   
-* v src
-  * v components 
+* src
+  * components 
     * > 0-hero-components
     * > 1-header-components
     * > 2-terminal-components

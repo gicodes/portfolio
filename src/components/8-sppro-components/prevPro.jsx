@@ -12,7 +12,7 @@ import Card3i from "./cards-comp/card3i";
 const Projects = () => {
   const divider = (
     <div className='divider is-light'>
-      <p className='title has-text-success'> Previous Projects</p>
+      <p className='title has-text-warning'> Previous Projects</p>
     </div>
   )
 

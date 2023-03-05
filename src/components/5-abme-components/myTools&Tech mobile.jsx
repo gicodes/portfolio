@@ -4,8 +4,6 @@ import { SiExpress, SiMysql, SiVercel, SiNetlify, SiFirebase } from 'react-icons
 import { FaPython, FaReact, FaGithub } from 'react-icons/fa';
 import { DiMongodb, DiNodejsSmall, DiJavascript1 } from 'react-icons/di';
 
-
-
 const Tools = () => {
   return (
     <Grid container>
@@ -20,12 +18,8 @@ const Tools = () => {
             flexWrap: 'wrap',
             lineHeight: '1.5',
             textAlign: 'center',
-            justifyContent: 'space-between',
+            justifyContent: 'space-evenly'
           }}>
-          <div className='RonMouse'>
-            <DiJavascript1 style={{ color: 'yellow' }} className='is-size-2' />
-            <p>Javascript</p>
-          </div>
           <div className='RonMouse'>
             <DiMongodb style={{ color: 'darkgreen' }} className='is-size-2' />
             <p> MongoDB</p>
@@ -51,16 +45,20 @@ const Tools = () => {
             <p>Vercel</p>
           </div>
           <div className='RonMouse'>
-            <FaPython style={{ color: '#9370DB	' }} className='is-size-2' />
-            <p>Python</p>
-          </div>
-          <div className='RonMouse'>
-            <SiMysql style={{ color: 'darkorange' }} className='is-size-2' />
-            <p>MySQL</p>
+            <DiJavascript1 style={{ color: 'yellow' }} className='is-size-2' />
+            <p>Javascript</p>
           </div>
           <div className='RonMouse'>
             <SiNetlify style={{ color: 'powderblue' }} className='is-size-2' />
             <p>Netlify</p>
+          </div>
+          <div className='RonMouse'>
+            <FaPython style={{ color: '#9370DB	' }} className='is-size-2' />
+            <p>Python3</p>
+          </div>
+          <div className='RonMouse'>
+            <SiMysql style={{ color: 'darkorange' }} className='is-size-2' />
+            <p>MySQL</p>
           </div>
           <div className='RonMouse'>
             <FaGithub className='is-size-2' />

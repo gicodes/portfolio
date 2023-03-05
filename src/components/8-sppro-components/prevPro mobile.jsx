@@ -14,7 +14,7 @@ const Projects = () => {
 
   const divider = (
     <div className='divider is-light'>
-      <p className='title has-text-success'> Previous Projects</p>
+      <p className='title has-text-warning'>Projects</p>
     </div>
   )
 
@@ -27,7 +27,7 @@ const Projects = () => {
         <br />
         <div className="container">
           <div className="columns" style={{ marginRight: '0', marginLeft: '0' }}>
-            <div className="column is-three-fifths">
+            <div className="column is-three-fifths mt-5">
               <Card0 />
             </div>
             <div className="column"

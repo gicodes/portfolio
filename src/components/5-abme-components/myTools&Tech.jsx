@@ -19,10 +19,6 @@ const Tools = () => {
           justifyContent: 'space-between',
         }}>
           <div className='RonMouse'>
-            <DiJavascript1 style={{ color: 'yellow' }} className='is-size-1' />
-            <p>Javascript</p>
-          </div>
-          <div className='RonMouse'>
             <DiMongodb style={{ color: 'darkgreen' }} className='is-size-1' />
             <p> MongoDB</p>
           </div>
@@ -37,6 +33,10 @@ const Tools = () => {
           <div className='RonMouse'>
             <DiNodejsSmall style={{ color: 'limegreen' }} className='is-size-1' />
             <p>Node.JS</p>
+          </div>
+          <div className='RonMouse'>
+            <DiJavascript1 style={{ color: 'yellow' }} className='is-size-1' />
+            <p>Javascript</p>
           </div>
         </div>
       </div>

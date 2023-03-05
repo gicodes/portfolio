@@ -29,7 +29,7 @@ The header components run the header and toobar section of this app and renders 
 
 
 ## 2-terminal-components
-The terminal component is a single, integral 'fa-' element that renders to both mobile and larger viewports.
+The terminal component is a single, integral 'fa-awe' element that renders to both mobile and larger viewports.
 
 
 ## 3-summary-components

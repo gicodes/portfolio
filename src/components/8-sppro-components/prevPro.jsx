@@ -23,8 +23,8 @@ const Projects = () => {
       </div>
       <br />
       <div className="container pr-5 pl-5">
-        <div className="columns">
-          <div className="column is-three-fifths mt-6">
+        <div className="columns mt-6">
+          <div className="column is-three-fifths">
             <Card0 />
           </div>
           <div className="column"

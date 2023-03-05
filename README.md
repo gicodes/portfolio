@@ -1,6 +1,6 @@
 # my-portfolio
 
-- is react application detailing about me, my resume, experience and previous projects.
+- is a react application detailing about me, my resume, experience and previous projects.
 - This project was built on ReactJS with npm ^18, react-fomts, Bulma CSS && MaterialUI.
 
 

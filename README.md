@@ -21,7 +21,7 @@
    
 
 ## 0-hero-components
-The Hero component holds a Bulma CSS style used dynamically from 1-header-components to 9-footer-components.
+The Hero component holds a Bulma style used dynamically from 1-header-components to 9-footer-components.
 
 
 ## 1-header-components

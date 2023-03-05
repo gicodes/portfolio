@@ -24,7 +24,7 @@ const Projects = () => {
       <br />
       <div className="container pr-5 pl-5">
         <div className="columns">
-          <div className="column is-three-fifths">
+          <div className="column is-three-fifths mt-6">
             <Card0 />
           </div>
           <div className="column"

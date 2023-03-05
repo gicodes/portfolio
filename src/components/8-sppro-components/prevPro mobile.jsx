@@ -27,7 +27,7 @@ const Projects = () => {
         <br />
         <div className="container">
           <div className="columns" style={{ marginRight: '0', marginLeft: '0' }}>
-            <div className="column is-three-fifths mt-5">
+            <div className="column is-three-fifths mt-6">
               <Card0 />
             </div>
             <div className="column"

@@ -9,7 +9,7 @@
 - The absolute responsiveness of this app's UI depends on how the components are rendered.
 - Applying 'create-react-app' default, App.js is rendered inside the *index.js* file like so;
 
-  *import App from './App';
+  *import App from './App';*
 
   *ReactDOM.createRoot(document.getElementById('root'))
     .render(
@@ -64,5 +64,6 @@ The sppro components show the 'PREVIOUS PROJECTS' and images section, and render
 
 ## 9-footer-components
 The footer components run the footer and contact icons section and renders to both mobile and larger viewports.
+
 
 # Designed & Developed by Gideon, I

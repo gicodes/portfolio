@@ -9,12 +9,12 @@
 - The absolute responsiveness of this app's UI depends on how the components are rendered.
 - Applying 'create-react-app' default, App.js is rendered inside the *index.js* file like so;
 
-  import App from './App';
+  *import App from './App';
 
-  * ReactDOM.createRoot(document.getElementById('root'))
+  *ReactDOM.createRoot(document.getElementById('root'))
     .render(
       <React.StrictMode> <App /> </React.StrictMode>
-      );
+      );*
     
 - However, App.js renders the application components dynamically with material's MediaQuery.
 - The viewports are defined by two major material breakpoints; 

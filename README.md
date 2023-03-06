@@ -7,7 +7,7 @@
 ## Render Structure
   
 - The absolute responsiveness of this app's UI depends on how the components are rendered.
-- Applying create-react-app default, App.js is rendered inside the *index.js* file like so;
+- Applying create-react-app's default, App.js is rendered inside the *index.js* file like so;
 
   import App from './App';
 

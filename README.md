@@ -18,7 +18,7 @@
     
 - However, App.js renders the application components dynamically with material's MediaQuery.
 - The viewports are defined by two major material breakpoints; 
-- i. *MobileApp | mobile* and ii. *DesktApp | larger viewports*.
+- i. *MobileApp* | mobile and ii. *DesktApp* | larger viewports.
 
 
 ## Component Structure

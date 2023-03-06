@@ -11,10 +11,10 @@
 
   import App from './App';
 
-  ReactDOM.createRoot(document.getElementById('root'))
+  * ReactDOM.createRoot(document.getElementById('root'))
     .render(
       <React.StrictMode> <App /> </React.StrictMode>
-     );
+      );
     
 - However, App.js renders the application components dynamically with material's MediaQuery.
 - The viewports are defined by two major material breakpoints; 

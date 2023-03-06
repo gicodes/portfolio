@@ -13,7 +13,7 @@
 
   *ReactDOM.createRoot(document.getElementById('root'))
     .render(
-      <React.StrictMode> <App /> </React.StrictMode>
+      <React.StrictMode><App /></React.StrictMode>
       ) ;*
     
 - However, App.js renders the application components dynamically with material's MediaQuery.

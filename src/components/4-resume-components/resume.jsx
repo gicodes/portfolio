@@ -1,7 +1,8 @@
-import * as React from 'react';
+import { useState } from 'react';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import MyResume from '../../images/myResume.png';
+import Grid from '@mui/material/Unstable_Grid2/Grid2';
 
 const style = {
   position: 'absolute',
@@ -11,14 +12,15 @@ const style = {
 
 const Resume = () => {
 
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   const handleClose = () => setOpen(false);
   const handleOpen = () => setOpen(true);
 
   return (
-    <div className='container'>
+    <Grid className='container'>
       <div className='column mt-5'>
         <button className='button is-large is-BC'
+          style={{ marginLeft: '-0.66em', }}
           onClick={handleOpen}
           onClose={handleClose}
         >
@@ -47,7 +49,7 @@ const Resume = () => {
           </Box>
         </Modal>
       </div>
-    </div>
+    </Grid>
   )
 }
 

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { useState } from 'react';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import Grid from '@mui/material/Unstable_Grid2/Grid2';
@@ -21,62 +21,59 @@ const style = {
 
 const ImageListKit = (itemData) => {
 
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
+  const [image, setImage] = useState()
   const handleClose = () => setOpen(false);
-  const handleOpen = () => setOpen(true);
+  const handleOpen = (item) => { setImage(item); setOpen(true) }
 
   return (
-    <ImageList
-      className='image-list'
-      sx={{
-        height: {
-          xs: 300,
-          sm: 400,
-          md: 500,
-        },
-      }}
-    >
-      {
-        itemData.map((item) => (
-          <ImageListItem key={item.img}
-            sx={{
-            }}
-          >
+    <>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="card modal"
+      >
+        <Grid container>
+          <Box sx={style}>
             <img
-              src={`${item.img}?w=248&fit=crop&auto=format`}
-              srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
-              alt={item.title}
               loading="lazy"
-              onClick={handleOpen}
+              alt={image?.title}
+              src={`${image?.img}?w=248&fit=crop&auto=format`}
             />
-            <Modal
-              open={open}
-              onClose={handleClose}
-              aria-labelledby="card modal"
+          </Box>
+        </Grid>
+      </Modal>
+      <ImageList
+        className='image-list'
+        sx={{
+          height: {
+            xs: 300,
+            sm: 400,
+            md: 500,
+          },
+        }}>
+        {
+          itemData.map((item) => (
+            <ImageListItem key={`${item.img}`}
+              onClick={() => handleOpen(item)}
             >
-              <Grid container>
-                <Box sx={style}>
-                  <img
-                    alt={item.title}
-                    src={`${item.img}`}
-                    srcSet={`${item.img}`}
-                  />
-                </Box>
-              </Grid>
-            </Modal>
-            <ImageListItemBar
-              title={item.title}
-              actionIcon={
-                <IconButton
-                  sx={{ color: 'rgba(255, 255, 255, 0.54)' }}
-                  aria-label={`info about ${item.title}`}>
-                </IconButton>
-              }
-            />
-          </ImageListItem>
-        ))}
-    </ImageList >
-
+              <img
+                alt={item.title}
+                src={`${item.img}?w=248&fit=crop&auto=format`}
+              />
+              <ImageListItemBar
+                title={item.title}
+                actionIcon={
+                  <IconButton
+                    sx={{ color: 'rgba(255, 255, 255, 0.54)' }}
+                    aria-label={`info about ${item.title}`}>
+                  </IconButton>
+                }
+              />
+            </ImageListItem>
+          ))}
+      </ImageList >
+    </>
   )
 }
 

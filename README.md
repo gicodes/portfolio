@@ -39,7 +39,7 @@
    
 
 ## 0-hero-components
-The Hero component holds a Bulma style used dynamically from 1-header-components to 9-footer-components.
+The Hero components hold a Bulma style used dynamically from 1-header-components to 9-footer-components.
 
 ## 1-header-components
 The header components run the header and toobar section of this app and renders to both mobile and larger viewports.

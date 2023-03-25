@@ -15,7 +15,8 @@ const Card2 = () => {
           <li>In-game navigation: supports keyboard controls and can be configured to work with advanced controllers</li>
           <li>Flexible framework: allows modification and advanced application model on production build</li>
           <li>Key Dependencies: Engine, Render, Runner, World, etc imported from Matter.</li>
-        </ul>
+        </ul><br/>      
+        <span><b>Source:</b> <a href="https://github.com/gicodes/maze-runner">https://github.com/gicodes/maze-runner</a></span>
       </div>
     </div>
   )

@@ -7,8 +7,7 @@ const Card1 = () => {
           <li>A complex shopify application built with React and Node JS.</li>
           <li>Complete e-commerce features with google auth and Stripe payment.</li>
           <li>Database and Cloud storage is securely connected to Firebase/ firestore.</li>
-        </ul>
-        <br />
+        </ul><br />
         <p className="subtitle is-size-4 has-text-ash"><b>Key Functions</b></p>
         <ul>
           <li>React Web Routing: Every click is well routed and responsive </li>
@@ -16,7 +15,8 @@ const Card1 = () => {
           <li>Users Repository: User data is stored in non-SQL but structured environment </li>
           <li>Carts Repository: Cart handler is designed to receive and store data with context</li>
           <li>Stripe Payment: Online payments don't come any easier. Stripe integration boosts payments</li>
-        </ul>
+        </ul><br/>      
+        <span><b>Source:</b> <a href="https://github.com/gicodes/afro-fashion">https://github.com/gicodes/afro-fashion</a></span>
       </div>
     </div >
   )

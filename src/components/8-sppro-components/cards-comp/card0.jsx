@@ -17,8 +17,8 @@ const Card1 = () => {
           <li>Stripe Payment: Online payments don't come any easier. Stripe integration boosts payments</li>
         </ul><br />
         <span><b>Source:</b> <a href="https://github.com/gicodes/afro-fashion">https://github.com/gicodes/afro-fashion</a></span>
-        <br />
-        <span><b>Web link:</b> <a href="https://mellifluous-melomakarona-51e479.netlify.app">https://mellifluous.netlify.app</a></span>
+        {/* <br />
+        <span><b>Web link:</b> <a href="https://mellifluous-melomakarona-51e479.netlify.app">https://mellifluous.netlify.app</a></span> */}
       </div>
     </div >
   )

@@ -1,8 +1,8 @@
 import Grid from '@mui/material/Unstable_Grid2/Grid2';
 
-import { SiExpress, SiMysql, SiVercel, SiNetlify, SiFirebase } from 'react-icons/si';
-import { FaPython, FaReact, FaGithub, FaNext } from 'react-icons/fa';
+import { SiExpress, SiMysql, SiVercel, SiNetlify, SiFirebase, SiNextdotjs } from 'react-icons/si';
 import { DiMongodb, DiNodejsSmall, DiJavascript1 } from 'react-icons/di';
+import { FaPython, FaReact, FaGithub } from 'react-icons/fa';
 
 const Tools = () => {
   return (
@@ -14,10 +14,10 @@ const Tools = () => {
         <Grid item
           style={{
             display: 'flex',
-            flexFlow: 'row',
             flexWrap: 'wrap',
             lineHeight: '1.5',
             textAlign: 'center',
+            flexFlow: 'column row',
             justifyContent: 'space-evenly'
           }}>
           <div className='RonMouse'>
@@ -34,7 +34,7 @@ const Tools = () => {
           </div>
           <div className='RonMouse'>
             <DiNodejsSmall style={{ color: 'limegreen' }} className='is-size-2 pt-4' />
-            <p>Node.JS</p>
+            <p>Node.js</p>
           </div>
           <div className='RonMouse'>
             <SiFirebase style={{ color: 'gold' }} className='is-size-2 pt-4' />
@@ -49,8 +49,8 @@ const Tools = () => {
             <p>Javascript</p>
           </div>
           <div className='RonMouse'>
-            <FaNext style={{ color: 'black' }} className='is-size-2 pt-4' />
-            <p>Next</p>
+            <SiNextdotjs style={{ color: 'black' }} className='is-size-2 pt-4' />
+            <p>Next.js</p>
           </div>
           <div className='RonMouse'>
             <SiNetlify style={{ color: 'powderblue' }} className='is-size-2 pt-4' />
@@ -58,7 +58,7 @@ const Tools = () => {
           </div>
           <div className='RonMouse'>
             <FaPython style={{ color: '#9370DB	' }} className='is-size-2 pt-4' />
-            <p>Python3</p>
+            <p>Python</p>
           </div>
           <div className='RonMouse'>
             <SiMysql style={{ color: 'darkorange' }} className='is-size-2 pt-4' />

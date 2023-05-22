@@ -1,6 +1,6 @@
-import { SiExpress, SiMysql, SiVercel, SiNetlify, SiFirebase } from 'react-icons/si';
-import { FaPython, FaReact, FaGithub, FaNext } from 'react-icons/fa';
+import { SiExpress, SiMysql, SiVercel, SiNetlify, SiFirebase, SiNextdotjs } from 'react-icons/si';
 import { DiMongodb, DiNodejsSmall, DiJavascript1 } from 'react-icons/di';
+import { FaPython, FaReact, FaGithub } from 'react-icons/fa';
 
 
 const Tools = () => {
@@ -32,15 +32,15 @@ const Tools = () => {
           </div>
           <div className='RonMouse'>
             <DiNodejsSmall style={{ color: 'limegreen' }} className='is-size-1' />
-            <p>Node.JS</p>
+            <p>Node.js</p>
           </div>
           <div className='RonMouse'>
             <DiJavascript1 style={{ color: 'yellow' }} className='is-size-1' />
             <p>Javascript</p>
           </div>
           <div className='RonMouse'>
-            <FaNext style={{ color: 'black' }} className='is-size-1' />
-            <p>Next</p>
+            <SiNextdotjs style={{ color: 'black' }} className='is-size-1' />
+            <p>Next.js</p>
           </div>
         </div>
       </div>

@@ -53,13 +53,14 @@ const Tools = () => {
             <p>Next.js</p>
           </div>
           <div className='RonMouse'>
-            <SiNetlify style={{ color: 'powderblue' }} className='is-size-2 pt-4' />
-            <p>Netlify</p>
-          </div>
-          <div className='RonMouse'>
             <FaPython style={{ color: '#9370DB	' }} className='is-size-2 pt-4' />
             <p>Python</p>
           </div>
+          <div className='RonMouse'>
+            <SiNetlify style={{ color: 'powderblue' }} className='is-size-2 pt-4' />
+            <p>Netlify</p>
+          </div>
+          
           <div className='RonMouse'>
             <SiMysql style={{ color: 'darkorange' }} className='is-size-2 pt-4' />
             <p>MySQL</p>

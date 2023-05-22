@@ -1,7 +1,7 @@
 import Grid from '@mui/material/Unstable_Grid2/Grid2';
 
 import { SiExpress, SiMysql, SiVercel, SiNetlify, SiFirebase } from 'react-icons/si';
-import { FaPython, FaReact, FaGithub } from 'react-icons/fa';
+import { FaPython, FaReact, FaGithub, FaNext } from 'react-icons/fa';
 import { DiMongodb, DiNodejsSmall, DiJavascript1 } from 'react-icons/di';
 
 const Tools = () => {
@@ -47,6 +47,10 @@ const Tools = () => {
           <div className='RonMouse'>
             <DiJavascript1 style={{ color: 'yellow' }} className='is-size-2 pt-4' />
             <p>Javascript</p>
+          </div>
+          <div className='RonMouse'>
+            <FaNext style={{ color: 'black' }} className='is-size-2 pt-4' />
+            <p>Next</p>
           </div>
           <div className='RonMouse'>
             <SiNetlify style={{ color: 'powderblue' }} className='is-size-2 pt-4' />

@@ -28,12 +28,12 @@ const Xperience = () => {
           <div className="column is-half">
           </div>
           <div className="column is-half">
-            <CardX />
+            <CardXps />
           </div>
         </div>
         <div className="columns" style={{ marginRight: '0', marginLeft: '0' }}>
           <div className="column is-half">
-            <CardXps />
+            <CardX />
           </div>
           <div className="column is-half">
           </div>

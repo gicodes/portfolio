@@ -32,12 +32,12 @@ const Xperience = () => {
           </div>
           <Divider />
           <div className="column is-half">
-            <CardX />
+            <CardXps />
           </div>
         </div>
         <div className="columns">
           <div className="column is-half">
-            <CardXps />
+            <CardX />
           </div>
           <Divider />
           <div className="column is-half">

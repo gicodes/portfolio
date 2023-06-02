@@ -15,14 +15,14 @@ const cardX = () => {
             className="has-text-success">FootyTool Naija
           </a>
         </h2>
-        <p className="subtitle has-text-ash pt-4">March 2022 - present (Remote, start-up)</p>
+        <p className="subtitle has-text-ash pt-4">August 2021 - September 2022 (Lagos)</p>
       </div>
       <div className="card-content">
         <div className="is-size-5 has-text-white">
           <ul>
-            <li><CheckCircle /> Designing user interfaces and interaction (UI).</li>
-            <li><CheckCircle /> Building SPAs that can be available to end users.</li>
-            <li><CheckCircle /> Maintaining software and managing the website.</li>
+            <li><CheckCircle /> I was responsible for building SPAs with HTML 5, CSS (Bulma) and Vanilla JS.</li>
+            <li><CheckCircle /> I collaborated with other developers in building full-stack applications.</li>
+            <li><CheckCircle /> I maintained user interface software and updated app data with JSON.</li>
           </ul>
         </div>
       </div>

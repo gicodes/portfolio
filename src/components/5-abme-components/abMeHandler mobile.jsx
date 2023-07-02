@@ -1,4 +1,4 @@
-import MyPortrait from "../../images/myPortrait0.jpeg";
+import MyPortrait from "../../images/myPortrait.JPG";
 import Tools from "./myTools&Tech mobile";
 
 const AboutMe = () => {

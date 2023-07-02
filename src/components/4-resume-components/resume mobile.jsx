@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import Grid from '@mui/material/Unstable_Grid2/Grid2';
 
-import MyResume from '../../images/Resume_v4.1.png';
+import MyResume from '../../images/Resume.png';
 
 const style = {
   position: 'absolute',

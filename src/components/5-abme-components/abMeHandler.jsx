@@ -1,11 +1,13 @@
-import MyPortrait from "../../images/myPortrait0.jpeg";
+import MyPortrait from "../../images/myPortrait.JPG";
 import Hero from "../0-hero-components/hero-kits";
 import Tools from "./myTools&Tech";
 
 const AboutMe = () => {
   const divider = (
     <div className='divider is-light'>
-      <p className='title has-text-success'>About Me</p>
+      <p className='title has-text-success'>
+        About Me
+      </p>
     </div>
   )
 
@@ -41,12 +43,12 @@ const AboutMe = () => {
             style={{
               display: 'flex',
               alignItems: 'center',
-              paddingBottom: '13em',
+              paddingBottom: '6em',
             }}>
             <img
               src={MyPortrait}
               alt='My portrait'
-              className="image"
+              className='image'
             />
           </div>
           <div className='column is-three-fifths'>

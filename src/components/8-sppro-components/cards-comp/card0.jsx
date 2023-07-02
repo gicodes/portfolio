@@ -4,7 +4,7 @@ const Card1 = () => {
       <div className="has-text-light is-size-5">
         <p className="title has-text-success"> Afro Fashion</p>
         <ul>
-          <li>A complex shopify application built with React and Node JS.</li>
+          <li>An online fashion store app built on with React and Node JS.</li>
           <li>Complete e-commerce features with google auth and Stripe payment.</li>
           <li>Database and Cloud storage is securely connected to Firebase/ firestore.</li>
         </ul><br />
@@ -17,8 +17,8 @@ const Card1 = () => {
           <li>Stripe Payment: Online payments don't come any easier. Stripe integration boosts payments</li>
         </ul><br />
         <span><b>Source:</b> <a href="https://github.com/gicodes/afro-fashion">https://github.com/gicodes/afro-fashion</a></span>
-        {/* <br />
-        <span><b>Web link:</b> <a href="https://mellifluous-melomakarona-51e479.netlify.app">https://mellifluous.netlify.app</a></span> */}
+        <br />
+        <span><b>Web link:</b> <a href="https://afrofashionng.netlify.app">https://afrofashionng.app</a></span>
       </div>
     </div >
   )

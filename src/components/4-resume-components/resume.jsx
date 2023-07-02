@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
-import MyResume from '../../images/Resume_v4.1.png';
+import MyResume from '../../images/Resume.png';
 import Grid from '@mui/material/Unstable_Grid2/Grid2';
 
 const style = {

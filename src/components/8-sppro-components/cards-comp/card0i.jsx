@@ -1,7 +1,7 @@
 import ImageListKit from '../imgListKits';
 
 import LoginPage from '../../../images/Screen 4.png';
-import CartsPage from '../../../images/Screen 3.png';
+import CartDrop from '../../../images/Screen 3.png';
 import ShopPage from '../../../images/Screen 2.png';
 import LandingPage from '../../../images/Screen 1.png';
 
@@ -23,8 +23,8 @@ const itemData = [
     title: 'Shop Page',
   },
   {
-    img: CartsPage,
-    title: 'Checkout',
+    img: CartDrop,
+    title: 'CartDrop: Go to Checkout',
   },
   {
     img: LoginPage,

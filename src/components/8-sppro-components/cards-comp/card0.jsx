@@ -4,7 +4,7 @@ const Card1 = () => {
       <div className="has-text-light is-size-5">
         <p className="title has-text-success"> Afro Fashion</p>
         <ul>
-          <li>An online fashion store app built on with React and Node JS.</li>
+          <li>An online fashion store application built on React and Node.js.</li>
           <li>Complete e-commerce features with google auth and Stripe payment.</li>
           <li>Database and Cloud storage is securely connected to Firebase/ firestore.</li>
         </ul><br />

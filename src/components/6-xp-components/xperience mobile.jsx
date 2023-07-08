@@ -3,7 +3,7 @@ import Hero from "../0-hero-components/hero-kits";
 import AdFlyer from "../../images/My project-1.png";
 
 import CardX from "./cardX";
-import CardXp from "./cardXp";
+// import CardXp from "./cardXp";
 import CardXs from "./cardXs";
 import CardXps from "./cardXps";
 
@@ -47,7 +47,7 @@ const Xperience = () => {
         </div>
         <div className="columns" style={{ marginRight: '0', marginLeft: '0' }}>
           <div className="column is-half">
-            <CardXp />
+            {/* <CardXp /> */}
           </div>
           <div className="column is-half">
           </div>

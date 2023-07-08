@@ -11,15 +11,16 @@ const AboutMe = () => {
   const desc = (
     <div>
       <p className="pt-5">
-        Hello there! I'm Gideon Chino, alias gi codes. I hail from the south-eastern region of Nigeria.</p>
-
+        Hi there! I'm Gideon and I love God.</p>
       <p>
-        I am passionate about developing well-architectured software that help solve real-life problems
-        and create value in these fast-paced, tech-driven times.</p>
+        I am passionate about developing well-architectured software that help solve real-world problems
+        and create value in these fast, tech-driven times.</p>
       <p className="pt-5">
-        Over the past years, I've been privileged to learn and leverage a good number of developer tools
-        that are valuable in the world of software engineering today,
-        creating suitable environments for modern application of object oriented programming.</p>
+        Over the past years, I have, through continous learning, acquainted myself with great skills
+        that are valuable in the world of software engineering today, 
+        such as Vercel's NEXT, React.js in MERN, Python, Typescript, etc.</p>
+      <p>
+        These skills can be found across the top 10% modern Applications.</p>
       <p>
         I am particularly interested in certain key aspects of software engineering like
         Serverless Functions, Cloud Computing, System Design Principles and Design Patterns.</p>
@@ -50,7 +51,7 @@ const AboutMe = () => {
             {divider}
             <div
               className='has-text-white 
-                  is-size-6 nom-fonts'>
+                  is-size-5 nom-fonts'>
               {desc}
               <div className='divider is-dark pt-3'>
                 <h3 className='has-text-ash 

@@ -10,7 +10,7 @@ const cardX = () => {
       }}>
       <div className="card-content">
         <h2 className="title has-text-white">
-          Software Engineer @<a
+          Javascript Dev. @<a
             href='https://instagram.com/footytoolnaija'
             className="has-text-success">FootyTool Naija
           </a>

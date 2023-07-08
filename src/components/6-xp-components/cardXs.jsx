@@ -12,7 +12,7 @@ const cardXs = () => {
         <h2 className="title has-text-white">
           Technical Engineer @<a
             href="https://ng.linkedin.com/in/tard-engineering-limited-185531184"
-            className="has-text-success">TARD Engineering</a>
+            className="has-text-success">TARD Engineering, Lagos</a>
         </h2>
         <p className="subtitle has-text-ash pt-4">June 2018 - January 2020 (On-site: Lagos, Nigeria)</p>
       </div>

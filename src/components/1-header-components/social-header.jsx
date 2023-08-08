@@ -1,4 +1,7 @@
 const SocialHeader = () => {
+  function mailTo() {
+    window.location.href = "mailto:gicodes9@gmail.com";
+  }
   const socials = (
     <div className='level-item sp-fonts pr-5'>
       <p className='control'>
@@ -38,16 +41,16 @@ const SocialHeader = () => {
         </a>
       </p>
       <p className='control'>
-        <a className='is-size-5 
+        <span className='is-size-5 
         has-text-white'
-          href='https://gicodes9@gmail.com'>
+          onClick={()=> mailTo()}>
           <span className='icon pr-3'>
             <i className='fas fa-envelope'></i>
           </span>
           <span>
             Email
           </span>
-        </a>
+        </span>
       </p>
     </div>
   )

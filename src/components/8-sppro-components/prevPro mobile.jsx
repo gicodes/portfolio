@@ -5,6 +5,8 @@ import Card0 from "./cards-comp/card0";
 import Card0i from "./cards-comp/card0i";
 import Card1 from "./cards-comp/card1";
 import Card1i from "./cards-comp/card1i";
+import Card4 from "./cards-comp/card4"
+import Card4i from "./cards-comp/card4i"
 
 const Projects = () => {
 
@@ -22,6 +24,19 @@ const Projects = () => {
         </div>
         <br />
         <div className="container">
+          <div className="columns mt-6" style={{ marginRight: '0', marginLeft: '0' }}>
+            <div className="column is-three-fifths">
+              <Card4 />
+            </div>
+            <div className="column"
+              style={{
+                display: 'flex',
+                alignItems: 'center'
+              }}>
+              <Card4i />
+            </div>
+          </div>
+          <br/>
           <div className="columns mt-6" style={{ marginRight: '0', marginLeft: '0' }}>
             <div className="column is-three-fifths">
               <Card0 />

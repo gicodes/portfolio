@@ -20,7 +20,7 @@ const Card4 = () => {
         </ul><br/>      
         <span><b>Source:</b> <a href="https://github.com/gicodes/ryder.gps">https://github.com/gicodes/ryder.gps</a></span>
         <br/>
-        <span><b>Web link:</b> <a href="https://afrofashionng.netlify.app">https://afrofashionng.app</a></span>
+        <span><b>Web link:</b> <a href="https://rydergp.vercel.app">https://rydergp.vercel.app</a></span>
       </div>
     </div>
   )

@@ -18,9 +18,9 @@ const Card4 = () => {
           <li>User Information: Information and data are securely collected and stored by MongoDB Atlas.</li>  
           <li>Serverless Functions: Ryder-GP runs on serverless functions which mean network connections are safe and fast.</li>
         </ul><br/>      
-        <span><b>Source:</b> <a href="https://github.com/gicodes/ryder.gps">https://github.com/gicodes/ryder.gps</a></span>
+        <span><b>Source:</b> <a href="https://github.com/gicodes/ryder.gps">github.com/gicodes/ryder.gps</a></span>
         <br/>
-        <span><b>Web link:</b> <a href="https://afrofashionng.netlify.app">https://afrofashionng.app</a></span>
+        <span><b>Web link:</b> <a href="https://rydergp.vercel.app">rydergp.vercel.app</a></span>
       </div>
     </div>
   )

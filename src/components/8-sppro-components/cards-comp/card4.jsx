@@ -18,7 +18,7 @@ const Card4 = () => {
           <li>User Information: Information and data are securely collected and stored by MongoDB Atlas.</li>  
           <li>Serverless Functions: Ryder-GP runs on serverless functions which mean network connections are safe and fast.</li>
         </ul><br/>      
-        <span><b>Source:</b> <a href="https://github.com/gicodes/ryder.gps">github.com/gicodes/maze-runner</a></span>
+        <span><b>Source:</b> <a href="https://github.com/gicodes/ryder.gps">github.com/gicodes/ryder.gps</a></span>
         <br/>
         <span><b>Web-link:</b> <a href="https://rydergp.vercel.app">rydergp.app</a></span>
       </div>

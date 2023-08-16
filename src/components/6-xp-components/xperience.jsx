@@ -3,10 +3,11 @@ import Grid from "@mui/material/Unstable_Grid2/Grid2";
 
 import AdFlyer from "../../images/My project-1.png"
 import Divider from "./divider";
-import CardX from "./cardX";
-import CardXp from "./cardXp";
-import CardXs from "./cardXs";
-import CardXps from "./cardXps";
+import CardXy from "./cardXy"; // Edtify
+import CardX from "./cardX"; // Footy
+import CardXp from "./cardXp"; // Select
+import CardXs from "./cardXs"; // Tard
+import CardXps from "./cardXps"; // Fiverr
 
 const Xperience = () => {
 
@@ -26,7 +27,14 @@ const Xperience = () => {
         </div>
 
         <br />
-
+        <div className="columns">
+          <div className="column is-half">
+            <CardXy />
+          </div>
+          <Divider />
+          <div className="column is-half">
+          </div>
+        </div>
         <div className="columns">
           <div className="column is-half">
           </div>

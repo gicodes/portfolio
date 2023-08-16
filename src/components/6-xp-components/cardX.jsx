@@ -20,9 +20,9 @@ const cardX = () => {
       <div className="card-content">
         <div className="is-size-5 has-text-white">
           <ul>
-            <li><CheckCircle /> I was responsible for building SPAs with HTML 5, CSS (Bulma) and Vanilla JS.</li>
+            <li><CheckCircle /> I was responsible for building SPAs with HTML5, CSS libraries, Express + JS (ES6).</li>
             <li><CheckCircle /> I collaborated with other developers in building full-stack applications.</li>
-            <li><CheckCircle /> I maintained user interface software and updated app data with JSON.</li>
+            <li><CheckCircle /> I maintained user interface, backend APIs and updated app data in JSON.</li>
           </ul>
         </div>
       </div>

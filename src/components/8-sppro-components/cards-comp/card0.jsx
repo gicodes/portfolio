@@ -16,9 +16,9 @@ const Card1 = () => {
           <li>Carts Repository: Cart handler is designed to receive and store data with context</li>
           <li>Stripe Payment: Online payments don't come any easier. Stripe integration boosts payments</li>
         </ul><br />
-        <span><b>Source:</b> <a href="https://github.com/gicodes/afro-fashion">github.com/gicodes/afro-fashion</a></span>
+        <span><b>Source:</b> <a href="https://github.com/gicodes/afro-fashion">https://github.com/gicodes/afro-fashion</a></span>
         <br />
-        <span><b>Web link:</b> <a href="https://afrofashionng.netlify.app">afrofashionng.app</a></span>
+        <span><b>Web link:</b> <a href="https://afrofashionng.netlify.app">https://afrofashionng.app</a></span>
       </div>
     </div >
   )

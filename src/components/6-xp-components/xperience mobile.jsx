@@ -2,17 +2,19 @@ import Grid from "@mui/material/Unstable_Grid2/Grid2";
 import Hero from "../0-hero-components/hero-kits";
 import AdFlyer from "../../images/My project-1.png";
 
-import CardX from "./cardX";
-// import CardXp from "./cardXp";
-import CardXs from "./cardXs";
-import CardXps from "./cardXps";
+import CardX from "./cardX"; // Footy
+// import CardXp from "./cardXp"; // Select
+import CardXs from "./cardXs"; // Tard
+// import CardXps from "./cardXps"; // Fiverr
+import CardXy from "./cardXy"; // Edtify
+
 
 
 const Xperience = () => {
 
   const divider = (
     <div className='divider is-light'>
-      <p className="is-size-2 nom-fonts 
+      <p className="is-size-3 nom-fonts 
         has-text-success"> Experience </p>
     </div>
   )
@@ -28,7 +30,14 @@ const Xperience = () => {
           <div className="column is-half">
           </div>
           <div className="column is-half">
-            <CardXps />
+            <CardXy />
+          </div>
+        </div>
+        <div className="columns" style={{ marginRight: '0', marginLeft: '0' }}>
+          <div className="column is-half">
+          </div>
+          <div className="column is-half">
+            {/* <CardXps /> */}
           </div>
         </div>
         <div className="columns" style={{ marginRight: '0', marginLeft: '0' }}>
@@ -42,7 +51,7 @@ const Xperience = () => {
           <div className="column is-half">
           </div>
           <div className="column is-half">
-            <CardXs />
+            {/* <CardXs /> */}
           </div>
         </div>
         <div className="columns" style={{ marginRight: '0', marginLeft: '0' }}>

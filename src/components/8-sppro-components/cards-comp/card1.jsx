@@ -17,7 +17,7 @@ const Card1 = () => {
           <li>Carts Repository: Cart handler is designed to receive and store data by caching</li>
           <li>Admin function: Admin can be created as a user account to create, edit and delete products</li>
         </ul><br/>
-        <span><b>Source:</b> <a href="https://github.com/gicodes/bale-factory">github.com/gicodes/bale-factory</a></span>
+        <span><b>Source:</b> <a href="https://github.com/gicodes/bale-factory">https://github.com/gicodes/bale-factory</a></span>
       </div>
     </div >
   )

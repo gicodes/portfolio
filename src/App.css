@@ -1,0 +1,126 @@
+@import "~@creativebulma/bulma-divider";
+
+*.Body {
+  background: #282c30;
+  font-family: 'Roboto';
+  min-height: 100vh;
+  max-width: 100vw;
+  color: 'white';
+}
+
+a {
+  color: skyblue;
+}
+
+a:hover {
+  color: forestgreen;
+}
+
+.is-BC {
+  background: #282c30;
+}
+
+.RonMouse:hover {
+  transition: duration(0.1);
+  transform: scale(1.3);
+}
+
+.Avatar {
+  border-radius: 50%;
+  pointer-events: none;
+  animation: Avatar 10s infinite linear;
+}
+
+@keyframes Avatar {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.sp-fonts {
+  font-family: monospace
+}
+
+.nom-fonts {
+  font-family: 'Roboto';
+  word-spacing: 0.2em;
+}
+
+.g-fonts {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  word-spacing: 0.22em;
+  font-weight: 400;
+}
+
+.has-text-ash {
+  color: #999999;
+}
+
+.is-choco {
+  color: chocolate;
+}
+
+.is-sunset {
+  color: #fd5c60;
+}
+
+.image-list {
+  border-radius: 2%;
+}
+
+.xp-card {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.block {
+  display: block;
+}
+
+.fs-small {
+  font-size: small;
+}
+
+.fs-mid {
+  font-size: 18px;
+}
+
+.fs-large {
+  font-size: 36px;
+}
+
+.mw80 {
+  width: 80%;
+}
+
+.-mt5 {
+  margin-top: "-25px";
+}
+
+.df-jc {
+  display: flex;
+  justify-content: center;
+}
+
+.wave {
+  animation-name: wave-animation;  /* Refers to the name of your @keyframes element below */
+  animation-duration: 2.5s;        /* Change to speed up or slow down */
+  animation-iteration-count: 5;  /* Stop waving after the 5th time :) */
+  transform-origin: 70% 70%;       /* Pivot around the bottom-left palm */
+  display: inline-block;
+}
+
+@keyframes wave-animation {
+    0% { transform: rotate( 0.0deg) }
+   10% { transform: rotate(14.0deg) }  /* The following five values can be played with to make the waving more or less extreme */
+   20% { transform: rotate(-8.0deg) }
+   30% { transform: rotate(14.0deg) }
+   40% { transform: rotate(-4.0deg) }
+   50% { transform: rotate(10.0deg) }
+   60% { transform: rotate( 0.0deg) }  /* Reset for the last half to pause */
+  100% { transform: rotate( 0.0deg) }
+}

@@ -16,7 +16,7 @@ const FooterDesc = () => {
 
   const resPond = (
     <span>
-      <span
+      <span className='beat-fade'
         style={{
           color: 'tomato',
           fontWeight: 'bold',

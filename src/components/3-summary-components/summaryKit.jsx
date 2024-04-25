@@ -29,31 +29,31 @@ const Summary = () => {
       I've used this experience in building attractive, responsive web & mobile apps that work in production and are highly scalable if need be. 
     </p>
     <p className='mt-2'>
-      My principle in any professional task is great communication, enthusaism and patience to understand the ideas and needs of my client
+      My principle in any professional task is great communication, enthusiasm and patience to understand the ideas and needs of my client
     </p>
     </div>
   )
 
   return (
-    <Grid container spacing={2}>
+    <Grid>
       <Hero>
-        <div className='columns 
-        mr-6
-        '>
-          <div className='column is-three-quarters'>
-            <div className='ApplyBodyBC mt-5 ml-6 mw80'>
-              {introText}
-              <br />
-              {summaryText}
+        <div className='container'>
+          <div className='columns'>
+            <div className='column is-three-quarters'>
+              <div className='ApplyBodyBC mt-5 ml-6 mw80'>
+                {introText}
+                <br />
+                {summaryText}
+              </div>
             </div>
-          </div>
-          <div className='column'
-            style={{ marginTop: '2em' }}>
-            <img
-              alt='my avatar'
-              className='Avatar'
-              src={`${myAvatar}?w=248&fit=crop&auto=format`}
-              srcSet={`${myAvatar}?w=248&fit=crop&auto=format&dpr=2 2x`} />
+            <div className='column'
+              style={{ marginTop: '2em' }}>
+              <img
+                alt='my avatar'
+                className='Avatar'
+                src={`${myAvatar}?w=248&fit=crop&auto=format`}
+                srcSet={`${myAvatar}?w=248&fit=crop&auto=format&dpr=2 2x`} />
+            </div>
           </div>
         </div>
       </Hero>

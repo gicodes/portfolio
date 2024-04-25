@@ -27,7 +27,7 @@ const summary = (
       I've used this experience in building attractive, responsive web & mobile apps that work in production and are highly scalable if need be. 
     </p>
     <p className='mt-2'>
-      My principle in any professional task is great communication, enthusaism and patience to understand the ideas and needs of my client
+      My principle in any professional task is great communication, enthusiasm and patience to understand the ideas and needs of my client
     </p>
   </div>
 )

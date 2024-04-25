@@ -26,10 +26,10 @@ const Summary = () => {
       that are valuable in software engineering today. 
     </p>
     <p className='mt-2'>
-      I've used this experience in building attractive, responsive web & mobile apps that work in production and highly scalable if need be. 
+      I've used this experience in building attractive, responsive web & mobile apps that work in production and are highly scalable if need be. 
     </p>
     <p className='mt-2'>
-      My principle in any given task is great communication, patience to understand the ideas and needs of my client
+      My principle in any professional task is great communication, enthusaism and patience to understand the ideas and needs of my client
     </p>
     </div>
   )

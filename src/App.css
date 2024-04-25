@@ -1,5 +1,8 @@
 @import "~@creativebulma/bulma-divider";
 
+
+/* Custom styling */
+
 *.Body {
   background: #282c30;
   font-family: 'Roboto';
@@ -127,4 +130,21 @@ a:hover {
    50% { transform: rotate(10.0deg) }
    60% { transform: rotate( 0.0deg) }  /* Reset for the last half to pause */
   100% { transform: rotate( 0.0deg) }
+}
+
+.beat-fade {
+  animation-name: beatfade-animation; /* Refers to the name of your @keyframes element below */
+  animation-duration: 2.5s;           /* Change to speed up or slow down */
+  animation-iteration-count: 5;       /* Stop waving after the 5th time */
+  transform-origin: 50% 50%;          /* Pivot around the center */
+  display: inline-block;
+}
+
+@keyframes beatfade-animation {
+  0% { transform: scale(1); opacity: 1; }      /* Initial scale and opacity */
+  20% { transform: scale(1.2); opacity: 0.5; } /* Increase scale and decrease opacity */
+  40% { transform: scale(0.8); opacity: 0.8; } /* Decrease scale and increase opacity */
+  60% { transform: scale(1.1); opacity: 0.7; } /* Increase scale and decrease opacity */
+  80% { transform: scale(0.9); opacity: 0.9; } /* Decrease scale and increase opacity */
+  100% { transform: scale(1); opacity: 1; }    /* Back to original scale and opacity */
 }

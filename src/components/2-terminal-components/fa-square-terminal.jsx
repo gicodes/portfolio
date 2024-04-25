@@ -1,4 +1,5 @@
 import Grid from "@mui/material/Unstable_Grid2/Grid2";
+import { GrCode } from "react-icons/gr";
 
 const SquareTerminal = () => {
 
@@ -8,9 +9,7 @@ const SquareTerminal = () => {
         <div className='level'>
           <div className='field is-grouped mt-6 pl-6'>
             <a href='/' className='is-size-3'>
-              <span className='icon'>
-                <i className='fa-solid fa-terminal fa-beat-fade has-text-white'/>
-              </span>
+              <GrCode className="has-text-white beat-fade"/>
             </a>
           </div>
         </div>

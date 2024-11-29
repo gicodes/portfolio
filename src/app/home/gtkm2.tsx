@@ -1,5 +1,6 @@
+// my skills currently offer
 export const msco = <>
-  <h2 className="mb-2"> My Skills Currently Offer </h2>  
+  <h2 className="mb-2 text-success"> My Skills Currently Offer </h2> 
   <p>&#x2022; Software as a Product -- Mobile apps, web apps, websites </p>
   <p>&#x2022; Software as a Service -- Databases, web app management </p>
   <p>&#x2022; Build full stack web applications from scratch with M.E.R.N </p>
@@ -9,8 +10,9 @@ export const msco = <>
   <p>&#x2022; Deploy apps to the Web, Cloud, Google playstore and Apple store </p>
 </>
 
+// frequently used tools
 export const fut = <>
-  <h2 className="mb-2">Frequently Used Tools </h2>
+  <h2 className="mb-2 text-success">Frequently Used Tools </h2>
   <p>&#x2022; NextJs -- Building frontend and full-stack web apps </p>
   <p>&#x2022; M.E.R.N -- Building full-stack web apps with database server 
     <span className="p-2 -mb block text-gray-500">(MongoDB, ExpressJs, React & NodeJs)</span>
@@ -22,11 +24,12 @@ export const fut = <>
   <p>&#x2022; Github -- Version control, managing codebase and collaborating on projects </p>
 </>
 
+// fun facts about me
 export const funFacts = <>
-  <h2 className="mb-2"> Fun Facts About Me</h2>
+  <h2 className="mb-2 text-warning"> Fun Facts About Me</h2>
   <p>&#x2022; I'm a self-taught Software Developer </p>
-  <p>&#x2022; I love to play video games, to figure out missions and objectives </p>
-  <p>&#x2022; I'm <span className="text-success">1 of 1</span>. Literally  </p>
-  <p>&#x2022; I'm a big fan of football. Siuu !! </p>
+  <p>&#x2022; I'm a big fan of football. Siuu ! </p>
   <p>&#x2022; I honestly cannot choose between backend and frontend </p>
+  <p>&#x2022; I love to play video games, to figure out missions and objectives </p>
+  <p>&#x2022; I'm <span className="text-warning"><b>1 of 1</b></span>. Literally  </p>
 </>

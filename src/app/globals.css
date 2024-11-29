@@ -39,7 +39,7 @@ a {
     color-scheme: dark;
   }
 }
-
+.bg-white { color: white; background-color: #e8f5e9; background: #e8f5e9;}
 .close-btn {
   margin: 5px;
   padding: 5px;
@@ -54,12 +54,15 @@ a {
 .text-gray { color: gray;}
 .text-gray-500 { color: #505050;}
 .text-wahala { color: darkgoldenrod;}
-.text-special { color: darkorchid; }
 
 .block {
   display: block;
   margin: 5px 0;
 }
+
+.v-center { align-items: center;}
+.text-center { text-align: center;}
+.mx-auto { margin: auto;}
 
 .typing-effect {
   font-family:Arial, Helvetica, sans-serif;
@@ -92,7 +95,7 @@ a {
 .mt-2 { margin-top: 20px;}
 .mb { margin-bottom: 10px;}
 .-mb { margin-bottom: -10px;}
-.mb-2 { margin-bottom: 20px;}
+.mb-2 { margin-bottom: 29.2px;}
 
 .beat-fade {
   animation-name: beatfade-animation; 
@@ -122,4 +125,10 @@ a {
 .styledCard3 {
   background-color: #e8f5e9;
   border: 2px solid #81c784;
+}
+@media screen and (min-width: 768px) {
+  .text-special {
+    line-height: 15px;
+    font-size: 15px;
+  }
 }

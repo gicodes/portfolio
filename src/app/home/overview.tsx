@@ -1,4 +1,4 @@
-import { Box, Button, Stack, Paper, Badge } from '@mui/material';
+import { Box, Button, Paper, Badge } from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { CodeSharp } from '@mui/icons-material';
 import { GetToKnowMe } from './gtkm'
@@ -15,21 +15,16 @@ export const Overview = () => {
       }}
     >
       <Box 
-        margin={'auto'}
         minWidth={'fit-content'}
-        padding={smallScreen ? 1 : 3} 
+        padding={{xs: 1, sm: 1,lg: 3}} 
         display={smallScreen ? 'grid' : 'flex'} 
         justifyContent={smallScreen ? 'center' : 'space-between'}   
       >
-        <Stack 
-          padding={1}
-          width={'100%'}
-          margin={'auto'}
-          height={smallScreen ? '300px' : '250px'}
+        <GetToKnowMe />
+        <Box 
+          margin={'auto'} 
+          alignItems={'center'}
         >
-          <GetToKnowMe />
-        </Stack>
-        <Box margin={'auto'}>
           <Image priority
             alt='my hero'  
             src='/IMG_0385.jpeg' 
@@ -38,10 +33,14 @@ export const Overview = () => {
           />
         </Box>        
       </Box>
-      <Box padding={'10px 15px 20px'}>
-        <Badge className='beat-fade'>
+      
+      <Box 
+        py={2}
+        px={{ xs: 3, sm: 4, lg: 5}}
+      >
+        <Badge className='beat-fade v-center' badgeContent={'🆘'}>
           <CodeSharp className='text-gray' fontSize='small' />
-        </Badge> &nbsp;
+        </Badge> &nbsp; &nbsp;
         <Button variant='contained' color='warning'> Hire Me </Button>
       </Box>
     </Paper>

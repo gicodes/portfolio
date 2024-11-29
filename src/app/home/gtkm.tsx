@@ -1,9 +1,11 @@
+import { Container } from "@mui/material";
 import React, { useEffect, useState } from "react";
 
 const welcomeText = `
   Hi there,\n
   I'm Gideon Iduma. \n
 `;
+
 const honouryText = `
   Software Engineer, Full-Stack Developer \n 
 `;
@@ -59,14 +61,22 @@ export const GetToKnowMe = () => {
       .filter((line) => line.trim() !== "" && line !== "undefined");
 
   return (
-    <div className="w-100">
-      <div>
+    <Container
+      sx={{
+        my: 2,
+        w: '100%',
+        minWidth: 'fit-content',
+        px: { xs: 3, sm: 4, lg: 5 },
+        height:{ xs: '300px', lg: '250px'}
+      }}
+    >
+      <span>
         {render(slidingText).map((line, idx) => (
           <h1 key={idx} className="text-gray">
             {line}
           </h1>
         ))}
-      </div>
+      </span>
 
       <p className="typing-effect">
         {render(slidingText2).map((line, idx) => (
@@ -83,6 +93,6 @@ export const GetToKnowMe = () => {
           </span>
         ))}
       </p>
-    </div>
+    </Container>
   );
-};
+}

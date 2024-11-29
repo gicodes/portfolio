@@ -1,11 +1,10 @@
-import React from 'react'
+import { Card } from "@mui/material"
 
 const Projects
  = () => {
   return (
-    <div>Projects
-                
-    </div>
+    <>
+    </>
   )
 }
 

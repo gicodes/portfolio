@@ -9,34 +9,42 @@ export const TechStack = () => {
   const smallScreen = useMediaQuery('(max-width: 600px)');
   
   const pagesContent = [msco, fut, funFacts];
-  const cardStyles = [styles.styledCard1, styles.styledCard2, styles.styledCard3];
-  
+
+  const cardBackgrounds = [
+    '/styledCard1.avif',
+    '/styledCard2.avif',
+    '/styledCard3.avif',
+  ];
+
   const handlePageChange = (_event: React.ChangeEvent<unknown>, value: number) => {
     setPage(value);
   };
 
   return (
-    <Card 
+    <Card
       elevation={8}
-      className={cardStyles[page - 1]}
       sx={{
         my: 2,
         px: 2,
-        // maxWidth: '769px',
         display: 'flex',
         alignItems: 'center',
         flexDirection: 'column',
         justifyContent: 'center',
+        color: page === 2 ? 'black' : 'white',
+        backgroundColor: page === 2 ? 'white' : 'black',
+        backgroundImage: `url(${cardBackgrounds[page - 1]})`,
+        backgroundSize: {xs: 'none', sm: 'none', lg: 'cover'},
       }}
     >
       <Box
-        p={'20px 0 0'}
-        width={{ sm: '90%', lg: '100%'}}
-        height={{ xs: '400px', sm: '375px', lg: '360px'}}
+        py={3}
+        width={{ sm: '90%', lg: '100%' }}
+        height={{ xs: '400px', sm: '375px', lg: '360px' }}
       >
-        <Stack 
-          fontSize={'12.5px'}
-          padding={{ sm: 1, lg: '10px 20px'}}
+        <Stack
+          fontSize="12.5px"
+          className="text-special"
+          padding={{ sm: 1, lg: '10px 50px' }}
         >
           {pagesContent[page - 1]}
         </Stack>
@@ -47,7 +55,7 @@ export const TechStack = () => {
         count={pagesContent.length}
         onChange={handlePageChange}
         className={styles.pagination}
-        sx={{ my: 3, alignSelf: 'flex-end' }} 
+        sx={{ my: 3, alignSelf: 'flex-end' }}
         size={smallScreen ? 'small' : 'medium'}
       />
     </Card>

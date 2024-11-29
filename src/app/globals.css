@@ -1,0 +1,110 @@
+:root {
+  --background: black;
+  --foreground: white;
+  --text-primary: white;
+  --text-secondary: grey;
+  --accent: #8B0000;
+}
+
+[data-theme="light"] {
+  --background: #fff;
+  --foreground: #000;
+  --text-primary: black;
+  --text-secondary: #333;
+  --accent: #007bff;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html, body {
+  margin: 0;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+}
+
+.close-btn {
+  margin: 5px;
+  padding: 5px;
+  color: darkgoldenrod;
+  border-radius: 50%;
+  box-shadow: 0 0 5px gray;
+}
+
+.text-success { color: forestgreen; }
+.text-warning { color: goldenrod;}
+.text-jolly { color: seagreen;}
+.text-gray { color: gray;}
+.text-gray-500 { color: #505050;}
+.text-wahala { color: darkgoldenrod;}
+.text-special { color: darkorchid; }
+
+.block {
+  display: block;
+  margin: 5px 0;
+}
+
+.typing-effect {
+  font-family:Arial, Helvetica, sans-serif;
+  margin: 5px 0;
+  font-size: 15px;
+  overflow: hidden;
+  font-weight: 401;
+}
+
+.footer-outro {
+  font-size: small;
+  font-family: Verdana, Geneva, Tahoma, sans-serif; 
+}
+
+@media screen and (max-width: 788px) {
+  .typing-effect {
+    font-size: 13.5px;
+  }
+}
+
+.w-50 { width: 50%;}
+.w-100 { width: 100%;}
+
+.p-1 { padding: 5px;}
+.p-2 { padding: 10px;}
+
+.m-1 { margin: 5px;}
+.m-2 { margin: 10px;}
+.mt { margin-top: 10px;}
+.mt-2 { margin-top: 20px;}
+.mb { margin-bottom: 10px;}
+.-mb { margin-bottom: -10px;}
+.mb-2 { margin-bottom: 20px;}
+
+.beat-fade {
+  animation-name: beatfade-animation; 
+  animation-duration: 2.5s;           
+  animation-iteration-count: 5;       
+  transform-origin: 50% 50%;  
+}
+@keyframes beatfade-animation {
+  0% { transform: scale(1); opacity: 1; }      
+  20% { transform: scale(1.2); opacity: 0.5; } 
+  40% { transform: scale(0.8); opacity: 0.8; } 
+  60% { transform: scale(1.1); opacity: 0.7; } 
+  80% { transform: scale(0.9); opacity: 0.9; } 
+  100% { transform: scale(1); opacity: 1; }    
+}

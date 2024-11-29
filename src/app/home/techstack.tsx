@@ -18,10 +18,11 @@ export const TechStack = () => {
   return (
     <Card 
       elevation={8}
-      className={styles[`styledCard${page}`] || cardStyles[page - 1]}
+      className={cardStyles[page - 1]}
       sx={{
         my: 2,
         px: 2,
+        // maxWidth: '769px',
         display: 'flex',
         alignItems: 'center',
         flexDirection: 'column',

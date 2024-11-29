@@ -1,11 +1,5 @@
-import { LinkedIn, Twitter, GitHub, Email } from '@mui/icons-material';
+import { LinkedIn, Twitter, GitHub } from '@mui/icons-material';
 import React from 'react';
-
-export const initEmail = () => {
-  if (typeof window !== 'undefined') {
-    window.location.href = 'mailto:gicodes9@gmail.com';
-  }
-};
 
 export const socials = [
   {
@@ -22,10 +16,5 @@ export const socials = [
     name: 'Github',
     icon: React.createElement(GitHub),
     link: 'https://github.com/gicodes',
-  },
-  {
-    name: 'Email',
-    icon: React.createElement(Email),
-    link: initEmail()
-  },
+  }
 ];

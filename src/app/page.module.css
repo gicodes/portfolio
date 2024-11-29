@@ -10,22 +10,23 @@
 .styledCard3 {
   padding: 20px;
   color: white;
+  background-size: cover;
   background-color: black;
-  background-image: url('https://images.unsplash.com/photo-1651171052188-775cffb6681b?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTR8fGJhY2tncm91bmQlMjBwaWN0dXJlc3xlbnwwfHwwfHx8MA%3D%3D');
+  background-image: url('/styledCard3.avif');
 }
 
 .styledCard2 {
   padding: 20px;
   color: black;
   background-color: white;
-  background-image: url('https://images.unsplash.com/photo-1582861104036-2c822dc7b809?q=80&w=3387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  background-image: url('/styledCard2.avif');
 }
 
 .styledCard1 {
   padding: 20px;
   color: white;
   background-color: black;
-  background-image: url('https://images.unsplash.com/photo-1578364249730-0c4ee16426fa?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NzN8fGJhY2tncm91bmQlMjBwaWN0dXJlc3xlbnwwfHwwfHx8MA%3D%3D');
+  background-image: url('/styledCard1.avif');
 }
 
 .pagination {

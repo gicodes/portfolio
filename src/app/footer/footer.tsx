@@ -19,7 +19,7 @@ const Footer = () => {
             <Stack m={1} key={index}>
               <Link
                 key={index}
-                href={'/'}
+                href={social.link}
                 target="_blank"
                 rel="noreferrer"
               > 

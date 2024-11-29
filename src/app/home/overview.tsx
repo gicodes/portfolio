@@ -21,10 +21,7 @@ export const Overview = () => {
         justifyContent={smallScreen ? 'center' : 'space-between'}   
       >
         <GetToKnowMe />
-        <Box 
-          margin={'auto'} 
-          alignItems={'center'}
-        >
+        <Box margin={'auto'}>
           <Image priority
             alt='my hero'  
             src='/IMG_0385.jpeg' 

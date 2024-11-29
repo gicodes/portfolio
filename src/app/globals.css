@@ -39,7 +39,7 @@ a {
     color-scheme: dark;
   }
 }
-.bg-white { color: white; background-color: #e8f5e9; background: #e8f5e9;}
+
 .close-btn {
   margin: 5px;
   padding: 5px;
@@ -65,11 +65,12 @@ a {
 .mx-auto { margin: auto;}
 
 .typing-effect {
-  font-family:Arial, Helvetica, sans-serif;
   margin: 5px 0;
   font-size: 15px;
   overflow: hidden;
   font-weight: 401;
+  line-height: 20px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .footer-outro {
@@ -85,6 +86,7 @@ a {
 
 .w-50 { width: 50%;}
 .w-100 { width: 100%;}
+.mw-500 { max-width: 500px;}
 
 .p-1 { padding: 5px;}
 .p-2 { padding: 10px;}
@@ -112,20 +114,6 @@ a {
   100% { transform: scale(1); opacity: 1; }    
 }
 
-.styledCard1 {
-  background-color: #f9f9f9;
-  border: 2px solid #e0e0e0;
-}
-
-.styledCard2 {
-  background-color: #fff7e6;
-  border: 2px solid #ffcc80;
-}
-
-.styledCard3 {
-  background-color: #e8f5e9;
-  border: 2px solid #81c784;
-}
 @media screen and (min-width: 768px) {
   .text-special {
     line-height: 15px;

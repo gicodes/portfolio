@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import styles from "../page.module.css";
-import { fut, msco, funFacts } from './gtkm2';
+import { fut, msco, funFacts } from './gtkmts';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { Card, Stack, Box, Pagination } from '@mui/material';
 

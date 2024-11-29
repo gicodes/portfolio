@@ -67,7 +67,7 @@ export const GetToKnowMe = () => {
         w: '100%',
         minWidth: 'fit-content',
         px: { xs: 3, sm: 4, lg: 5 },
-        height:{ xs: '300px', lg: '250px'}
+        height:{ xs: '360px', lg: '250px'}
       }}
     >
       <span>
@@ -88,7 +88,7 @@ export const GetToKnowMe = () => {
 
       <p className="mt-2 typing-effect">
         {render(slidingText3).map((line, idx) => (
-          <span key={idx} className="block">
+          <span key={idx} className="block mw-500">
             {line}
           </span>
         ))}

@@ -1,4 +1,4 @@
-import { Card } from "@mui/material"
+import { Box, Button, Paper, Badge } from '@mui/material';
 
 const Projects
  = () => {

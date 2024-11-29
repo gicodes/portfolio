@@ -9,6 +9,7 @@ export const TechStack = () => {
   const smallScreen = useMediaQuery('(max-width: 600px)');
   
   const pagesContent = [msco, fut, funFacts];
+  const cardStyles = [styles.styledCard1, styles.styledCard2, styles.styledCard3];
   
   const handlePageChange = (_event: React.ChangeEvent<unknown>, value: number) => {
     setPage(value);
@@ -17,7 +18,7 @@ export const TechStack = () => {
   return (
     <Card 
       elevation={8}
-      className={styles[`styledCard${page}`]}
+      className={styles[`styledCard${page}`] || cardStyles[page - 1]}
       sx={{
         my: 2,
         px: 2,

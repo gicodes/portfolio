@@ -6,9 +6,8 @@ import styles from "./page.module.css";
 import Footer from "./footer/footer";
 
 export default function Home() { 
-
   return (
-    <div>
+    <>
       <main className={styles.main}>
         <Overview />
         <TechStack />
@@ -16,6 +15,6 @@ export default function Home() {
       <footer>
         <Footer />
       </footer>
-    </div>
+    </>
   )
 }

@@ -1,3 +1,4 @@
+import { render } from "../render";
 import { Container } from "@mui/material";
 import React, { useEffect, useState } from "react";
 
@@ -54,11 +55,6 @@ export const GetToKnowMe = () => {
 
     return () => clearInterval(displayWelcomeText);
   }, []);
-
-  const render = (text: string) =>
-    text
-      .split("\n")
-      .filter((line) => line.trim() !== "" && line !== "undefined");
 
   return (
     <Container

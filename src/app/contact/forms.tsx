@@ -73,6 +73,10 @@ export const LeaveContactInfo = ({ handleSubmit }: LeaveContactInfoProps
               control={<Checkbox name="services" value="Mobile App" />}
               label="Mobile Application" sx={{ '.MuiFormControlLabel-label': { fontSize: '0.875rem' } }}
             />
+            <FormControlLabel
+              control={<Checkbox name="services" value="Other" />}
+              label="Other" sx={{ '.MuiFormControlLabel-label': { fontSize: '0.875rem' } }}
+            />
           </FormGroup>
         </Box>
 
@@ -127,7 +131,7 @@ export const SendInstantEmail = ({ handleSendEmail }: SendInstantEmailProps) => 
         <Box mb={3}>
           <TextField
             name="recipientEmail"
-            label="Recipient Email"
+            label="Your Email"
             variant="outlined"
             type="email"
             fullWidth required

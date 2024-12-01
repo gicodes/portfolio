@@ -114,7 +114,7 @@ a {
 .beat-fade {
   animation-name: beatfade-animation; 
   animation-duration: 5s;           
-  animation-iteration-count: 5;       
+  animation-iteration-count: 6;       
   transform-origin: 50% 50%;  
 }
 @keyframes beatfade-animation {

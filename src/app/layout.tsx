@@ -23,8 +23,8 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
-  title: 'Gi Codes Portfolio',
-  description: 'You will find amazing details about me here',
+  title: 'Welcome to my Official Page',
+  description: 'You will find amazing details about my experience',
 };
 
 export default function RootLayout({

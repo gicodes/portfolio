@@ -35,7 +35,7 @@ async function handleSendEmail(event: React.FormEvent<HTMLFormElement>) {
     const formJson = Object.fromEntries(formData.entries());
 
     try {
-      const response = await fetch('/api/contact/send-instant-email', {
+      const response = await fetch('/api/contact/send-e-mail', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -1,10 +1,10 @@
 import nodemailer from 'nodemailer';
 
 const transporter = nodemailer.createTransport({
-  service: process.env.NEXT_PUBLIC_EMAILSERVICE,
+  service: process.env.NEXT_PUBLIC_EMAIL_SERVICE,
   auth: {
-    user: process.env.NEXT_PUBLIC_EMAILUSER,
-    pass: process.env.NEXT_PUBLIC_EMAILPASS,
+    user: process.env.NEXT_PUBLIC_EMAIL_ORIGIN,
+    pass: process.env.NEXT_PUBLIC_EMAIL_PASS,
   },
 });
 
@@ -13,7 +13,7 @@ export async function POST(request: Request) {
     const userInput = await request.json();
 
     const mailOptions = {
-      from: process.env.NEXT_PUBLIC_EMAILUSER,
+      from: process.env.NEXT_PUBLIC_EMAIL_ORIGIN,
       to: process.env.NEXT_PUBLIC_EMAIL_RECIPIENT,
       cc: userInput?.email,
       subject: userInput?.subject,

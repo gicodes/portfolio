@@ -72,7 +72,7 @@ const Contact = () => {
 
       <Stack className="text-center text-gray">
         <h2>Let's Connect</h2>
-        <p> Leave your contact information so I can reach out or send me an instant text</p>
+        <p> Leave your contact information so I can reach out or send me an instant message</p>
       </Stack>
       <Grid2 
         gap={2}

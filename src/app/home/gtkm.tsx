@@ -13,7 +13,7 @@ const honouryText = `
 
 const pitchText = `
   I speak fluent Javascript. Certified in Python and Dart.
-  I've written over 25 real-world programs that are in use today. \n
+  I've written over 25 real-world programs that are widely in use today. \n
   I will build you a user-friendly application that is responsive, scalable and reliably fast in production. \n
 `;
 
@@ -76,7 +76,7 @@ export const GetToKnowMe = () => {
 
       <p className="typing-effect">
         {render(slidingText2).map((line, idx) => (
-          <span key={idx} className="text-jolly block">
+          <span key={idx} className="text-jolly block fs-mid">
             {line}
           </span>
         ))}

@@ -47,6 +47,8 @@ const Header: React.FC<NavBarProps> = ({
               }}
               >
               <Grid2
+                my={2}
+                px={2}
                 onClick={handleClose} 
                 display={'flex'} 
                 justifyContent={'flex-end'}
@@ -54,7 +56,7 @@ const Header: React.FC<NavBarProps> = ({
                 <CloseSharp className='close-btn' />
               </Grid2>
               <Box p={8}>
-                <Stack spacing={2}>
+                <Stack spacing={4}>
                   { navLinks.map((item, index) => 
                     <a key={index} href={item.href}><b>{item.name}</b></a>
                   )}

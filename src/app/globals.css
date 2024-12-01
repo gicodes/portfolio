@@ -48,21 +48,29 @@ a {
   box-shadow: 0 0 5px gray;
 }
 
+.text-wahala { color: darkgoldenrod; }
 .text-success { color: forestgreen; }
+.text-gray-500 { color: #505050;}
 .text-warning { color: goldenrod;}
 .text-jolly { color: seagreen;}
 .text-gray { color: gray;}
-.text-gray-500 { color: #505050;}
-.text-wahala { color: darkgoldenrod;}
+.text-wheat { color: wheat;}
+.text-primary { color: var(--text-primary);}
+.text-tertiary { color: indigo}
+.text-secondary { color: var(--text-secondary);}
+
+.fs-mid { font-size: medium;}
+
+.v-center { align-items: center;}
+.text-center { text-align: center;}
+.mx-auto { margin: auto;}
 
 .block {
   display: block;
   margin: 5px 0;
 }
 
-.v-center { align-items: center;}
-.text-center { text-align: center;}
-.mx-auto { margin: auto;}
+.bold { font-weight: 401;}
 
 .typing-effect {
   margin: 5px 0;

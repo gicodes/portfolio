@@ -1,8 +1,11 @@
+import { Box } from '@mui/material'
 import React from 'react'
 
 const Github = () => {
   return (
-    <div>Github</div>
+    <Box p={2}>
+      Github
+    </Box>
   )
 }
 

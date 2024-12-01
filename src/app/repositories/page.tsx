@@ -1,7 +1,7 @@
 "use client"
 
 import { AltRoute, Visibility, StarSharp } from "@mui/icons-material";
-import { Box, Button, Badge, Stack, Card } from "@mui/material";
+import { Box, Button, Stack, Card } from "@mui/material";
 import ProjectPreview from "./project-preview";
 import { useEffect, useState } from "react";
 import { projects } from "./projects";

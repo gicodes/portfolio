@@ -1,6 +1,6 @@
 "use client"
 
-import { TechStack } from './home/techstack';
+import { TechStack } from './home/tech-stack';
 import { Overview } from './home/overview';
 import styles from "./page.module.css";
 import Footer from "./footer/footer";

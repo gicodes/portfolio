@@ -112,7 +112,7 @@ a {
 
 .beat-fade {
   animation-name: beatfade-animation; 
-  animation-duration: 7.5s;           
+  animation-duration: 5s;           
   animation-iteration-count: 5;       
   transform-origin: 50% 50%;  
 }

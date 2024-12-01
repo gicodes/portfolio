@@ -50,9 +50,9 @@ export const GetToKnowMe = () => {
               }  
             }, 100); // Typing speed for `slidingText3`
           }
-        }, 100); // Typing speed for `slidingText2`
+        }, 50); // Typing speed for `slidingText2`
       }
-    }, 150); // Typing speed for `slidingText`
+    }, 100); // Typing speed for `slidingText`
 
     return () => clearInterval(displayWelcomeText);
   }, []);

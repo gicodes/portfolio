@@ -1,6 +1,5 @@
-import { Box, Paper, Badge, Stack } from '@mui/material';
-import { CodeSharp } from '@mui/icons-material';
-import { GetToKnowMe } from './about-me-array';
+import { GetToKnowMe } from './overview-action';
+import { Box, Paper } from '@mui/material';
 import IndexImage from './index-image';
 
 export const Overview = () => {

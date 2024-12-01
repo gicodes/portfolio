@@ -14,7 +14,7 @@ const ActionButton = () => {
           width: {xs: '100%', sm: '100%', lg: '25%'},
         }}
       > 
-        Hire Me 
+        <a href='/contact'>Hire Me</a> 
       </Button> 
     </Box>
            

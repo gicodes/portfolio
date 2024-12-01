@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import styles from "../page.module.css";
-import { fut, msco, funFacts } from './gtkmts';
+import { fut, msco, funFacts } from './tech-stack-array';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { Card, Stack, Box, Pagination } from '@mui/material';
 
@@ -43,7 +43,7 @@ export const TechStack = () => {
       >
         <Stack
           fontSize="12.5px"
-          className="text-special"
+          className="font-special"
           padding={{ sm: 1, lg: '10px 50px' }}
         >
           {pagesContent[page - 1]}

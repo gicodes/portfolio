@@ -4,16 +4,16 @@ export const projects = [
   {
     title: 'Afro Fashion',
     name: 'afro-fashion',
-    description: 'An e-commerce store that connects sellers to buyers and handles payments.\n Afrofashion is built on FERN stack with React, Express and NodeJs tightly coupled to deliver a beautiful user-experience \n This app is bootstrapped with React-bootstrap, Flutterwave v3 and Google services like firebase auth and firestore. \n',
+    description: 'An e-commerce store that connects sellers to buyers and handles payments.\n Afrofashion is built on FERN stack with React, Express and NodeJs tightly coupled to deliver a beautiful user-experience \n This app is bootstrapped with Custom SCSS, Flutterwave v3 and google services for handlimg user data and authentication. \n',
     source: 'https://github.com/gicodes/afro-fashion',
     link: 'https://afrofashion.site',
   },
   {
     title: 'Attribution Js',
     name: 'attribution.js',
-    description: 'This API is designed to be used by developers and analytics engineers to get metadata and track metrics from user interaction. \n ',
+    description: 'An Express-based API designed to track and manage advertisements and sales events for e-commerce products. \n Attribution Reporting is a server-side tool used by developers and analytics engineers to track metadata and metrics from user interaction, and optimize campaign performance and targeted Ads. \n ',
     source: 'https://github.com/gicodes/attribution.js',
-    link: '#',
+    link: '/',
     },
   {
     title: 'Dashboard Js',

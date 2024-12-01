@@ -62,15 +62,14 @@ const Repositories = () => {
                 }}
               >
                 <p className="text-tertiary bold">Github stats</p>
-
                 { loading ? "Loading ...." : 
                   <Stack sx={{ gap: 2}}> 
                     <Stack direction={'row'} gap={2}>
                       <span> 
-                        <span className="text-tertiary"> Lang: </span>
+                        <span className="text-gray-500"> Lang: </span>
                         {repoData[pr.name]?.language}
                       </span>
-                      <span> <span className="text-tertiary"> Size: </span> 
+                      <span> <span className="text-gray-500"> Size: </span> 
                         {repoData[pr.name]?.size} 
                       </span>
                     </Stack>
@@ -102,7 +101,7 @@ const Repositories = () => {
                 ))}
               </p>
 
-              <Box my={2}>
+              <Box fontSize={'small'} my={2}>
                 <span className="text-tertiary">Last Updated -- </span> 
                 <span className="text-gray">{repoData[pr.name]?.lastUpdated}</span>
               </Box>

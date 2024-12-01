@@ -12,8 +12,8 @@ const IndexImage = () => {
           priority
           alt='my hero'  
           src='/IMG_0385.jpeg' 
-          width={smallScreen ? 350 : 400} 
-          height={smallScreen ? 262 : 300}
+          width={smallScreen ? 350 : 444} 
+          height={smallScreen ? 262 : 333}
         />
       </Box>
       

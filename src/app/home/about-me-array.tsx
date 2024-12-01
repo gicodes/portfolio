@@ -1,5 +1,6 @@
 import { render } from "../render";
-import { Container } from "@mui/material";
+import { CodeSharp } from "@mui/icons-material";
+import { Badge, Container } from "@mui/material";
 import React, { useEffect, useState } from "react";
 
 const welcomeText = `
@@ -12,7 +13,7 @@ const honouryText = `
 `;
 
 const pitchText = `
-  I speak fluent Javascript. Certified in Python and Dart.
+  I speak fluent Javascript. Certified in JS, Python and Dart.
   I've written over 25 real-world programs that are widely in use today. \n
   I will build you a user-friendly application that is responsive, scalable and reliably fast in production. \n
 `;
@@ -63,7 +64,7 @@ export const GetToKnowMe = () => {
         w: '100%',
         minWidth: 'fit-content',
         px: { xs: 3, sm: 4, lg: 5 },
-        height:{ xs: '360px', lg: '250px'}
+        height:{ xs: '360px', lg: '300px'}
       }}
     >
       <span>
@@ -89,6 +90,10 @@ export const GetToKnowMe = () => {
           </span>
         ))}
       </p>
+      
+      <Badge sx={{ my: 1.5}} badgeContent="🆘" color="warning" className="beat-fade">
+        <CodeSharp className='text-warning' />
+      </Badge>
     </Container>
   );
 }

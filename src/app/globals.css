@@ -59,7 +59,10 @@ a {
 .text-tertiary { color: indigo}
 .text-secondary { color: var(--text-secondary);}
 
+.font-special { font-family: sans-serif;}
+
 .fs-mid { font-size: medium;}
+.fs-xs { font-size: x-small;}
 
 .v-center { align-items: center;}
 .text-center { text-align: center;}
@@ -109,7 +112,7 @@ a {
 
 .beat-fade {
   animation-name: beatfade-animation; 
-  animation-duration: 2.5s;           
+  animation-duration: 7.5s;           
   animation-iteration-count: 5;       
   transform-origin: 50% 50%;  
 }
@@ -123,7 +126,7 @@ a {
 }
 
 @media screen and (min-width: 768px) {
-  .text-special {
+  .font-special {
     line-height: 15px;
     font-size: 15px;
   }

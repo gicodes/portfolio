@@ -78,7 +78,7 @@ const Header: React.FC<NavBarProps> = ({
           </Box>
         )}
 
-        <Box px={3}>
+        <Box px={{ xs: 1, sm: 1, lg: 3}}>
           <Stack
             p={1}
             onClick={toggleTheme}

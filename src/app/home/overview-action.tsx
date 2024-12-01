@@ -4,8 +4,7 @@ import { Badge, Container } from "@mui/material";
 import React, { useEffect, useState } from "react";
 
 const welcomeText = `
-  Hi there,\n
-  I'm Gideon Iduma. \n
+  Hi there,\n I'm Gideon Iduma. \n
 `;
 
 const honouryText = `
@@ -68,7 +67,7 @@ export const GetToKnowMe = () => {
       }}
     >
       <span>
-        {render(slidingText).map((line, idx) => (
+        { render(slidingText).map((line, idx) => (
           <h1 key={idx} className="text-gray">
             {line}
           </h1>
@@ -76,7 +75,7 @@ export const GetToKnowMe = () => {
       </span>
 
       <p className="typing-effect">
-        {render(slidingText2).map((line, idx) => (
+        { render(slidingText2).map((line, idx) => (
           <span key={idx} className="text-jolly block fs-mid">
             {line}
           </span>
@@ -84,7 +83,7 @@ export const GetToKnowMe = () => {
       </p>
 
       <p className="mt-2 typing-effect">
-        {render(slidingText3).map((line, idx) => (
+        { render(slidingText3).map((line, idx) => (
           <span key={idx} className="block mw-500">
             {line}
           </span>

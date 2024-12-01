@@ -1,9 +1,9 @@
-import { Badge, Box, Stack, Drawer, IconButton, Grid2 } from '@mui/material';
 import { CloseSharp, DarkModeSharp, LightModeSharp } from '@mui/icons-material';
+import { Box, Stack, Drawer, IconButton, Grid2 } from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import VertIcon from '@mui/icons-material/MoreVert';
-import { useState } from 'react';
 import { navLinks } from './nav-links';
+import { useState } from 'react';
 
 interface NavBarProps {
   toggleTheme: () => void
@@ -16,7 +16,7 @@ const Header: React.FC<NavBarProps> = ({
 }) => {
   const smallScreen = useMediaQuery('(max-width: 600px)');
 
-  const [open, setOpen] = useState(false);
+  const [ open, setOpen ] = useState(false);
   const handleClose = () => setOpen(false);
   const handleOpen = () => setOpen(true);
 
@@ -49,10 +49,10 @@ const Header: React.FC<NavBarProps> = ({
               <Grid2
                 my={2}
                 px={2}
-                onClick={handleClose} 
                 display={'flex'} 
+                onClick={handleClose} 
                 justifyContent={'flex-end'}
-                >
+              >
                 <CloseSharp className='close-btn' />
               </Grid2>
               <Box p={8}>
@@ -65,23 +65,27 @@ const Header: React.FC<NavBarProps> = ({
             </Drawer>
           </Box>
           ) : (
-          <Stack
-            padding={2}
-            direction='row'
-            spacing={10}
-          >
-            { navLinks.map((item, index) => 
-              <a key={index} href={item.href}>{item.name}</a>
-            )}
-          </Stack>
+          <Box px={6}>
+            <Stack
+              direction='row'
+              spacing={10}
+              padding={2}
+            >
+              { navLinks.map((item, index) => 
+                <a key={index} href={item.href}>{item.name}</a>
+              )}
+            </Stack>
+          </Box>
         )}
 
-        <Stack
-          p={1}
-          onClick={toggleTheme}
-        >
-          {theme === "dark" ? <LightModeSharp/> : <DarkModeSharp />}
-        </Stack>
+        <Box px={3}>
+          <Stack
+            p={1}
+            onClick={toggleTheme}
+          >
+            {theme === "dark" ? <LightModeSharp/> : <DarkModeSharp />}
+          </Stack>
+        </Box>
       </Box>
     </nav>
   )

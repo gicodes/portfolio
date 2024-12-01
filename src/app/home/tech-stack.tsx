@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import styles from "../page.module.css";
-import { fut, msco, funFacts } from './tech-stack-array';
 import useMediaQuery from '@mui/material/useMediaQuery';
+import { fut, msco, funFacts } from './tech-stack-array';
 import { Card, Stack, Box, Pagination } from '@mui/material';
 
 export const TechStack = () => {
@@ -38,13 +38,14 @@ export const TechStack = () => {
     >
       <Box
         py={3}
+        px={{ sm: 0, lg: 4 }}
         width={{ sm: '90%', lg: '100%' }}
         height={{ xs: '400px', sm: '375px', lg: '360px' }}
       >
         <Stack
           fontSize="12.5px"
           className="font-special"
-          padding={{ sm: 1, lg: '10px 50px' }}
+          padding={{ sm: 1, lg: '10px 8%' }}
         >
           {pagesContent[page - 1]}
         </Stack>

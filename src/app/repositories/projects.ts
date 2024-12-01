@@ -1,10 +1,8 @@
-import { link } from "fs";
-
 export const projects = [
   {
     title: 'Afro Fashion',
     name: 'afro-fashion',
-    description: 'An e-commerce store that connects sellers to buyers and handles payments.\n Afrofashion is built on FERN stack with React, Express and NodeJs tightly coupled to deliver a beautiful user-experience \n This app is bootstrapped with Custom SCSS, Flutterwave v3 and google services for handling user data and authentication. \n',
+    description: 'An e-commerce store that connects sellers to buyers and handles payments.\n Afrofashion is built on FERN stack with React, Express and NodeJs tightly coupled to deliver a beautiful user-experience \n This app is bootstrapped with Custom SCSS, Flutterwave v3 and Google services for handling user data and authentication. \n',
     source: 'https://github.com/gicodes/afro-fashion',
     link: 'https://afrofashion.site',
   },
@@ -16,7 +14,7 @@ export const projects = [
     link: '/',
     },
   {
-    title: 'Dashboard Js',
+    title: 'Dashboard Beta',
     name: 'dashboardJs',
     description: 'A NextJs template displaying a simple but powerful Dashboard interface.\n DashboardJs is built with React + Typescript on Next 15, and is bootstrapped with Material UI, Tailwind and a custom SCSS configuration. \n Dashboard also runs a serverless API, responsible for form submission and dynamically sending email. \n',
     source: 'https://github.com/gicodes/dashboardJs',
@@ -25,7 +23,7 @@ export const projects = [
   {
     title: 'Mechtatel',
     name: 'mechtatel',
-    description: 'A Next JS single page application as a landing page for HR consultancies. \n Mechtatel is built with React + Typescript on Next 15 and is bootstrapped with React-bootstrap and Tailwind CSS to serve an eye-catching UI for users, hiring managers and other business enterprise. \n',
+    description: 'A NextJs single page application as a landing page for HR consultancies. \n Mechtatel is built with React + Typescript on Next 15 and is bootstrapped with React-bootstrap and Tailwind CSS to serve an eye-catching UI for users, hiring managers and other business enterprise. \n',
     source: 'https://github.com/gicodes/mechtatel',
     link: 'https://mechtatel.vercel.app',
   },

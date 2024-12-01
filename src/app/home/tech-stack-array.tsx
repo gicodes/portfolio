@@ -28,7 +28,7 @@ export const fut = <>
 export const funFacts = <>
   <h2 className="mb-2 text-warning"> Fun Facts About Me</h2>
   <p>&#x2014; I'm a self-taught Software Developer </p>
-  <p>&#x2014; I'm a big fan of football. Siuu ! </p>
+  <p>&#x2014; I'm a big fan of football. Siuuu!! </p>
   <p>&#x2014; I honestly cannot choose between backend and frontend </p>
   <p>&#x2014; I love to play video games, to figure out missions and objectives </p>
   <p>&#x2014; I'm <span className="text-warning"><b>1 of 1</b></span>. Literally  </p>

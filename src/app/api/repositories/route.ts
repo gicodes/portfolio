@@ -13,10 +13,10 @@ export async function GET() {
       { name: "attribution.js" },
       { name: "dashboardJs" },
       { name: "mechtatel" }, 
-      // { name: "starforge" },
-      // { name: "app.text.js" },
-      // { name: "global-prompt" },
-      // { name: "scan-a-barcode" },
+      { name: "starforge" },
+      { name: "app.text.js" },
+      { name: "global-prompt" },
+      { name: "scan-a-barcode" },
       { name: "barcode-scanner-app" },
     ];
     const formatDate = (dateString: string): string => {

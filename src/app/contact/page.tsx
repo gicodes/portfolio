@@ -29,7 +29,7 @@ const Contact = () => {
         },
         body: JSON.stringify(formJson),
       });
-      const result = await response.json();
+
       if (response.ok) {
         setAlert({ text: "Info saved! I will be in touch shortly", variant: "success" });
       } else {
@@ -54,9 +54,7 @@ const Contact = () => {
         },
         body: JSON.stringify(formJson),
       });
-
-      const result = await response.json();
-
+      
       if (response.ok) {
         setAlert({ text: 'Email sent successfully!', variant:'success' });
       } else {

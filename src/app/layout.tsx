@@ -2,6 +2,7 @@ import { Roboto } from 'next/font/google';
 import localFont from 'next/font/local';
 import type { Metadata } from 'next';
 import ClientLayout from './app'; 
+
 import './globals.css';
 
 const geistSans = localFont({
@@ -23,7 +24,7 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
-  title: 'Welcome to my Official Page',
+  title: 'Welcome to my official page',
   description: 'You will find amazing details about my experience',
 };
 

@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import axios from "axios";
+import { RepoProps } from "@/app/repositories/page";
 
 const GITHUB_API_URL = "https://api.github.com";
 const GITHUB_USERNAME = process.env.NEXT_PUBLIC_GITHUB_USERNAME;
@@ -68,19 +69,12 @@ export async function GET() {
     const result = data.reduce(
       (
         acc: {
-          [key: string]: {
-            stars: number;
-            forks: number;
-            watchers: number;
-            size: number;
-            language: string;
-            description: string;
-            lastUpdated: string;
-          };
+          [key: string]: RepoProps
         },
         repo
       ) => {
         acc[repo.name] = {
+          name: repo.name,
           stars: repo.stars,
           forks: repo.forks,
           watchers: repo.watchers,

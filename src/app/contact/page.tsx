@@ -1,35 +1,47 @@
 "use client"
 
-import { Box, Grid2, Stack } from '@mui/material';
 import { LeaveContactInfo, SendInstantEmail } from './forms';
+import { Box, Grid2, Stack } from '@mui/material';
+import ShowAlert, { AlertProps } from './alert';
+import { useState, useEffect } from 'react';
 import Footer from '../footer/footer';
 
-async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
-  event.preventDefault();
-  const formData = new FormData(event.currentTarget);
-  const formJson = Object.fromEntries(formData.entries());
+const Contact = () => {
+  const [alert, setAlert] = useState<AlertProps | null>(null);
 
-  try {
-    const response = await fetch('/api/contact/save-my-info', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formJson),
-    });
-    const result = await response.json();
-    if (response.ok) {
-      alert('Feedback sent successfully!');
-    } else {
-      alert('Error sending feedback: ' + result.error);
+  useEffect(() => {
+    if (alert) {
+      const timer = setTimeout(() => setAlert(null), 5000);
+      return () => clearTimeout(timer);
     }
-  } catch (error) {
-    console.error('Error sending feedback:', error);
-    alert('Failed to send feedback. Please try again.');
-  }
-}
+  }, [alert]);
+  
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const formData = new FormData(event.currentTarget);
+    const formJson = Object.fromEntries(formData.entries());
 
-async function handleSendEmail(event: React.FormEvent<HTMLFormElement>) {
+    try {
+      const response = await fetch('/api/contact/save-my-info', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formJson),
+      });
+      const result = await response.json();
+      if (response.ok) {
+        setAlert({ text: "Info saved! I will be in touch shortly", variant: "success" });
+      } else {
+        setAlert({ text:'Error saving your contact info', variant:'error' });
+      }
+    } catch (error) {
+      console.error('Error sending feedback:', error);
+      setAlert({ text: "Failed to process your contact info", variant: "error" });
+    }
+  }
+
+  async function handleSendEmail(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
     const formJson = Object.fromEntries(formData.entries());
@@ -42,26 +54,28 @@ async function handleSendEmail(event: React.FormEvent<HTMLFormElement>) {
         },
         body: JSON.stringify(formJson),
       });
+
       const result = await response.json();
+
       if (response.ok) {
-        alert('Email sent successfully!');
+        setAlert({ text: 'Email sent successfully!', variant:'success' });
       } else {
-        alert('Error sending email: ' + result.error);
+        setAlert({ text: 'Error sending email', variant:'error' });
       }
     } catch (error) {
       console.error('Error sending email:', error);
-      alert('Failed to send email. Please try again.');
+      setAlert({ text: "Failed to construct email. Please try again later", variant: "error" });
     }
   }    
 
-const Contact = () => {
   return (
     <Box p={2}>
+      {alert && <ShowAlert text={alert.text} variant={alert.variant} />}
+
       <Stack className="text-center text-gray">
         <h2>Let's Connect</h2>
-        <p> Leave your contact information so I can reach out or send me an instant message</p>
+        <p> Leave your contact information so I can reach out or send me an instant text</p>
       </Stack>
-
       <Grid2 
         gap={2}
         display={{ lg: 'flex'}} 

@@ -15,7 +15,7 @@ const userInfoSchema = z.object({
   name: z.string().min(1, 'Name is required'),
   country: z.string().min(1, 'Country is required'),
   email: z.string().email('Invalid e-mail address'),
-  hiringServices: z.string().min(1, 'Hiring services information is required'),
+  services: z.string().min(1, 'Hiring information is required'),
 });
 
 export async function POST(request: Request) {
@@ -28,10 +28,11 @@ export async function POST(request: Request) {
       to: process.env.NEXT_PUBLIC_EMAIL_RECIPIENT,
       subject: "New Client Request from Gi Code`s page.dev",
       text: `
-        You have a request from ${saveUserInfo.name} all the way from ${saveUserInfo.country} \n.
-        Intending to hire you for ${saveUserInfo.hiringServices} \n.
+        You have a request from ${saveUserInfo.name}, 
+        a citizen of ${saveUserInfo.country}. \n
+        Intending to hire you for some ${saveUserInfo.services} gig. \n
 
-        Reply to ${saveUserInfo.email}? \n.
+        Reply to ${saveUserInfo.email}? \n
       `,
     };
     

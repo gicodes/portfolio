@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import { projects } from "./projects";
 import { render } from "../render";
 
-interface RepoProps {
+export interface RepoProps {
   name: string;
   size: number;
   stars: number;

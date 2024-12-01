@@ -59,7 +59,7 @@ export const LeaveContactInfo = ({ handleSubmit }: LeaveContactInfoProps
         </Box>
 
         <Box mb={3}>
-          <p> What Services are you hiring for?</p>
+          <p> What Service(s) are you hiring for?</p>
           <FormGroup row>
             <FormControlLabel
               control={<Checkbox name="services" value="Website" />}

@@ -13,7 +13,7 @@ export const msco = <>
 // frequently used tools
 export const fut = <>
   <h2 className="mb-2">Frequently Used Tools </h2>
-  <p>&#x2014; NextJs: Build frontend & full-stack web apps </p>
+  <p>&#x2014; NextJs: Build client-side & full-stack web apps </p>
   <p>&#x2014; MERN: Build full-stack web apps with database & server 
     <span className="p-2 -mb block text-gray-500">(MongoDB, ExpressJs, React & NodeJs)</span>
   </p>

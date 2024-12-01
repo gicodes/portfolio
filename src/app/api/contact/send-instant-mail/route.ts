@@ -14,10 +14,12 @@ export async function POST(request: Request) {
 
     const mailOptions = {
       from: process.env.NEXT_PUBLIC_EMAILUSER,
-      to: userInput?.email || process.env.NEXT_PUBLIC_EMAILUSER,
+      to: process.env.NEXT_PUBLIC_EMAIL_RECIPIENT,
+      cc: userInput?.email,
       subject: userInput?.subject,
       text: userInput?.body,
     };
+    
     await transporter.sendMail(mailOptions);
 
     return new Response(

@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { render } from "../render";
 import { RepoProps } from "./page";
 
-interface ProjectProps {
+export interface ProjectProps {
   project: {
     title: string;
     name: string;

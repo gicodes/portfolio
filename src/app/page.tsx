@@ -8,15 +8,10 @@ import Footer from "./footer/footer";
 
 export default function Home() { 
   return (
-    <>
-      <main className={styles.main}>
-        <Overview />
-        <TechStack />
-        <ActionButton />
-      </main>
-      <footer>
-        <Footer />
-      </footer>
-    </>
+    <main className={styles.main}>
+      <Overview />
+      <TechStack />
+      <ActionButton />
+    </main>
   )
 }

@@ -8,7 +8,7 @@ interface ProjectPreviewProps {
   projectLink: string ;
 }
 
-let frontPageImage="https://via.placeholder.com/400x300";
+let fallBackFrontPageImg="https://via.placeholder.com/400x300";
 
 const ProjectPreview: React.FC<ProjectPreviewProps> = ({ 
   projectLink 
@@ -30,7 +30,7 @@ const ProjectPreview: React.FC<ProjectPreviewProps> = ({
           <Stack>
             {linkError ? (
               <img
-                src={frontPageImage}
+                src={fallBackFrontPageImg}
                 alt="Project Front Page"
                 width={400}
                 height={300}
@@ -51,10 +51,12 @@ const ProjectPreview: React.FC<ProjectPreviewProps> = ({
             <Box
               sx={{
                 p: 2,
+                color: 'purple',
                 textAlign: 'center',
+                ":hover": { color: 'royalblue' },
               }}
             >
-              Click to view project
+              Go to website URL
             </Box>
           </Stack>
         </Grid2>

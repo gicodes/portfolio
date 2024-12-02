@@ -47,11 +47,11 @@ export const GetToKnowMe = () => {
               } else {
                 clearInterval(displayPitchText);
               }  
-            }, 100); // Typing speed for `slidingText3`
+            }, 100); // Typing speed for slidingText3
           }
-        }, 50); // Typing speed for `slidingText2`
+        }, 50); // Typing speed for slidingText2
       }
-    }, 100); // Typing speed for `slidingText`
+    }, 100); // Typing speed for slidingText
 
     return () => clearInterval(displayWelcomeText);
   }, []);
@@ -63,7 +63,9 @@ export const GetToKnowMe = () => {
         w: '100%',
         minWidth: 'fit-content',
         px: { xs: 3, sm: 4, lg: 5 },
-        height:{ xs: '360px', lg: '300px'}
+        pt: { xs: 1, sm: 3, lg: 2 },
+        pb: { xs: 1, sm: 2, lg: 3 },
+        height: { xs: '432px', sm: '369px', lg: '345px' },
       }}
     >
       <span>
@@ -90,8 +92,8 @@ export const GetToKnowMe = () => {
         ))}
       </p>
       
-      <Badge sx={{ my: 1.5}} badgeContent="🆘" color="warning" className="beat-fade">
-        <CodeSharp className='text-warning' />
+      <Badge sx={{ my: 1.5}} badgeContent="☁️" color="warning" className="beat-fade">
+        <CodeSharp className='text-gray' />
       </Badge>
     </Container>
   );

@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import Header from './header/header';
 import styles from './page.module.css';
+import Footer from './footer/footer';
 
 export default function ClientLayout({
   children,
@@ -29,6 +30,9 @@ export default function ClientLayout({
         <Header toggleTheme={toggleTheme} theme={theme} />
       </header>
       {children}
+      <footer className={styles.footer}>
+        <Footer />
+      </footer>
     </>
   );
 }

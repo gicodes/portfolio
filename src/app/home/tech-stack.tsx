@@ -40,12 +40,12 @@ export const TechStack = () => {
         py={3}
         px={{ sm: 0, lg: 4 }}
         width={{ sm: '90%', lg: '100%' }}
-        height={{ xs: '400px', sm: '375px', lg: '360px' }}
+        height={{ xs: '400px', sm: '420px', lg: '360px' }}
       >
         <Stack
           fontSize="12.5px"
           className="font-special"
-          padding={{ sm: 1, lg: '10px 8%' }}
+          padding={{ xs: 1, sm: 3, lg: '36px 180px' }}
         >
           {pagesContent[page - 1]}
         </Stack>

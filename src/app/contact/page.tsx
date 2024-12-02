@@ -82,10 +82,6 @@ const Contact = () => {
         <LeaveContactInfo handleSubmit={handleSubmit} />
         <SendInstantEmail handleSendEmail={handleSendEmail} />
       </Grid2>
-
-      <footer className='mt-8'>
-        <Footer/>
-      </footer>
     </Box>
   );
 };

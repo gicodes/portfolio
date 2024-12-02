@@ -87,8 +87,11 @@ export const RepoCard = (project: ProjectProps) => {
             }
           </Card>
           
-          <Box p={{ sm: 1, lg: 1}} my={2}>
-          {/* <p> {repoData[project.name]?.description} </p> */}
+          <Box // Description
+           p={{ sm: 1, lg: 1}} my={2}
+           fontSize={{ sm: small }}
+          >
+          {/* p> {repoData[project.name]?.description} </p> */}
 
             { render(project.description).map((data, idx) => (
               <span key={idx} className="block mt">
@@ -102,6 +105,7 @@ export const RepoCard = (project: ProjectProps) => {
             <span className="text-gray">{repoData[project.name]?.lastUpdated}</span>
           </Box>
         </Stack>
+        <br />
 
         <Box width={{ sm: "100%", lg: "40%" }}>
           <ProjectPreview projectLink={project.link} />

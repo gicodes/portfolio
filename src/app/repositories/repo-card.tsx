@@ -89,7 +89,7 @@ export const RepoCard = (project: ProjectProps) => {
           
           <Box // Description
            p={{ sm: 1, lg: 1}} my={2}
-           fontSize={{ sm: 'small' }}
+           fontSize={{ xs: 'smaller', sm: 'small' }}
           >
           {/* p> {repoData[project.name]?.description} </p> */}
 

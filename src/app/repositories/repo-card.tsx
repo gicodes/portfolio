@@ -33,7 +33,10 @@ export const RepoCard = (project: ProjectProps) => {
   }, []);
 
   return (
-    <Card key={project.name} sx={{ my: 2, p: 1 }}>
+    <Card 
+      key={project.name} 
+      sx={{ my: 2, p: 1 }}
+      >
       <Box
         p={{ lg: '10px 25px' }}
         display={{ sm: "grid", lg: "flex" }}

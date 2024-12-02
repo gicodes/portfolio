@@ -6,17 +6,14 @@ import { render } from "../render";
 import { RepoProps } from "./page";
 
 export interface ProjectProps {
-  project: {
-    title: string;
-    name: string;
-    description: string;
-    link: string;
-    source: string;
-  };
-  idx: number;
+  title: string;
+  name: string;
+  description: string;
+  link: string;
+  source: string;
 }
 
-export const RepoCard = ({ project, idx }: ProjectProps) => {
+export const RepoCard = (project: ProjectProps) => {
   const [repoData, setRepoData] = useState<Record<string, RepoProps>>({});
   const [loading, setLoading] = useState<boolean>(true);
   
@@ -36,7 +33,7 @@ export const RepoCard = ({ project, idx }: ProjectProps) => {
   }, []);
 
   return (
-    <Card key={idx} sx={{ my: 2, p: 1 }}>
+    <Card key={project.name} sx={{ my: 2, p: 1 }}>
       <Box
         p={{ lg: '10px 25px' }}
         display={{ sm: "grid", lg: "flex" }}

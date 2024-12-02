@@ -4,7 +4,7 @@ import { Box, Stack, useMediaQuery, Pagination } from "@mui/material";
 import { useState, useEffect, useMemo } from "react";
 import styles from '../page.module.css';
 import { projects } from "./projects";
-import { RepoCard, RepoPageProps } from "./repo-card";
+import { RepoCard, ProjectProps } from "./repo-card";
 
 export interface RepoProps {
   name: string;
@@ -18,12 +18,11 @@ export interface RepoProps {
 }
 
 const Repositories = () => {
-  const [page, setPage] = useState(1);
-  const [currentData, setCurrentData] = useState<RepoPageProps[]>([]);
-  const smallScreen = useMediaQuery('(max-width:768px)');
   const itemsPerPage = 1;
+  const [page, setPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState<ProjectProps[]>([]);
+  const smallScreen = useMediaQuery('(max-width:768px)');
 
-  // Memoize pagesContent to avoid unnecessary recalculations
   const pagesContent = useMemo(
     () =>
       Array.from(
@@ -36,7 +35,7 @@ const Repositories = () => {
 
   // Effect to update current data when page changes
   useEffect(() => {
-    setCurrentData(pagesContent[page - 1] || []);
+    setCurrentPage(pagesContent[page - 1] || []);
   }, [page, pagesContent]);
 
   const handlePageChange = (event: React.ChangeEvent<unknown>, value: number) => {
@@ -51,8 +50,8 @@ const Repositories = () => {
       </Stack>
 
       <Box>
-        {currentData.map((pr, idx) => (
-          <RepoCard project={pr} idx={idx} key={idx} />
+        {currentPage.map((project) => (
+          <RepoCard {...project} />
         ))}
       </Box>
 

@@ -71,7 +71,15 @@ export const GetToKnowMe = () => {
       <span>
         { render(slidingText).map((line, idx) => (
           <h1 key={idx} className="text-gray">
-            {line}
+            {line.includes("Gideon Iduma") ? (
+              <>
+                {line.split("Gideon Iduma")[0]}
+                <span className="text-wahala">Gideon Iduma</span>
+                {line.split("Gideon Iduma")[1]}
+              </>
+            ) : (
+              line
+            )}
           </h1>
         ))}
       </span>

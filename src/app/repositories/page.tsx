@@ -1,10 +1,10 @@
 "use client";
 
 import { Box, Stack, useMediaQuery, Pagination } from "@mui/material";
+import { RepoCard, ProjectProps } from "./repo-card";
 import { useState, useEffect, useMemo } from "react";
 import styles from '../page.module.css';
 import { projects } from "./projects";
-import { RepoCard, ProjectProps } from "./repo-card";
 
 export interface RepoProps {
   name: string;
@@ -24,8 +24,7 @@ const Repositories = () => {
   const smallScreen = useMediaQuery('(max-width:768px)');
 
   const pagesContent = useMemo(
-    () =>
-      Array.from(
+    () => Array.from(
         { length: Math.ceil(projects.length / itemsPerPage) },
         (_, index) =>
           projects.slice(index * itemsPerPage, index * itemsPerPage + itemsPerPage)
@@ -33,7 +32,6 @@ const Repositories = () => {
     [projects, itemsPerPage]
   );
 
-  // Effect to update current data when page changes
   useEffect(() => {
     setCurrentPage(pagesContent[page - 1] || []);
   }, [page, pagesContent]);
@@ -49,11 +47,11 @@ const Repositories = () => {
         <p>Featuring programs, applications, and development projects I have worked on</p>
       </Stack>
 
-      <Box>
-        {currentPage.map((project) => (
+      {currentPage.map((project, key) => (
+        <Box key={key}> 
           <RepoCard {...project} />
-        ))}
-      </Box>
+        </Box>
+      ))}  
 
       <Pagination
         page={page}

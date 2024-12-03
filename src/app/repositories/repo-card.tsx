@@ -90,7 +90,7 @@ export const RepoCard = (project: ProjectProps) => {
             }
           </Card>
           
-          <Box // Description
+          <Box // project description. I intentionally used project.description instead of repoData[]?.description
            p={{ sm: 1, lg: 1}} my={2}
            fontSize={{ xs: 'smaller', sm: 'small' }}
           >
@@ -116,7 +116,7 @@ export const RepoCard = (project: ProjectProps) => {
       </Box>
 
       <Box
-        my={1}
+        mt={{ xs: 2, sm: 2}}
         px={{ lg: 3}}
         display={'grid'}
         justifyContent={{ xs: 'center', sm: 'center', lg: 'flex-end'}}

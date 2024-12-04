@@ -7,7 +7,7 @@ export const msco = <>
   <p>&#x2014; Designing REST APIs, data structure for backend services </p>
   <p>&#x2014; Integrating new libraries and protocols for frontend apps </p>
   <p>&#x2014; Managing Domains, Web infrastructure & Microservices </p>
-  <p>&#x2014; Deploying apps to the Web, Cloud, Apple & Google playstore </p>
+  <p>&#x2014; Deploying apps to the Web, Cloud, Apple & Google playstores </p>
 </>
 
 // frequently used tools

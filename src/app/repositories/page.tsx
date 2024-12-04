@@ -50,10 +50,7 @@ const Repositories = () => {
       {currentPage.map((project, key) => (
         <Box key={key}> 
           <RepoCard {...project} />
-        </Box>
-      ))}  
-
-      <Pagination
+          <Pagination
         page={page}
         count={pagesContent.length}
         onChange={handlePageChange}
@@ -61,6 +58,10 @@ const Repositories = () => {
         sx={{ float: 'right' }}
         size={smallScreen ? 'small' : 'medium'}
       />
+        </Box>
+      ))}  
+
+      
     </Box>
   );
 };

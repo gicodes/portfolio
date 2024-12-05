@@ -62,6 +62,7 @@ a {
 .font-special { font-family: sans-serif; }
 
 .fs-mid { font-size: medium;}
+.fs-sm { font-size: smaller;}
 .fs-xs { font-size: x-small;}
 
 .v-center { align-items: center;}

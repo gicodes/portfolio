@@ -18,7 +18,11 @@ export const LeaveContactInfo = ({ handleSubmit }: LeaveContactInfoProps
   return (
     <Card 
       elevation={4} 
-      sx={{ p: 2, mt: 3, width: {lg: '100%'} }}
+      sx={{ 
+        p: 2, 
+        mt: 3, 
+        width: {lg: '100%'} 
+      }}
     >
       <form onSubmit={handleSubmit}>
         <Box mb={3}>
@@ -58,26 +62,32 @@ export const LeaveContactInfo = ({ handleSubmit }: LeaveContactInfoProps
           />
         </Box>
 
-        <Box mb={3}>
-          <p> What service(s) are you hiring for?</p>
-          <FormGroup row>
-            <FormControlLabel
-              control={<Checkbox name="services" value="Website" />}
-              label="Website" sx={{ '.MuiFormControlLabel-label': { fontSize: '0.875rem' } }}
-            />
-            <FormControlLabel
-              control={<Checkbox name="services" value="Web App (Full-Stack)" />}
-              label="Web Application" sx={{ '.MuiFormControlLabel-label': { fontSize: '0.875rem' } }}
-            />
-            <FormControlLabel
-              control={<Checkbox name="services" value="Mobile App" />}
-              label="Mobile Application" sx={{ '.MuiFormControlLabel-label': { fontSize: '0.875rem' } }}
-            />
-            <FormControlLabel
-              control={<Checkbox name="services" value="Other" />}
-              label="Other" sx={{ '.MuiFormControlLabel-label': { fontSize: '0.875rem' } }}
-            />
-          </FormGroup>
+        <Box mb={2}>
+          <Box 
+            mx={{ lg: 1}}
+            px={1}
+          >
+            <p> What service(s) are you hiring for?</p>
+            <FormGroup row>
+              <FormControlLabel
+                control={<Checkbox name="services" value="Website" />}
+                label="Website" sx={{ '.MuiFormControlLabel-label': { fontSize: '0.875rem' } }}
+              />
+              <FormControlLabel
+                control={<Checkbox name="services" value="Web App (Full-Stack)" />}
+                label="Web Application" sx={{ '.MuiFormControlLabel-label': { fontSize: '0.875rem' } }}
+              />
+              <FormControlLabel
+                control={<Checkbox name="services" value="Mobile App" />}
+                label="Mobile Application" sx={{ '.MuiFormControlLabel-label': { fontSize: '0.875rem' } }}
+              />
+              <FormControlLabel
+                control={<Checkbox name="services" value="Other" />}
+                label="Other" sx={{ '.MuiFormControlLabel-label': { fontSize: '0.875rem' } }}
+              />
+            </FormGroup>
+          </Box>
+          
         </Box>
 
         <Box textAlign="center">
@@ -106,8 +116,12 @@ export const SendInstantEmail = ({ handleSendEmail }: SendInstantEmailProps) => 
       sx={{ p: 2, mt: 3, width: {lg: '100%'} }}
     >
       <form onSubmit={handleSendEmail}>
-        <h4 className='mt-2 text-center'> Construct an e-mail</h4><br/>
-        
+        <div className='text-center'>
+          <h4> Construct an e-mail</h4>
+          <span className='fs-sm text-gray'>Want to send me a quick message?</span>
+        </div>
+        <br/>
+
         <Box mb={3}>
           <TextField
             name="subject"

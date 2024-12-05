@@ -41,7 +41,7 @@ const Repositories = () => {
   const smallScreen = useMediaQuery('(max-width: 768px)');
 
   return (
-    <Box p={2}>
+    <Box className={styles.main} p={2}>
       <Stack className="text-center text-gray">
         <h2>Welcome to Repositories</h2>
         <p>Featuring programs, applications, and development projects I have worked on</p>

@@ -87,7 +87,6 @@ export const LeaveContactInfo = ({ handleSubmit }: LeaveContactInfoProps
               />
             </FormGroup>
           </Box>
-          
         </Box>
 
         <Box textAlign="center">
@@ -105,6 +104,7 @@ export const LeaveContactInfo = ({ handleSubmit }: LeaveContactInfoProps
   );
 }
 
+// instant email section
 interface SendInstantEmailProps {
   handleSendEmail: FormEventHandler<HTMLFormElement>;
 }

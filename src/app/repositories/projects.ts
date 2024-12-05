@@ -9,7 +9,7 @@ export const projects = [
   {
     title: 'Attribution Js',
     name: 'attribution.js',
-    description: 'Express-based API designed to track user interaction on e-commerce products. \n Attribution Reporting provisions a reliable backend service that Developers and Analytical Engineers can use to optimize performance, sales campaign effectiveness and manage Ads by getting metrics and metadata reported concurrently. \n ',
+    description: 'Express-based API designed to track user interaction on e-commerce products. \n Attribution Reporting provisions a reliable backend service that Developers and Analytical Engineers can use to optimize performance, sales campaign effectiveness and manage Ads with reported metrics and metadata.. \n ',
     source: 'https://github.com/gicodes/attribution.js',
     link: 'https://tourcan.org'
     },

@@ -4,17 +4,17 @@ import { Badge, Container } from "@mui/material";
 import React, { useEffect, useState } from "react";
 
 const welcomeText = `
-  Hi there,\n I'm Gideon Iduma. \n
+  Hi there,\n I'm Gideon Iduma.
 `;
 
 const honouryText = `
-  Software Engineer, Full-Stack Developer \n 
+  Software Engineer, Full-Stack Developer
 `;
 
 const pitchText = `
-  I speak fluent Javascript. Certified in JS, Python and Dart.
-  I've written over 25 real-world programs that are widely in use today. \n
-  I will build you a user-friendly application that is responsive, scalable and reliably fast in production. \n
+    I speak fluent Javascript. Certified in JS, Python and Dart. \n
+    I've written over 25 real-world programs that are widely in use today. \n
+    I will build you a user-friendly application that is responsive, scalable and reliably fast in production.
 `;
 
 export const GetToKnowMe = () => {
@@ -77,9 +77,8 @@ export const GetToKnowMe = () => {
                 <span className="text-wahala">Gideon Iduma</span>
                 {line.split("Gideon Iduma")[1]}
               </>
-            ) : (
-              line
-            )}
+            ) : line
+            }
           </h1>
         ))}
       </span>

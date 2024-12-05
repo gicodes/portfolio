@@ -27,7 +27,7 @@ const Header: React.FC<NavBarProps> = ({
         display={'flex'}
         justifyContent={'space-between'}
       >
-        { smallScreen ? (
+        { smallScreen ? ( // mobile view
           <Box position={'static'}>
             <IconButton
               edge="start"
@@ -64,8 +64,8 @@ const Header: React.FC<NavBarProps> = ({
               </Box>
             </Drawer>
           </Box>
-          ) : (
-          <Box px={6}>
+          ) : ( // larger screen view
+          <Box px={3}>
             <Stack
               direction='row'
               spacing={10}
@@ -78,7 +78,8 @@ const Header: React.FC<NavBarProps> = ({
           </Box>
         )}
 
-        <Box px={{ xs: 1, sm: 1, lg: 3}}>
+        <Box // theme button: default is dark mode
+        >
           <Stack
             p={1}
             onClick={toggleTheme}

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useMemo, useCallback } from 'react';
 import styles from "../page.module.css";
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { fut, msco, funFacts } from './tech-stack-array';
@@ -6,19 +6,20 @@ import { Card, Stack, Box, Pagination } from '@mui/material';
 
 export const TechStack = () => {
   const [page, setPage] = useState(1);
+
+  const pagesContent = useMemo(() => [msco, fut, funFacts], []);
+  const cardBackgrounds = useMemo(
+    () => ['/styledCard1.avif', '/styledCard2.avif', '/styledCard3.avif'],
+    []
+  );
+
+  const handlePageChange = useCallback(
+    (_event: React.ChangeEvent<unknown>, value: number) => {
+      setPage(value);
+    },
+    []);
+
   const smallScreen = useMediaQuery('(max-width: 600px)');
-  
-  const pagesContent = [msco, fut, funFacts];
-
-  const cardBackgrounds = [
-    '/styledCard1.avif',
-    '/styledCard2.avif',
-    '/styledCard3.avif',
-  ];
-
-  const handlePageChange = (_event: React.ChangeEvent<unknown>, value: number) => {
-    setPage(value);
-  };
 
   return (
     <Card
@@ -33,7 +34,7 @@ export const TechStack = () => {
         color: page === 2 ? 'black' : 'white',
         backgroundColor: page === 2 ? 'white' : 'black',
         backgroundImage: `url(${cardBackgrounds[page - 1]})`,
-        backgroundSize: {xs: 'none', sm: 'none', lg: 'cover'},
+        backgroundSize: { xs: 'none', sm: 'none', lg: 'cover' },
       }}
     >
       <Box
@@ -50,7 +51,7 @@ export const TechStack = () => {
           {pagesContent[page - 1]}
         </Stack>
       </Box>
-      
+
       <Pagination
         page={page}
         count={pagesContent.length}
@@ -61,4 +62,4 @@ export const TechStack = () => {
       />
     </Card>
   );
-}
+};

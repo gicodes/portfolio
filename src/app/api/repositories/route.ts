@@ -1,15 +1,16 @@
+import axios from "axios"; // prefer axios to fetch for this HTTP protocol
 import { NextResponse } from "next/server";
-import axios from "axios";
 import { RepoProps } from "@/app/repositories/page";
 
 const GITHUB_API_URL = "https://api.github.com";
-const GITHUB_USERNAME = process.env.NEXT_PUBLIC_GITHUB_USERNAME;
 const GITHUB_TOKEN = process.env.NEXT_PUBLIC_GITHUB_TOKEN;
+const GITHUB_USERNAME = process.env.NEXT_PUBLIC_GITHUB_USERNAME;
 
 export async function GET() {
   try {
     const headers = GITHUB_TOKEN ? { Authorization: `Bearer ${GITHUB_TOKEN}` } : {};
     const projects = [
+      // These repositories have been pre-authorized. Please avoid making changes without permission
       { name: "afro-fashion" },
       { name: "attribution.js" },
       { name: "dashboardJs" },
@@ -20,6 +21,7 @@ export async function GET() {
       { name: "scan-a-barcode" },
       { name: "barcode-scanner-app" },
     ];
+
     const formatDate = (dateString: string): string => {
       const date = new Date(dateString);
       const day = String(date.getDate()).padStart(2, '0');
@@ -30,7 +32,9 @@ export async function GET() {
     
     const promises = projects.map(async (project) => {
       try {
-        const res = await axios.get(`${GITHUB_API_URL}/repos/${GITHUB_USERNAME}/${project.name}`, {
+        const res = await axios.get(`
+          ${GITHUB_API_URL}/repos/${GITHUB_USERNAME}/${project.name}
+          `, {
           headers,
         });
 
@@ -93,4 +97,4 @@ export async function GET() {
     console.error("Failed to fetch repository data:", error.message);
     return NextResponse.json({ error: "Failed to fetch repository data" }, { status: 500 });
   }
-}
+};

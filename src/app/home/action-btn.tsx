@@ -16,9 +16,8 @@ const ActionButton = () => {
       > 
         <a href='/contact'>Hire Me</a> 
       </Button> 
-    </Box>
-           
+    </Box>          
   )
 }
 
-export default ActionButton
+export default ActionButton;

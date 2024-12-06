@@ -17,6 +17,7 @@ const pitchText = `
     I will build you a user-friendly application that is responsive, scalable and reliably fast in production.
 `;
 
+
 export const GetToKnowMe = () => {
   const [slidingText, setSlidingText] = useState("");
   const [slidingText2, setSlidingText2] = useState("");
@@ -47,7 +48,7 @@ export const GetToKnowMe = () => {
               } else {
                 clearInterval(displayPitchText);
               }  
-            }, 100); // Typing speed for slidingText3
+            }, 50); // Typing speed for slidingText3
           }
         }, 50); // Typing speed for slidingText2
       }
@@ -104,4 +105,4 @@ export const GetToKnowMe = () => {
       </Badge>
     </Container>
   );
-}
+};

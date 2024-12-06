@@ -74,7 +74,12 @@ a {
   margin: 5px 0;
 }
 
-.bold { font-weight: 401;}
+.bold { font-weight: bold;}
+
+.float-top {
+  position: relative;
+  top: -5px;
+}
 
 .typing-effect {
   margin: 5px 0;
@@ -84,16 +89,15 @@ a {
   line-height: 25px;
   font-family: Arial, Helvetica, sans-serif;
 }
-
-.footer-outro {
-  font-size: small;
-  font-family: Verdana, Geneva, Tahoma, sans-serif; 
-}
-
 @media screen and (max-width: 788px) {
   .typing-effect {
     font-size: 13.5px;
   }
+}
+
+.footer-outro {
+  font-size: small;
+  font-family: Verdana, Geneva, Tahoma, sans-serif; 
 }
 
 .w-50 { width: 50%;}
@@ -109,13 +113,14 @@ a {
 .mt-2 { margin-top: 20px;}
 .mt-8 { margin-top: 80px;}
 .mb { margin-bottom: 10px;}
+.-mt2 { margin-top: -20px;}
 .-mb { margin-bottom: -10px;}
 .mb-2 { margin-bottom: 29.2px;}
 
 .beat-fade {
   animation-name: beatfade-animation; 
-  animation-duration: 5s;           
-  animation-iteration-count: 6;       
+  animation-duration: 4.5s;           
+  animation-iteration-count: 5;       
   transform-origin: 50% 50%;  
 }
 @keyframes beatfade-animation {

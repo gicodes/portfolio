@@ -8,6 +8,7 @@ const transporter = nodemailer.createTransport({
   },
 });
 
+
 export async function POST(request: Request) {
   try {
     const userInput = await request.json();
@@ -46,4 +47,4 @@ export async function POST(request: Request) {
       }
     );
   }
-}
+};

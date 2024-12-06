@@ -74,11 +74,11 @@ export const RepoCard = (project: ProjectProps) => {
                 
                 <Stack direction={'row'} gap={3} mb={1}>
                   <span> 
-                    <AltRoute fontSize="small" color={repoData[project.name]?.forks > 0 ? "primary" : "disabled"} /> 
+                    <AltRoute fontSize="small" color={repoData[project.name]?.forks > 0 ? "success" : "disabled"} /> 
                     ({repoData[project.name]?.forks})
                   </span>
                   <span>
-                    <StarSharp fontSize="small" color={repoData[project.name]?.stars > 0 ? "secondary" : "disabled"} />
+                    <StarSharp fontSize="small" color={repoData[project.name]?.stars > 0 ? "primary" : "disabled"} />
                     ({repoData[project.name]?.stars})
                   </span>
                   <span>

@@ -1,6 +1,5 @@
 import { Box, Grid2, Stack } from '@mui/material';
 import { socials } from './e-links';
-import React from 'react'
 import Link from 'next/link';
 
 const Footer = () => {
@@ -30,11 +29,11 @@ const Footer = () => {
         </Grid2>
 
         <p className="text-gray footer-outro">
-          &copy; 2022 - 2024. All rights reserved.
+          &copy; 2022 - 2024. GiCodes<span className='float-top'>&#174;</span> Global Ent.
         </p>
       </Box>   
     </footer>       
   )
 }
 
-export default Footer
+export default Footer;

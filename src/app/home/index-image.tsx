@@ -1,9 +1,9 @@
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { Card, Box } from '@mui/material'
 import Image from 'next/image'
-import React from 'react'
 
 const IndexImage = () => {
+  // smallScreen @600px sets devices such as iPad to false 
   const smallScreen = useMediaQuery('(max-width: 600px)');
   
   return (
@@ -13,14 +13,18 @@ const IndexImage = () => {
         m: 'auto',
         width: '100%',  
         maxWidth: 'fit-content'
-        }}
+      }}
+    >
+      <Box
+        display={'flex'} 
+        justifyContent={'center'}
       >
-      <Box display={'flex'} justifyContent={'center'}>
         <Image 
           priority
           alt='my hero'  
           src='/IMG_0385.jpeg' 
-          width={smallScreen ? 350 : 504} 
+          objectFit='contain'
+          width={smallScreen ? 340 : 504} 
           height={smallScreen ? 262 : 378}
         />
       </Box>

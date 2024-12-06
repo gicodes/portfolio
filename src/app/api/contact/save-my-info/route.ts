@@ -1,7 +1,6 @@
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
-import { z } from 'zod';
-
+import { z } from 'zod'; // using zod for proper schema declaration and validation
 
 const transporter = nodemailer.createTransport({
   service: process.env.NEXT_PUBLIC_EMAIL_SERVICE,
@@ -18,6 +17,7 @@ const userInfoSchema = z.object({
   services: z.string().min(1, 'Hiring information is required'),
 });
 
+
 export async function POST(request: Request) {
   try {
     const body = await request.json();
@@ -29,7 +29,7 @@ export async function POST(request: Request) {
       subject: "New Client Request from Gi Code`s page.dev",
       text: `
         You have a request from ${saveUserInfo.name}, 
-        a citizen of ${saveUserInfo.country}. \n
+        living in ${saveUserInfo.country}. \n
         Intending to hire you for some ${saveUserInfo.services} gig. \n
 
         Reply to ${saveUserInfo.email}? \n
@@ -55,4 +55,4 @@ export async function POST(request: Request) {
       { status: 500 }
     );
   }
-}
+};

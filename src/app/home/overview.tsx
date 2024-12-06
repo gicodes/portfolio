@@ -12,6 +12,7 @@ export const Overview = () => {
     >
       <Box 
         minWidth={'fit-content'}
+        marginTop={{lg: 5}}
         padding={{xs: 1, sm: 1,lg: 3}} 
         display={{sx: 'grid', sm: 'grid', lg: 'flex'}} 
         justifyContent={{sx: 'center', sm: 'center', lg: 'space-between'}}   

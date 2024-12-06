@@ -4,7 +4,6 @@ import { LeaveContactInfo, SendInstantEmail } from './forms';
 import { Box, Grid2, Stack } from '@mui/material';
 import ShowAlert, { AlertProps } from './alert';
 import { useState, useEffect } from 'react';
-import Footer from '../footer/footer';
 
 const Contact = () => {
   const [alert, setAlert] = useState<AlertProps | null>(null);
@@ -69,7 +68,7 @@ const Contact = () => {
   return (
     <Box p={2}>
       {alert && <ShowAlert text={alert.text} variant={alert.variant} />}
-
+      
       <Stack className="text-center text-gray">
         <h2>Let's Connect</h2>
         <p> Leave your contact information so I can reach out or send me an instant message</p>

@@ -117,7 +117,7 @@ export const SendInstantEmail = ({ handleSendEmail }: SendInstantEmailProps) => 
     >
       <form onSubmit={handleSendEmail}>
         <div className='text-center'>
-          <h4> Construct an e-mail</h4>
+          <h4> Construct an e-mail <i className='text-warning'>* </i><span className='text-gray'>(Optional)</span></h4>
           <span className='fs-sm text-gray'>Want to send me a quick message?</span>
         </div>
         <br/>

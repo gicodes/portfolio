@@ -42,9 +42,9 @@ const Repositories = () => {
 
   return (
     <Box className={styles.main} p={2}>
-      <Stack className="text-center text-gray">
-        <h2>Welcome to Repositories</h2>
-        <p>Featuring programs, applications, and development projects I have worked on</p>
+      <Stack p={1} className="text-center text-gray">
+        <h2>Welcome to Repositories</h2> 
+        <p>Featuring {projects && `(${projects.length})`} programs, applications, and development projects I have worked on</p>
       </Stack>
 
       {

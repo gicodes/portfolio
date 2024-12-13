@@ -69,9 +69,9 @@ const Contact = () => {
     <Box p={2}>
       {alert && <ShowAlert text={alert.text} variant={alert.variant} />}
       
-      <Stack className="text-center text-gray">
+      <Stack p={1} className="text-center text-gray">
         <h2>Let's Connect</h2>
-        <p> Leave your contact information so I can reach out or send me an instant message</p>
+        <p> Leave your contact information so I can reach out, Or ping me via a dynamic mailing service</p>
       </Stack>
       <Grid2 
         gap={2}

@@ -71,7 +71,7 @@ const Contact = () => {
       
       <Stack p={1} className="text-center text-gray">
         <h2>Let's Connect</h2>
-        <p> Leave your contact information so I can reach out, Or ping me via a dynamic mailing service</p>
+        <p>Leave your contact information so I can reach you, Or ping me via a dynamic mailing form</p>
       </Stack>
       <Grid2 
         gap={2}

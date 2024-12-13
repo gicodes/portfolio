@@ -1,7 +1,7 @@
 import { CloseSharp, DarkModeSharp, LightModeSharp } from '@mui/icons-material';
 import { Box, Stack, Drawer, IconButton, Grid2 } from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import VertIcon from '@mui/icons-material/MoreVert';
+import MenuIcon from '@mui/icons-material/Menu';
 import { navLinks } from './nav-links';
 import { useState } from 'react';
 
@@ -34,7 +34,7 @@ const Header: React.FC<NavBarProps> = ({
               color="inherit"
               onClick={handleOpen}
             > 
-              <VertIcon />
+              <MenuIcon fontSize='large' />
             </IconButton>
 
             <Drawer 

@@ -29,7 +29,9 @@ export default function ClientLayout({
       <header className={styles.header}>
         <Header toggleTheme={toggleTheme} theme={theme} />
       </header>
-      {children}
+      <main className={styles.main}>
+        {children}
+      </main>
       <footer className={styles.footer}>
         <Footer />
       </footer>

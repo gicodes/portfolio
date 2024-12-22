@@ -21,14 +21,17 @@ const Header: React.FC<NavBarProps> = ({
   const handleOpen = () => setOpen(true);
 
   return (
-    <nav className='w-100'>
+    <nav>
       <Box
-        p={2}
+        py={2}
+        zIndex={1000}
         display={'flex'}
+        position={'sticky'}
+        px={{ xs: 2, sm: 3, lg: 6 }}
         justifyContent={'space-between'}
       >
         { smallScreen ? ( // mobile view
-          <Box position={'static'}>
+          <Box px={2}>
             <IconButton
               edge="start"
               color="inherit"

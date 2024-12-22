@@ -63,7 +63,7 @@ export const GetToKnowMe = () => {
         my: 2,
         w: '100%',
         minWidth: 'fit-content',
-        px: { xs: 3, sm: 4, lg: 5 },
+        px: { xs: 3, sm: 4, lg: 0 },
         pt: { xs: 1, sm: 3, lg: 2 },
         pb: { xs: 1, sm: 2, lg: 3 },
         height: { xs: '432px', sm: '369px', lg: '345px' },

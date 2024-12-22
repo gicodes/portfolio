@@ -5,7 +5,7 @@ export const msco = <>
   <p>&#x2014; Software as a Service: Database, web app management </p>
   <p>&#x2014; Building full-stack applications from scratch with M.E.R.N </p>
   <p>&#x2014; Designing REST APIs, data structure for backend services </p>
-  <p>&#x2014; Integrating new libraries and events for frontend apps </p>
+  <p>&#x2014; Integrating new libraries and features for frontend apps </p>
   <p>&#x2014; Managing Domains, Web infrastructure & Microservices </p>
   <p>&#x2014; Deploying apps to the Web, Cloud, Apple & Google playstores </p>
 </>

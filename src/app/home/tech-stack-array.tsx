@@ -20,8 +20,8 @@ export const fut = <>
   <p>&#x2014; Typescript: Write clean, robust code that is easily maintainable and scalable</p>
   <p>&#x2014; Flutter: Build cross-platform (iOS & android) apps with Dart, and deploy to app stores</p>
   <p>&#x2014; Material UI: Style apps with in-built plugin support </p>
-  <p>&#x2014; Docker: Manage larger apps in containerized environements, efficiently test, deploy & iterate software </p>
   <p>&#x2014; Github: Version control, manage codebase and collaborate on projects </p>
+  <p>&#x2014; Docker: Manage larger apps in containerized environements. Test, deploy & iterate software </p>
 </>
 
 // fun facts about me

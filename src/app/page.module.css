@@ -3,11 +3,11 @@
   left: 0;
   right: 0;
   width: 100%;
-  height: 75px;
   margin: auto;
   z-index: 1000;
   position: fixed; 
   font-weight: 401;
+  background-color: var(--background);
 }
 
 .main {

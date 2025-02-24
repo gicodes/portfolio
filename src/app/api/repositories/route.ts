@@ -12,14 +12,15 @@ export async function GET() {
     const projects = [
       // These repositories have been pre-authorized. Please avoid making changes without permission
       { name: "afro-fashion" },
-      { name: "attribution.js" },
-      { name: "dashboardJs" },
-      { name: "mechtatel" }, 
-      { name: "starforge" },
       { name: "app.text.js" },
-      { name: "global-prompt" },
-      { name: "scan-a-barcode" },
+      { name: "attribution.js" },
       { name: "barcode-scanner-app" },
+      { name: "dashboardJs" },
+      { name: "global-prompt" },
+      { name: "mechtatel" }, 
+      { name: "pheonix-med"},
+      { name: "starforge" },
+      { name: "scan-a-barcode" },
     ];
 
     const formatDate = (dateString: string): string => {

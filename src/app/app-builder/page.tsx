@@ -61,10 +61,10 @@ const Page = () => {
       { optionButtons && 
         <Box my={6}>
           <ButtonGroup>
-            <Button href='/app-builder/web' variant='contained' color='primary'>
+            <Button href='/app-builder/web' variant='contained' color='success'>
               Web Application
             </Button>
-            <Button href='/app-builder/mobile' color='secondary'>
+            <Button href='/app-builder/mobile' variant='contained' color='secondary'>
               Mobile Application
             </Button>
           </ButtonGroup>

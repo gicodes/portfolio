@@ -11,7 +11,10 @@ const Page = () => {
 
   const handleMobileAppCheckout = () => {
     setAlert({ variant: 'info', text: 'Currently working on a mobile project. Kindly schedule for later by mailing me' });
-    router.push('/contact#email-me');
+    setTimeout(() => {
+      router.push('/contact#email-me');
+      setAlert(null);
+    }, 10000);
   }
 
   return (

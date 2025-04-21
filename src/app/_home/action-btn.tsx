@@ -9,12 +9,12 @@ const ActionButton = () => {
     >
       <Button 
         variant='contained'
-        className='b' 
+        href='/contact' 
         sx={{ 
           width: {xs: '100%', sm: '100%', lg: '25%'},
         }}
       > 
-        <a href='/contact'>Hire Me</a> 
+        Hire Me
       </Button> 
     </Box>          
   )

@@ -1,10 +1,19 @@
+import { title } from "process";
+
 export const projects = [
+  {
+    title: 'Ukan29',
+    name: 'ukanwears',
+    description: 'Ukan Wears is an international clothing brand with top-notch styles and services. \n Ukan29 is built on Next with React and Typescript to deliver a beautiful user-experience \n This app is bootstrapped with MUI, Flutterwave v3 and Paystack for worldwide payment solution. \n',
+    source: 'https://github.com/gicodes/ukanwears',
+    link: 'https://ukanwears.com',
+  },
   {
     title: 'Pheonix Medicals',
     name: 'pheonix-med',
     description: 'Bringing tech to the medical field with this super-modern web app. Pheonix-med runs a NextJS client that handles 3 user access-levels and allows CRUD functions for medical professionals, with a NodeJS + PostgresSQL backend on Docker-- making it a complete full-stack app.  \n ',
     source: 'https://github.com/gicodes/pheonix-med',
-    link: 'https://pheonix-med.vercel.app'
+    link: 'https://pheonixmed.netlify.app'
   },
   {
     title: 'Afro Fashion',
@@ -13,13 +22,13 @@ export const projects = [
     source: 'https://github.com/gicodes/afro-fashion',
     link: 'https://afrofashionng.netlify.app', 
   },
-  // {
-  //   title: 'Attribution Js',
-  //   name: 'attribution.js',
-  //   description: 'Express-based API designed to track user interaction on e-commerce products. \n Attribution Reporting provisions a reliable backend service that Developers and Analytical Engineers can use to optimize performance, sales campaign effectiveness and manage Ads with reported metrics and metadata.. \n ',
-  //   source: 'https://github.com/gicodes/attribution.js',
-  //   link: 'https://tourcan.vercel.app' // showing tourcan website here signifies attirbution can be connected to any client application
-  // },
+  {
+    title: 'Attribution Js',
+    name: 'attribution.js',
+    description: 'Express-based API designed to track user interaction on e-commerce products. \n Attribution Reporting provisions a reliable backend service that Developers and Analytical Engineers can use to optimize performance, sales campaign effectiveness and manage Ads with reported metrics and metadata.. \n ',
+    source: 'https://github.com/gicodes/attribution.js',
+    link: 'https://tourcan.vercel.app' // showing tourcan website here signifies attirbution can be connected to any client application
+  },
   {
     title: 'Dashboard Beta',
     name: 'dashboardJs',

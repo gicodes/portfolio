@@ -1,15 +1,19 @@
 'use client';
 
-import { ArrowBackIosNewSharp, ArrowForwardIos } from '@mui/icons-material';
 import { Box, Button, ButtonGroup, Card, Typography } from '@mui/material';
+import { ArrowBackIosNewSharp } from '@mui/icons-material';
+import TouchAppIcon from '@mui/icons-material/TouchApp';
 import React, { useState } from 'react';
+
+const Back = () => {
+  return (
+    <Button color='inherit'> <ArrowBackIosNewSharp fontSize='small'/> &nbsp; Back </Button>
+  )
+}
 
 const Page = () => {
   const [optionButtons, setOptionButtons] = useState(false);
-
   const handleOptionButtons = () => setOptionButtons(!optionButtons);
-  const Continue = <> Continue &nbsp; <ArrowForwardIos fontSize='small'/> </>
-  const back = <> <ArrowBackIosNewSharp fontSize='small'/> &nbsp; Back </>
 
   return (
     <Box my={2} textAlign={'center'} width={'100%'}>
@@ -32,10 +36,10 @@ const Page = () => {
 
           <Card 
             sx={{ 
-              width: {xs: '80%', sm: '50%'},
+              width: {xs: '85%', sm: '50.5%'},
               p: {xs: 2, sm: 4},
               left: '50%', 
-              top: '20%', 
+              top: '25%', 
               position: 'absolute', 
               transform: 'translate(-50%, -50%)',
             }}
@@ -43,9 +47,35 @@ const Page = () => {
             <Typography sx={{ typography: { xs: 'h3', sm: 'h2', md: 'h1' }, fontWeight: { xs: 501, sm: 501, md: 555} }}>
               Build your Next App
             </Typography>
-            <Typography variant={'h6'} mt={2}>
-              With <Typography variant='caption' fontSize={22} color='warning.main'>Technology Stack</Typography> that complement your <Typography variant='caption' fontSize={22} color='error.main'>project</Typography>
-            </Typography>
+            <Box my={2}>
+              <Typography variant={'h6'} display={'inline'} fontWeight={400}> From Scratch・</Typography>
+              <Typography variant='h6' display={'inline'} color='error.main' fontWeight={200}>With the right tools and technology・</Typography>
+              <Typography variant={'h6'}  display={'inline'} fontWeight={400}> Lead the Project </Typography>
+            </Box>
+
+            <Box display={'flex'} alignItems={'center'}>
+              <Button
+                variant='text' 
+                onClick={handleOptionButtons} 
+                sx={{ 
+                  py: 2,
+                  px: { xs: 1, sm: 2 },
+                  width: '100%', 
+                  bgcolor: 'whitesmoke',
+                  textTransform: 'none', 
+                  justifyContent: 'space-between', 
+                  '&:hover': {
+                    bgcolor: 'wheat',
+                    boxShadow: '0px 0px 10px rgba(0,0,0,0.1)',
+                  },
+                }} 
+                color='inherit'>
+                <Typography variant={'caption'} fontWeight={400} color='textSecondary'>
+                  Beautiful and customizable UI and interactions
+                </Typography>
+                <TouchAppIcon sx={{ cursor: 'pointer'}} />
+              </Button>
+            </Box>
           </Card>
 
           <Box sx={{ bgcolor: 'rgba(255,255,255, 0.5)'}} py={2} px={1}>
@@ -54,12 +84,13 @@ const Page = () => {
             </Typography>
           </Box>
         </Box>
-      }
-
-      <Button onClick={handleOptionButtons}> {optionButtons ?  back : Continue} </Button>
-
+      } {/* Intentionally handling conditionals unconventionally */}
       { optionButtons && 
         <Box my={6}>
+          <Box my={10} onClick={handleOptionButtons}><Back /> </Box>
+          <Typography variant='body1' mb={5}>
+            Choose your Application Type
+          </Typography>
           <ButtonGroup>
             <Button href='/app-builder/web' variant='contained' color='success'>
               Web Application

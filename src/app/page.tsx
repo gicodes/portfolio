@@ -1,8 +1,8 @@
 "use client"
 
-import { Overview } from './home/overview';
-import ActionButton from './home/action-btn';
-import { TechStack } from './home/tech-stack';
+import { Overview } from './_home/overview';
+import ActionButton from './_home/action-btn';
+import { TechStack } from './_home/tech-stack';
 
 export default function Home() { 
   return (

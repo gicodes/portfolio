@@ -1,8 +1,8 @@
 "use client"
 
 import { LeaveContactInfo, SendInstantEmail } from './forms';
+import ShowAlert, { AlertProps } from '../_alerts/alert';
 import { Box, Grid2, Stack } from '@mui/material';
-import ShowAlert, { AlertProps } from './alert';
 import { useState, useEffect } from 'react';
 
 const Contact = () => {

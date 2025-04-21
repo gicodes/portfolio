@@ -29,7 +29,7 @@ const Footer = () => {
         </Grid2>
 
         <p className="text-gray footer-outro">
-          &copy; 2022 - 2024. GiCodes<span className='float-top'>&#174;</span> Global Ent.
+          &copy; 2022 - 2025. GiCodes<span className='float-top'>&#174;</span> Global Ent.
         </p>
       </Box>   
     </footer>       

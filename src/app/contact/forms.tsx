@@ -111,58 +111,60 @@ interface SendInstantEmailProps {
 
 export const SendInstantEmail = ({ handleSendEmail }: SendInstantEmailProps) => {
   return (
-    <Card 
-      elevation={4} 
-      sx={{ p: 2, mt: 3, width: {lg: '100%'} }}
-    >
-      <form onSubmit={handleSendEmail}>
-        <div className='text-center'>
-          <h4> Construct an e-mail <i className='text-warning'>* </i><span className='text-gray'>(Optional)</span></h4>
-          <span className='fs-sm text-gray'>Want to send me a quick message?</span>
-        </div>
-        <br/>
+    <section id='email-me' className='w-100'>
+      <Card 
+        elevation={4} 
+        sx={{ p: 2, mt: 3, width: {lg: '100%'} }}
+      >
+        <form onSubmit={handleSendEmail}>
+          <div className='text-center'>
+            <h4> Construct an e-mail <i className='text-warning'>* </i><span className='text-gray'>(Optional)</span></h4>
+            <span className='fs-sm text-gray'>Want to send me a quick message?</span>
+          </div>
+          <br/>
 
-        <Box mb={3}>
-          <TextField
-            name="subject"
-            label="Subject"
-            variant="outlined"
-            fullWidth required
-          />
-        </Box>
+          <Box mb={3}>
+            <TextField
+              name="subject"
+              label="Subject"
+              variant="outlined"
+              fullWidth required
+            />
+          </Box>
 
-        <Box mb={3}>
-          <TextField
-            multiline
-            rows={4}
-            name="body"
-            label="Body"
-            variant="outlined"
-            fullWidth required
-          />
-        </Box>
+          <Box mb={3}>
+            <TextField
+              multiline
+              rows={4}
+              name="body"
+              label="Body"
+              variant="outlined"
+              fullWidth required
+            />
+          </Box>
 
-        <Box mb={3}>
-          <TextField
-            name="recipientEmail"
-            label="Your Email"
-            variant="outlined"
-            type="email"
-            fullWidth required
-          />
-        </Box>
+          <Box mb={3}>
+            <TextField
+              name="recipientEmail"
+              label="Your Email"
+              variant="outlined"
+              type="email"
+              fullWidth required
+            />
+          </Box>
 
-        <Box textAlign="center">
-          <Button 
-            type="submit" 
-            variant="contained" 
-            color="primary" 
-            size="large"
-          >
-            Send Email
-          </Button>
-        </Box>
-      </form>
-    </Card>
+          <Box textAlign="center">
+            <Button 
+              type="submit" 
+              variant="contained" 
+              color="primary" 
+              size="large"
+            >
+              Send Email
+            </Button>
+          </Box>
+        </form>
+      </Card>
+    </section>
   )
 }

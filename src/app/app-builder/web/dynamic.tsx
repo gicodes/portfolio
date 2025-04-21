@@ -1,4 +1,4 @@
-import { ServiceOption } from "./page";
+import { ServiceOption } from "./services";
 import {
   Box,
   Checkbox,

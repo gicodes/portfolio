@@ -9,7 +9,7 @@ const ActionButton = () => {
     >
       <Button 
         variant='contained'
-        href='/contact' 
+        href='/connect' 
         sx={{ 
           width: {xs: '100%', sm: '100%', lg: '25%'},
         }}

@@ -10,11 +10,11 @@ const Page = () => {
   const router = useRouter();
 
   const handleMobileAppCheckout = () => {
-    setAlert({ variant: 'info', text: 'Currently working on a mobile project. Kindly schedule for later by mailing me' });
+    setAlert({ variant: 'info', text: "Oops, I'm currently working on a project. Kindly schedule for later by mail or whatsapp." });
     setTimeout(() => {
-      router.push('/contact#email-me');
+      router.push('/connect#email-me');
       setAlert(null);
-    }, 10000);
+    }, 7500);
   }
 
   return (
@@ -35,7 +35,7 @@ const Page = () => {
       >
       <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1, mb: 2 }}>
         <FormLabel component="legend">Select Platform</FormLabel>
-        <Typography variant="caption" mb={1} color="textSecondary">ECO: Dart | React</Typography>
+        <Typography variant="caption" mb={1} color="textSecondary">💼{" "} Dart, Flutter | JS, React Native</Typography>
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
             <input
               type="radio"

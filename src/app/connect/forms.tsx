@@ -5,7 +5,8 @@ import {
   Checkbox, 
   TextField, 
   FormGroup, 
-  FormControlLabel, 
+  FormControlLabel,
+  Typography, 
 } from '@mui/material';
 import { FormEventHandler } from "react";
 
@@ -24,8 +25,12 @@ export const LeaveContactInfo = ({ handleSubmit }: LeaveContactInfoProps
         width: {lg: '100%'} 
       }}
     >
+      <Box my={2} className='text-center'>
+        <Typography variant='h6'> Register a Prospective Project </Typography >
+        <Typography variant='caption' color='textSecondary'>Have we met? Tell me something I should know</Typography>
+      </Box>
       <form onSubmit={handleSubmit}>
-        <Box mb={3}>
+        <Box mb={1}>
           <TextField
             name="name"
             label="Your Name"
@@ -34,25 +39,16 @@ export const LeaveContactInfo = ({ handleSubmit }: LeaveContactInfoProps
           />
         </Box>
 
-        <Box mb={3}>
-          <TextField
-            name="country"
-            label="Country"
-            variant="outlined"
-            fullWidth required
-          />
-        </Box>
-
-        <Box mb={3}>
+        <Box mb={1}>
           <TextField
             name="phone"
-            label="Phone Number"
+            label="Phone (Whatsapp)"
             variant="outlined"
             fullWidth required
           />
         </Box>
 
-        <Box mb={3}>
+        <Box mb={1}>
           <TextField
             name="email"
             label="Email Address"
@@ -62,12 +58,12 @@ export const LeaveContactInfo = ({ handleSubmit }: LeaveContactInfoProps
           />
         </Box>
 
-        <Box mb={2}>
+        <Box my={3}>
           <Box 
             mx={{ lg: 1}}
             px={1}
           >
-            <p> What service(s) are you hiring for?</p>
+            <Typography mb={1} variant='body1' color='textSecondary'> What is this project about?</Typography>
             <FormGroup row>
               <FormControlLabel
                 control={<Checkbox name="services" value="Website" />}
@@ -117,13 +113,12 @@ export const SendInstantEmail = ({ handleSendEmail }: SendInstantEmailProps) => 
         sx={{ p: 2, mt: 3, width: {lg: '100%'} }}
       >
         <form onSubmit={handleSendEmail}>
-          <div className='text-center'>
-            <h4> Construct an e-mail <i className='text-warning'>* </i><span className='text-gray'>(Optional)</span></h4>
-            <span className='fs-sm text-gray'>Want to send me a quick message?</span>
-          </div>
-          <br/>
+          <Box my={2} className='text-center'>
+            <Typography variant='h6'> Send Instant E-mail </Typography >
+            <Typography variant='caption' color='textSecondary'>You can send detailed information on what you want</Typography>
+          </Box>
 
-          <Box mb={3}>
+          <Box mb={1}>
             <TextField
               name="subject"
               label="Subject"
@@ -132,10 +127,10 @@ export const SendInstantEmail = ({ handleSendEmail }: SendInstantEmailProps) => 
             />
           </Box>
 
-          <Box mb={3}>
+          <Box mb={1}>
             <TextField
               multiline
-              rows={4}
+              rows={6}
               name="body"
               label="Body"
               variant="outlined"
@@ -143,7 +138,7 @@ export const SendInstantEmail = ({ handleSendEmail }: SendInstantEmailProps) => 
             />
           </Box>
 
-          <Box mb={3}>
+          <Box mb={1}>
             <TextField
               name="recipientEmail"
               label="Your Email"

@@ -4,15 +4,15 @@ export const navLinks = [
     href: '/'
   }, 
   {
-    name: 'Repositories',
-    href: '/repositories'
-  }, 
-  {
     name: 'Build an App',
     href: '/app-builder'
   },
   {
-    name: 'Contact',
-    href: '/contact'
+    name: 'Repositories',
+    href: '/repositories'
+  }, 
+  {
+    name: 'Connect',
+    href: '/connect'
   },
 ]

@@ -1,15 +1,10 @@
 'use client';
 
 import { Box, Button, ButtonGroup, Card, Typography } from '@mui/material';
-import { ArrowBackIosNewSharp } from '@mui/icons-material';
-import TouchAppIcon from '@mui/icons-material/TouchApp';
+import { ArrowBackIosNewSharp, TouchApp } from '@mui/icons-material';
 import React, { useState } from 'react';
 
-const Back = () => {
-  return (
-    <Button color='inherit'> <ArrowBackIosNewSharp fontSize='small'/> &nbsp; Back </Button>
-  )
-}
+const Back = () => <Button color='inherit'> <ArrowBackIosNewSharp fontSize='small'/> &nbsp; Back </Button>
 
 const Page = () => {
   const [optionButtons, setOptionButtons] = useState(false);
@@ -38,9 +33,8 @@ const Page = () => {
             sx={{ 
               width: {xs: '85%', sm: '50.5%'},
               p: {xs: 2, sm: 4},
-              left: '50%', 
-              top: '25%', 
               position: 'absolute', 
+              left: '50%', top: '25%', 
               transform: 'translate(-50%, -50%)',
             }}
           >
@@ -50,16 +44,15 @@ const Page = () => {
             <Box my={2}>
               <Typography variant={'h6'} display={'inline'} fontWeight={400}> From Scratch・</Typography>
               <Typography variant='h6' display={'inline'} color='error.main' fontWeight={200}>With the right tools and technology・</Typography>
-              <Typography variant={'h6'}  display={'inline'} fontWeight={400}> Lead the Project </Typography>
+              <Typography variant={'h6'}  display={'inline'} fontWeight={400}>Lead the Project </Typography>
             </Box>
 
             <Box display={'flex'} alignItems={'center'}>
               <Button
-                variant='text' 
                 onClick={handleOptionButtons} 
                 sx={{ 
                   py: 2,
-                  px: { xs: 1, sm: 2 },
+                  px: { xs: 1.2, sm: 2, md: 3 },
                   width: '100%', 
                   bgcolor: 'whitesmoke',
                   textTransform: 'none', 
@@ -69,11 +62,12 @@ const Page = () => {
                     boxShadow: '0px 0px 10px rgba(0,0,0,0.1)',
                   },
                 }} 
-                color='inherit'>
+                color='inherit'
+              >
                 <Typography variant={'caption'} fontWeight={400} color='textSecondary'>
-                  Beautiful and customizable UI and interactions
+                  Sounds about right..  Let's get started!
                 </Typography>
-                <TouchAppIcon sx={{ cursor: 'pointer'}} />
+                <TouchApp sx={{ cursor: 'pointer'}} />
               </Button>
             </Box>
           </Card>
@@ -87,10 +81,9 @@ const Page = () => {
       } {/* Intentionally handling conditionals unconventionally */}
       { optionButtons && 
         <Box my={6}>
-          <Box my={10} onClick={handleOptionButtons}><Back /> </Box>
-          <Typography variant='body1' mb={5}>
-            Choose your Application Type
-          </Typography>
+          <Box my={10} onClick={handleOptionButtons}><Back /></Box>
+
+          <Typography variant='body1' mb={5}> Choose Application Type </Typography>
           <ButtonGroup>
             <Button href='/app-builder/web' variant='contained' color='success'>
               Web Application

@@ -18,6 +18,7 @@ export async function GET() {
       { name: "dashboardJs" },
       { name: "global-prompt" },
       { name: "mechtatel" }, 
+      { name: "ukanwears" },
       { name: "pheonix-med"},
       { name: "starforge" },
       { name: "scan-a-barcode" },

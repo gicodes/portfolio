@@ -9,7 +9,7 @@ export const projects = [
     link: 'https://ukanwears.com',
   },
   {
-    title: 'Pheonix Medicals',
+    title: 'Phoenix Medicals',
     name: 'pheonix-med',
     description: 'Bringing tech to the medical field with this super-modern web app. Pheonix-med runs a NextJS client that handles 3 user access-levels and allows CRUD functions for medical professionals, with a NodeJS + PostgresSQL backend on Docker-- making it a complete full-stack app.  \n ',
     source: 'https://github.com/gicodes/pheonix-med',

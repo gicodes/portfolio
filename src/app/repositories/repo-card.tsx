@@ -121,8 +121,12 @@ export const RepoCard = (project: ProjectProps) => {
         display={'grid'}
         justifyContent={{ xs: 'center', sm: 'center', lg: 'flex-end'}}
       >
-        <Button variant="contained">
-          <a href={project.source}> Visit Codebase</a>
+        <Button 
+          variant="contained"
+          color="inherit"
+          href={project.source}
+        >
+          Visit Codebase
         </Button>
       </Box>
     </Card>

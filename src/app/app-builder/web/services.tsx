@@ -42,7 +42,7 @@ interface ProjectTypeSelectorProps {
 export const ProjectTypeSelector: React.FC<ProjectTypeSelectorProps> = ({ projectType, dispatch }) => (
   <Box sx={{ my: 2, p: { xs: 2, sm: 3 }, bgcolor: 'whitesmoke' }} /* Base Setup */>
     <FormControl component="fieldset">
-      <FormLabel component="legend">Type of web project</FormLabel>
+      <Typography variant="subtitle1">Type of web project</Typography>
       <Typography variant="caption" my={1} color="textSecondary">
         💼 &nbsp;Typescript, Next, React, Express & NodeJs
       </Typography>

@@ -1,4 +1,4 @@
-import { Box, Button } from '@mui/material';
+import { Box, Button, Typography } from '@mui/material';
 
 const ActionButton = () => {
   return (
@@ -11,10 +11,11 @@ const ActionButton = () => {
         variant='contained'
         href='/connect' 
         sx={{ 
+          bgcolor: 'darkslategrey',
           width: {xs: '100%', sm: '100%', lg: '25%'},
         }}
       > 
-        Hire Me
+        <Typography>Hire Me</Typography>
       </Button> 
     </Box>          
   )

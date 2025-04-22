@@ -33,7 +33,7 @@ export const LeaveContactInfo = ({ handleSubmit }: LeaveContactInfoProps
         <Box mb={1}>
           <TextField
             name="name"
-            label="Your Name"
+            label="Preferred Name"
             variant="outlined"
             fullWidth required
           />
@@ -89,7 +89,7 @@ export const LeaveContactInfo = ({ handleSubmit }: LeaveContactInfoProps
           <Button 
             type="submit" 
             variant="contained" 
-            color="primary" 
+            color="inherit" 
             size="large"
           >
             Save Information
@@ -100,7 +100,6 @@ export const LeaveContactInfo = ({ handleSubmit }: LeaveContactInfoProps
   );
 }
 
-// instant email section
 interface SendInstantEmailProps {
   handleSendEmail: FormEventHandler<HTMLFormElement>;
 }
@@ -152,7 +151,7 @@ export const SendInstantEmail = ({ handleSendEmail }: SendInstantEmailProps) => 
             <Button 
               type="submit" 
               variant="contained" 
-              color="primary" 
+              color="inherit" 
               size="large"
             >
               Send Email

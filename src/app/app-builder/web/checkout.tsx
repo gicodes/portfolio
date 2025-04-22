@@ -17,14 +17,20 @@ const CheckoutSection = (
     <Box display="grid">
       {!checkout && (
         <Box display="flex" justifyContent="flex-end">
-          <Button variant="contained" onClick={() => setCheckout(true)}>Checkout</Button>
+          <Button 
+            variant="contained" 
+            onClick={() => setCheckout(true)}
+            sx={{ bgcolor: 'darkslategray'}}
+          >
+            Checkout
+          </Button>
         </Box>
       )}
-      {checkout && (
+      { checkout && (
         <Box display="flex" justifyContent="flex-end">
           <ButtonGroup>
-            <Button color="warning" variant="contained" onClick={() => handleCheckout('email')}>Pay Now</Button>
-            <Button color="success" variant="contained" onClick={() => handleCheckout('whatsapp')}>WhatsApp</Button>
+            <Button color="success" variant="contained" onClick={() => handleCheckout('email')}>Pay Now</Button>
+            <Button sx={{ bgcolor: 'darkseagreen'}} variant="contained" onClick={() => handleCheckout('whatsapp')}>WhatsApp</Button>
           </ButtonGroup>
         </Box>
       )}

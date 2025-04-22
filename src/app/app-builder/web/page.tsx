@@ -22,9 +22,9 @@ const Page: React.FC = () => {
     <Paper sx={{ p: 4, maxWidth: 800, mx: 'auto' }} elevation={3}>
       {state.alert && <ShowAlert {...state.alert} />}
 
-      <Typography variant="h6">Project Builder</Typography>
+      <Typography variant="h6">App Builder</Typography>
       <Typography variant="caption" display="block" gutterBottom>
-        Select your desired app features and see estimated pricing
+        Select your desired services and see estimated pricings
       </Typography>
 
       <ProjectTypeSelector projectType={state.projectType} dispatch={dispatch} />

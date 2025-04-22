@@ -24,6 +24,7 @@ const Page = () => {
               backgroundImage: 'url(/builder2.avif)',
               backgroundPosition: 'center',
               backgroundSize: 'cover',
+              loading: 'lazy',
               height: '100vh',
               width: '100%',
             }}
@@ -39,7 +40,7 @@ const Page = () => {
             }}
           >
             <Typography sx={{ typography: { xs: 'h3', sm: 'h2', md: 'h1' }, fontWeight: { xs: 501, sm: 501, md: 555} }}>
-              Build your Next App
+              Build Your Next App
             </Typography>
             <Box my={2}>
               <Typography variant={'h6'} display={'inline'} fontWeight={400}> From Scratch・</Typography>
@@ -48,8 +49,7 @@ const Page = () => {
             </Box>
 
             <Box display={'flex'} alignItems={'center'}>
-              <Button
-                onClick={handleOptionButtons} 
+              <Button onClick={handleOptionButtons} 
                 sx={{ 
                   py: 2,
                   px: { xs: 1.2, sm: 2, md: 3 },
@@ -74,7 +74,7 @@ const Page = () => {
 
           <Box sx={{ bgcolor: 'rgba(255,255,255, 0.5)'}} py={2} px={1}>
             <Typography variant='caption'>
-              Choose from a variety of standard, re-usable features and services to customize your app and get a good structure of a real-world project without worrying about budget or time.
+              Choose from a variety of standard, re-usable features and services to customize your app and get a good structure of a finished project with budget friendly setup.
             </Typography>
           </Box>
         </Box>
@@ -85,10 +85,10 @@ const Page = () => {
 
           <Typography variant='body1' mb={5}> Choose Application Type </Typography>
           <ButtonGroup>
-            <Button href='/app-builder/web' variant='contained' color='success'>
+            <Button sx={{ p: 1.5}} href='/app-builder/web' variant='contained' color='success'>
               Web Application
             </Button>
-            <Button href='/app-builder/mobile' variant='contained' color='secondary'>
+            <Button sx={{ p: 1.5}} href='/app-builder/mobile' variant='contained' color='secondary'>
               Mobile Application
             </Button>
           </ButtonGroup>

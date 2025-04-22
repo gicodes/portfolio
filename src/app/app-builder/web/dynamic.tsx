@@ -46,7 +46,7 @@ export const DynamicOptions = ({
 
   return (
     <Box width="100%" /* Base Setup */>
-      <Box sx={{ my: 2, p: { xs: 2, sm: 3 }, bgcolor: 'rgba(0,0,0,0.25)' }}>
+      <Box sx={{ my: 2, p: { xs: 2, sm: 3 }, bgcolor: 'rgba(0,0,0,0.2)' }}>
         <FormControl component="fieldset">
           <FormLabel component="legend">Dynamic (Web) App</FormLabel>
           <RadioGroup row
@@ -76,7 +76,7 @@ export const DynamicOptions = ({
             checked={include.backend}
             onChange={() => dispatch({ type: 'TOGGLE_INCLUDE', payload: 'backend' })}
             label="Backend & APIs"
-            description={`API Setup — $200, Hosting (Basic Tier) — ${dynamicType === 'serverless' ? '$150' : '$300'}`}
+            description={`API Setup— $200, Hosting (Basic Tier)— ${dynamicType === 'serverless' ? '$150' : '$300'}`}
             price={dynamicType === 'serverless' ? 350 : 500}
           />
 
@@ -127,7 +127,7 @@ export const DynamicOptions = ({
               <Typography my={2} variant="subtitle2" color="textSecondary">
                 Backend Add‑ons
               </Typography>
-              <Box mb={2}>
+              <Box my={2}>
                 <TextField
                   label="API routes"
                   type="number"
@@ -195,7 +195,7 @@ export const DynamicOptions = ({
               <Typography variant="subtitle2" color="textSecondary">
                 Frontend Add‑ons
               </Typography>
-              <Box mb={2}>
+              <Box my={2}>
                 <TextField
                   label="Pages"
                   type="number"
@@ -230,7 +230,7 @@ export const DynamicOptions = ({
 
               <FormControlLabel
                 control={<Switch />}
-                label={<span>Feedback form ($25 each, 1 free)</span>}
+                label={<Typography variant="body2">Feedback form (1 free)<span className="text-success">$25</span></Typography>}
               />
 
               <Box display="flex" justifyContent="space-between" mt={2}>
@@ -247,7 +247,7 @@ export const DynamicOptions = ({
                     <Stack>
                       <Typography>Performance Providers</Typography>
                       <Typography variant="caption">
-                        Alert, Loader, User, Search
+                        Alert, Loader, User, Product, Search
                       </Typography>
                     </Stack>
                   }
@@ -259,7 +259,7 @@ export const DynamicOptions = ({
                 Third‑party integrations <span className="text-success">$50</span>
               </Typography>
               <Typography variant="caption" color="textSecondary">
-                Auto‑responder, Google Analytics, Pop‑ups
+                Auto‑responder, Google Analytics, Pop‑ups, etc
               </Typography>
             </Box>
           )}

@@ -25,14 +25,14 @@ export const projects = [
   {
     title: 'Afro Fashion',
     name: 'afro-fashion',
-    description: 'E-commerce platform that connects sellers to buyers and handles payments.\n Afrofashion is built on FERN stack with React, Express and NodeJs tightly coupled to deliver a beautiful user-experience \n This app is bootstrapped with Custom SCSS, Flutterwave v3 and Google services for handling user data and authentication. \n',
+    description: 'E-commerce platform that connects sellers to buyers and handles payments.\n Afrofashion is built on FERN stack with React, Express and NodeJs tightly coupled to deliver a beautiful user-experience \n This app is bootstrapped with custom SCSS, flutterwave and firebase, google auth for user and role-based functions. \n',
     source: 'https://github.com/gicodes/afro-fashion',
     link: 'https://afrofashionng.netlify.app', 
   },
   {
     title: 'Dashboard Beta',
     name: 'dashboardJs',
-    description: 'NextJs app as prototype and template to reference a clean, responsive dashboard interface.\n DashboardJs is built with React + Typescript on Next 15, and is bootstrapped with Material UI, Tailwind and a custom SCSS configuration. \n Runs a serverless API responsible for user action embedded in-app. \n',
+    description: 'NextJs app as prototype and template to sample a clean, responsive dashboard interface.\n DashboardJs is built with React + Typescript on Next v15, and is bootstrapped with Material UI, Tailwind and a custom SCSS configuration. \n Runs a serverless API responsible for user action embedded in-app. \n',
     source: 'https://github.com/gicodes/dashboardJs',
     link: 'https://dashboardjs-beta.vercel.app',
   },

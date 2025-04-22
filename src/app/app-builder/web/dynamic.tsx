@@ -246,7 +246,7 @@ export const DynamicOptions = ({
                     <Stack>
                       <Typography>Performance Providers</Typography>
                       <Typography variant="caption">
-                        Alert, Loader, User, Product, Search
+                        Alert, Loading, User, Product, Search
                       </Typography>
                     </Stack>
                   }

@@ -10,7 +10,7 @@ const Page = () => {
   const router = useRouter();
 
   const handleMobileAppCheckout = () => {
-    setAlert({ variant: 'info', text: "Oops, I'm currently working on a project. Kindly schedule for later by mail or whatsapp." });
+    setAlert({ variant: 'info', text: "Oops, I'm currently working on a project. Kindly schedule for later or mail me" });
     setTimeout(() => {
       router.push('/connect#email-me');
       setAlert(null);

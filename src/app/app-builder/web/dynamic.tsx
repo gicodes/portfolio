@@ -1,21 +1,9 @@
-import { ServiceOption } from "./services";
-import {
-  Box,
-  Checkbox,
-  Typography,
-  FormControl,
-  FormLabel,
-  RadioGroup,
-  FormControlLabel,
-  Radio,
-  TextField,
-  Switch,
-  Stack,
-} from "@mui/material";
 import React from "react";
 import { Action } from "./builder-state";
+import { ServiceOption } from "./services";
+import { Box, Checkbox, Typography, FormControl, FormLabel, RadioGroup, FormControlLabel, Radio, TextField, Switch, Stack } from "@mui/material";
 
-interface State {
+interface State { 
   dynamicType: string;
   dynamicPages: number;
   include: {
@@ -46,16 +34,22 @@ export const DynamicOptions = ({
 
   return (
     <Box width="100%" /* Base Setup */>
-      <Box sx={{ my: 2, p: { xs: 2, sm: 3 }, bgcolor: 'rgba(0,0,0,0.2)' }}>
+      <Box sx={{ my: 2, p: { xs: 2, sm: 3 }, bgcolor: 'rgba(0,0,0,0.1)' }}>
         <FormControl component="fieldset">
-          <FormLabel component="legend">Dynamic (Web) App</FormLabel>
-          <RadioGroup row
-            value={dynamicType}
-            onChange={e => dispatch({ type: 'SET_DYNAMIC_TYPE', payload: e.target.value as 'serverless' | 'server' })}
-          >
-            <FormControlLabel value="serverless" control={<Radio />} label={<span>Serverless</span>} />
-            <FormControlLabel value="server" control={<Radio />} label={<span>Server</span>} />
-          </RadioGroup>
+          <FormLabel component="legend">Dynamic Web App</FormLabel>
+            <RadioGroup 
+              row sx={{ pt: 1 }}
+              value={dynamicType}
+              onChange={e => dispatch({ type: 'SET_DYNAMIC_TYPE', payload: e.target.value as 'serverless' | 'server' })}
+            >
+              <FormControlLabel value="serverless" control={<Radio />} label={<span>Serverless</span>} />
+              <FormControlLabel value="server" control={<Radio />} label={<span>Server</span>} />
+            </RadioGroup>
+            <Typography variant="caption" color="textSecondary">
+              { dynamicType === 'serverless'
+                ? "Only calls the backend services on client demand— Saves resources"
+                : "Backend services run 24/7. Ideal for tracking, fintech, chat apps, etc"}
+            </Typography>
         </FormControl>
       </Box>
       
@@ -68,7 +62,7 @@ export const DynamicOptions = ({
             checked={include.database}
             onChange={() => dispatch({ type: 'TOGGLE_INCLUDE', payload: 'database' })}
             label="Database"
-            description="Simple, Secure & Structured"
+            description="Models, Schemas and Pools"
             price={200}
           />
 
@@ -76,7 +70,7 @@ export const DynamicOptions = ({
             checked={include.backend}
             onChange={() => dispatch({ type: 'TOGGLE_INCLUDE', payload: 'backend' })}
             label="Backend & APIs"
-            description={`API Setup— $200, Hosting (Basic Tier)— ${dynamicType === 'serverless' ? '$150' : '$300'}`}
+            description={`API Setup— $200, Hosting— ${dynamicType === 'serverless' ? '$150' : '$300'}`}
             price={dynamicType === 'serverless' ? 350 : 500}
           />
 
@@ -114,7 +108,7 @@ export const DynamicOptions = ({
                   }
                   label={
                     <Stack>
-                      <Typography>Admin/Mod Profile</Typography>
+                      <Typography>Admin/ Mod Profile</Typography>
                       <Typography variant="caption" display="block">
                         Role‑based access controls (CRUD)
                       </Typography>
@@ -186,7 +180,7 @@ export const DynamicOptions = ({
             checked={include.frontend}
             onChange={() => dispatch({ type: 'TOGGLE_INCLUDE', payload: 'frontend' })}
             label="Frontend Bundle"
-            description="Layout & Navigation — $100, UI/UX (pro) — $250, Deployment — $50"
+            description="Layout & Nav— $100, Pages— $200, UI/UX— $250, Deployment— $50"
             price={600}
           />
 
@@ -230,7 +224,12 @@ export const DynamicOptions = ({
 
               <FormControlLabel
                 control={<Switch />}
-                label={<Typography variant="body2">Feedback form (1 free)<span className="text-success">$25</span></Typography>}
+                label={
+                  <Stack display={'flex'} justifyContent={'space-between'}>
+                    <Typography variant="body2">Feedback form (1 free)</Typography>
+                    <Typography variant="caption"><span className="text-success">$25</span> each. Billed as you go</Typography>
+                  </Stack>
+                }
               />
 
               <Box display="flex" justifyContent="space-between" mt={2}>

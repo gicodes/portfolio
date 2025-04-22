@@ -4,11 +4,11 @@ import { Box, Button, ButtonGroup, Card, Typography } from '@mui/material';
 import { ArrowBackIosNewSharp, TouchApp } from '@mui/icons-material';
 import React, { useState } from 'react';
 
-const Back = () => <Button color='inherit'> <ArrowBackIosNewSharp fontSize='small'/> &nbsp; Back </Button>
-
 const Page = () => {
   const [optionButtons, setOptionButtons] = useState(false);
   const handleOptionButtons = () => setOptionButtons(!optionButtons);
+
+  const Back = () => <Button color='warning'> <ArrowBackIosNewSharp fontSize='small'/> &nbsp; Back </Button>
 
   return (
     <Box my={2} textAlign={'center'} width={'100%'}>
@@ -78,8 +78,7 @@ const Page = () => {
             </Typography>
           </Box>
         </Box>
-      } {/* Intentionally handling conditionals unconventionally */}
-      { optionButtons && 
+      } { optionButtons && 
         <Box my={6}>
           <Box my={10} onClick={handleOptionButtons}><Back /></Box>
 

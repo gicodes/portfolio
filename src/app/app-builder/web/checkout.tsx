@@ -37,7 +37,7 @@ export default CheckoutSection;
 export const TotalBar: React.FC<{ total: number }> = ({ total }) => (
   <Box p={2} zIndex={1} boxShadow={2} width="100%" bgcolor="white" position="fixed" bottom={0} left={0}>
     <Typography display="flex" justifyContent="space-around">
-      Estimated Total: <strong>${total}</strong>
+      Estimated Total: <strong className="text-success">${total}.00</strong>
     </Typography>
   </Box>
 );

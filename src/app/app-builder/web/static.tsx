@@ -40,7 +40,7 @@ export const StaticOptions = ({
         <Stack>
           <Typography variant="subtitle2">Deployment</Typography>
           <Typography variant="subtitle2" display="flex" justifyContent="space-between">
-            Hosting <Typography color="textSecondary">(Free Tier)</Typography>
+            Hosting <Typography color="textSecondary"> (Free Tier)</Typography>
           </Typography>
         </Stack>
         <Typography variant="subtitle2" color="success" my="auto">$50</Typography>

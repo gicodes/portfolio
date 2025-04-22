@@ -35,7 +35,7 @@ const Page = () => {
       >
       <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1, mb: 2 }}>
         <FormLabel component="legend">Select Platform</FormLabel>
-        <Typography variant="caption" mb={1} color="textSecondary">💼{" "} Dart, Flutter | JS, React Native</Typography>
+        <Typography variant="caption" mb={1} color="textSecondary">💼 &nbsp;Dart, Flutter | JS, React Native</Typography>
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
             <input
               type="radio"

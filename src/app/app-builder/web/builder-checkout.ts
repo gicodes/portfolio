@@ -9,7 +9,7 @@ export const validateSelections = (
   const { blog, ecom, fintech, chat, backend, frontend, database, providers } = include ?? {};
 
   if (projectType === 'dynamic' && !database || projectType === 'dynamic' && !backend) {
-    dispatch({ type: "SET_ALERT", payload: { variant: 'error', text: 'Did you mean to proceed without app services?' } });
+    dispatch({ type: "SET_ALERT", payload: { variant: 'error', text: 'Did you mean to proceed without core app services?' } });
     return false;
   }
 

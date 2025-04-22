@@ -29,8 +29,9 @@ const Footer = () => {
         </Grid2>
 
         <p className="text-gray footer-outro">
-          &copy; 2022 - 2025. GiCodes<span className='float-top'>&#174;</span> Global Ent.
+          &copy; 2022 - 2025. Gi Codes<span className='float-top'>&#174;</span> Global Engr.
         </p>
+        <br/>
       </Box>   
     </footer>       
   )

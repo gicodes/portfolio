@@ -30,7 +30,7 @@ export const ServiceOption: React.FC<ServiceOptionProps> = (
         </Stack>
       }
     />
-    <Typography my="auto" color="success">${price}</Typography>
+    <Typography variant="body2" my="auto" color="success">${price}+</Typography>
   </Box>
 );
 
@@ -56,8 +56,8 @@ export const ProjectTypeSelector: React.FC<ProjectTypeSelectorProps> = ({ projec
       </RadioGroup>
       <Typography variant="caption" color="textSecondary">
         {projectType === 'static'
-          ? "Ideal for landing pages or event site"
-          : "Ideal for E-commerce, fintech, etc"}
+          ? "Static— Ideal for landing pages or portfolio"
+          : "Ideal for user interactions i.e. E-commerce"}
       </Typography>
     </FormControl>
   </Box>

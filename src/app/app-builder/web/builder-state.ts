@@ -4,6 +4,7 @@ export interface BuilderState { // Define the shape of your builder's state
   projectType: 'static' | 'dynamic';
   dynamicType: 'serverless' | 'server';
   staticPages: number;
+  staticAddon: [] | ('generative' | 'form' | 'plugin')[];
   dynamicPages: number;
   include: {
     database: boolean;
@@ -28,6 +29,7 @@ export const initialState: BuilderState = { // Initial default values for the bu
   dynamicType: 'serverless',
   staticPages: 5,
   dynamicPages: 10,
+  staticAddon: [],
   include: {
     database: false,
     backend: false,
@@ -47,6 +49,7 @@ export const initialState: BuilderState = { // Initial default values for the bu
 };
 
 export type IncludeKey = keyof BuilderState['include']; // Keys of the "include" object, for type-safe toggling
+export type AddonKey = 'generative' | 'form' | 'plugin'; // Keys for static addons
 
 export type Action = // Define the actions your reducer can handle
   | { type: 'SET_PROJECT_TYPE'; payload: BuilderState['projectType'] }
@@ -56,7 +59,8 @@ export type Action = // Define the actions your reducer can handle
   | { type: 'TOGGLE_INCLUDE'; payload: IncludeKey }
   | { type: 'SET_CHECKOUT'; payload: BuilderState['checkout'] }
   | { type: 'HANDLE_CHECKOUT'; payload?: 'email' | 'whatsapp' }
-  | { type: 'SET_ALERT'; payload: BuilderState['alert'] };
+  | { type: 'SET_ALERT'; payload: BuilderState['alert'] }
+  | { type: 'SET_STATIC_ADDON'; payload?: BuilderState['staticAddon'] }; 
 
 export function reducer( // Reducer function to update state based on actions
   state: BuilderState,
@@ -69,6 +73,11 @@ export function reducer( // Reducer function to update state based on actions
       return { ...state, dynamicType: action.payload };
     case 'SET_STATIC_PAGES':
       return { ...state, staticPages: action.payload };
+    case 'SET_STATIC_ADDON':
+      return { 
+        ...state, 
+        staticAddon: Array.isArray(action.payload) ? action.payload : [] 
+      };
     case 'SET_DYNAMIC_PAGES':
       return { ...state, dynamicPages: action.payload };
     case 'TOGGLE_INCLUDE':

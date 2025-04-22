@@ -170,7 +170,7 @@ export const DynamicOptions = ({
                   <Typography color="success">$100</Typography>
                 </Box>
                 <Typography variant="caption" color="textSecondary">
-                  Payment solutions, web‑sockets, etc
+                  Payment solutions, QR codes, sockets, etc
                 </Typography>
               </Stack>
             </Box>

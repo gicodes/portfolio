@@ -23,7 +23,7 @@ const Page = () => {
 
       <Typography variant="h6">Mobile Application</Typography>
       <Typography variant="caption" display="block" gutterBottom>
-        Building a mobile app requires in-depth knowledge of your project structure and it's target audience
+        Setup your project with practicality and pricing in mind
       </Typography>
 
       <Box 
@@ -44,7 +44,7 @@ const Page = () => {
               value="android"
               onChange={() => setAlert({ variant: 'success', text: 'Android selected' })}
             />
-            <label htmlFor="android">Android</label>
+            <label htmlFor="android" style={{ fontSize: 'small' }}>Android</label>
           </Box>
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
             <input
@@ -54,7 +54,7 @@ const Page = () => {
               value="ios"
               onChange={() => setAlert({ variant: 'success', text: 'iOS selected' })}
             />
-            <label htmlFor="ios">iOS</label>
+            <label htmlFor="ios" style={{ fontSize: 'small' }}>iOS</label>
           </Box>
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
             <input
@@ -64,11 +64,14 @@ const Page = () => {
               value="cross-platform"
               onChange={() => setAlert({ variant: 'success', text: 'Android and iOS platforms selected' })}
             />
-            <label htmlFor="ios">Cross Platform</label>
+            <label htmlFor="ios" style={{ fontSize: 'small' }}>Cross Platform</label>
           </Box>
         </Box>
       </Box>
-      <Button sx={{ textTransform: 'none'}} onClick={handleMobileAppCheckout}> Continue</Button>
+      
+      <Box display={'flex'} justifyContent={'flex-end'}>
+        <Button sx={{ textTransform: 'none'}} onClick={handleMobileAppCheckout}> Continue</Button>
+      </Box>
     </Paper>
   )
 }

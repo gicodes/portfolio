@@ -24,7 +24,7 @@ const Page: React.FC = () => {
 
       <Typography variant="h6">App Builder</Typography>
       <Typography variant="caption" display="block" gutterBottom>
-        Select your desired services and see estimated pricings
+        Select your desired services. Get estimated pricing
       </Typography>
 
       <ProjectTypeSelector projectType={state.projectType} dispatch={dispatch} />

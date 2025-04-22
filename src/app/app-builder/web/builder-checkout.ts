@@ -74,7 +74,7 @@ export function buildCheckoutUrl(
   }).filter(Boolean);
 
   const project = lines.join("\n");
-  const message = `Hello, I would like to request a project with the following details:\n\n${project}\n\nPlease let me know if you can help me with this. Thank you!`;
+  const message = `Hello, I would like to start a project with the following details:\n\n${project}\n\nPlease let me know how we can proceed. Thank you!`;
   const encodedMessage = encodeURIComponent(message);
 
   if (method === "email") {

@@ -2,6 +2,7 @@ export interface CalculateTotalParams {
   projectType: string;
   dynamicType: string;
   staticPages: number;
+  staticAddon: ('generative' | 'form' | 'plugin')[];
   dynamicPages: number;
   include: {
     database?: boolean;
@@ -23,7 +24,8 @@ export const calculateTotal = ({
   projectType, 
   dynamicType, 
   staticPages, 
-  dynamicPages, 
+  dynamicPages,
+  staticAddon, 
   include 
 }: CalculateTotalParams) => {
   let total = 0;
@@ -33,6 +35,10 @@ export const calculateTotal = ({
     total += 100; // UI/UX
     total += 100 + Math.max(0, (staticPages - 5) * 25);
     total += 50;  // deployment
+
+    if (staticAddon.includes('plugin')) total += 75;
+    if (staticAddon.includes('generative')) total += 50;
+    if (staticAddon.includes('form')) total += 25;
   } else {
     if (include.database) total += 200;
     if (include.backend) {

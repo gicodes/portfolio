@@ -8,7 +8,7 @@ const Page = () => {
   const [optionButtons, setOptionButtons] = useState(false);
   const handleOptionButtons = () => setOptionButtons(!optionButtons);
 
-  const Back = () => <Button color='warning'> <ArrowBackIosNewSharp fontSize='small'/> &nbsp; Back </Button>
+  const Back = () => <Button sx={{ color: 'beige'}}> <ArrowBackIosNewSharp fontSize='small'/> &nbsp; Back </Button>
 
   return (
     <Box my={2} textAlign={'center'} width={'100%'}>

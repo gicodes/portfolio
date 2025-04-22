@@ -42,7 +42,7 @@ export const LeaveContactInfo = ({ handleSubmit }: LeaveContactInfoProps
         <Box mb={1}>
           <TextField
             name="phone"
-            label="Phone (Whatsapp)"
+            label="Phone or Whatsapp"
             variant="outlined"
             fullWidth required
           />

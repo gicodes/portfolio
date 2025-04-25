@@ -21,6 +21,7 @@ export interface BuilderState { // Define the shape of your builder's state
     fintech: boolean;
   };
   checkout: boolean;
+  duration: number | undefined;
   alert: AlertProps | null;
 }
 
@@ -45,6 +46,7 @@ export const initialState: BuilderState = { // Initial default values for the bu
     fintech: false,
   },
   checkout: false,
+  duration: undefined,
   alert: null,
 };
 
@@ -58,13 +60,13 @@ export type Action = // Define the actions your reducer can handle
   | { type: 'SET_DYNAMIC_PAGES'; payload: BuilderState['dynamicPages'] }
   | { type: 'TOGGLE_INCLUDE'; payload: IncludeKey }
   | { type: 'SET_CHECKOUT'; payload: BuilderState['checkout'] }
+  | { type: 'SET_STATIC_ADDON'; payload?: BuilderState['staticAddon'] }
   | { type: 'HANDLE_CHECKOUT'; payload?: 'email' | 'whatsapp' }
-  | { type: 'SET_ALERT'; payload: BuilderState['alert'] }
-  | { type: 'SET_STATIC_ADDON'; payload?: BuilderState['staticAddon'] }; 
+  | { type: 'SET_DURATION'; payload?: BuilderState['duration']}
+  | { type: 'SET_ALERT'; payload: BuilderState['alert'] };
 
-export function reducer( // Reducer function to update state based on actions
-  state: BuilderState,
-  action: Action
+export function stateReducer(
+  state: BuilderState, action: Action
 ): BuilderState {
   switch (action.type) {
     case 'SET_PROJECT_TYPE':
@@ -83,16 +85,16 @@ export function reducer( // Reducer function to update state based on actions
     case 'TOGGLE_INCLUDE':
       return {
         ...state,
-        include: {
-          ...state.include,
+        include: { ...state.include, 
           [action.payload]: !state.include[action.payload],
         },
       };
     case 'SET_CHECKOUT':
       return { ...state, checkout: action.payload };
+    case 'SET_DURATION' : 
+      return { ...state, duration: action.payload };
     case 'SET_ALERT':
       return { ...state, alert: action.payload };
-    default:
-      return state;
+    default: return state;
   }
 }

@@ -9,13 +9,13 @@ import { useHandlers } from './builder-checkout';
 import { Typography, Paper } from '@mui/material';
 import { calculateTotal } from './builder-calculator';
 import CheckoutSection, { TotalBar } from './checkout';
-import { reducer, initialState } from './builder-state';
+import { stateReducer, initialState } from './state';
 
 const Page: React.FC = () => {
-  const [state, dispatch] = useReducer(reducer, initialState);
-  const { handleCheckout } = useHandlers(state, dispatch);
-  const total = calculateTotal(state);
-
+  const [state, dispatch] = useReducer(stateReducer, initialState);
+  const handlers = useHandlers(state, dispatch) || { items: [], handleCheckout: () => {} };
+  const { items, handleCheckout } = handlers;
+  const { duration, total } = calculateTotal(state);
   const setCheckout = (checkout: boolean) => dispatch({ type: 'SET_CHECKOUT', payload: checkout });
 
   return (
@@ -35,8 +35,13 @@ const Page: React.FC = () => {
         <DynamicOptions state={state} dispatch={dispatch} handleCheckout={handleCheckout} />
       )}
 
-      <CheckoutSection checkout={state.checkout} handleCheckout={handleCheckout} setCheckout={setCheckout} />
-      <TotalBar total={total} />
+      <CheckoutSection 
+        items={items}
+        checkout={state.checkout} 
+        setCheckout={setCheckout} 
+        handleCheckout={handleCheckout} 
+      />
+      <TotalBar duration={duration} total={total} />
     </Paper>
   );
 };

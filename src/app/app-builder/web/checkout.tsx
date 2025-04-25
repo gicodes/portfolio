@@ -1,6 +1,22 @@
-import { Box, Button, ButtonGroup, Typography } from "@mui/material";
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
+import { useRef, useState } from "react";
+import { Download } from "@mui/icons-material";
+import { Box, Button, ButtonGroup, Card, Divider, Typography } from "@mui/material";
+
+export interface Items {
+  projectType: string
+  dynamicType?: string
+  staticPages?: number
+  staticAddons?: Record<string, any>
+  dynamicPages?: number
+  include: Record<string, any>
+  estimatedTotal: number
+  estimatedTime: number
+}
 
 interface CheckoutSectionProps {
+  items: Items,
   checkout: boolean;
   setCheckout: (value: boolean) => void;
   handleCheckout: (method: "email" | "whatsapp") => void;
@@ -8,42 +24,176 @@ interface CheckoutSectionProps {
 
 const CheckoutSection = (
   { 
+    items,
     checkout, 
     setCheckout, 
     handleCheckout 
   }: CheckoutSectionProps
-) => (
-  <Box p={1} mt={4} bgcolor="rgba(0,0,0,0.1)">
-    <Box display="grid">
-      {!checkout && (
-        <Box display="flex" justifyContent="flex-end">
+) => {
+  const [ receipt, setReceipt] = useState(false);
+  const getreceipt = () => setReceipt(!receipt);
+
+  return (
+    <Box>
+      <Box p={1} mt={4} bgcolor="rgba(0,0,0,0.1)">
+        {!checkout && (
+          <Box display="flex" justifyContent="flex-end">
+            <Button 
+              variant="contained" 
+              onClick={() => setCheckout(true)}
+              sx={{ bgcolor: 'darkslategray'}}
+            >
+              Checkout
+            </Button>
+          </Box>
+        )}
+        { checkout && (
+            <Box display="flex" justifyContent="flex-end">
+              <ButtonGroup>
+                <Button color="success" variant="contained" onClick={() => handleCheckout('email')}>Pay Now</Button>
+                <Button sx={{ bgcolor: 'darkseagreen'}} variant="contained" onClick={() => handleCheckout('whatsapp')}>WhatsApp</Button>
+              </ButtonGroup>
+            </Box>
+        )}
+      </Box>
+      { checkout && 
+        <Box> 
           <Button 
-            variant="contained" 
-            onClick={() => setCheckout(true)}
-            sx={{ bgcolor: 'darkslategray'}}
+            onClick={getreceipt}
+            sx={{ 
+              fontSize: 11,
+              display: 'grid', 
+              textTransform: 'none',
+            }}
+            color={receipt ? "warning" : "info"}
           >
-            Checkout
+            {receipt ? "Close" : "Get"} Checkout Summary
           </Button>
         </Box>
-      )}
-      { checkout && (
-        <Box display="flex" justifyContent="flex-end">
-          <ButtonGroup>
-            <Button color="success" variant="contained" onClick={() => handleCheckout('email')}>Pay Now</Button>
-            <Button sx={{ bgcolor: 'darkseagreen'}} variant="contained" onClick={() => handleCheckout('whatsapp')}>WhatsApp</Button>
-          </ButtonGroup>
-        </Box>
-      )}
+      }
+      {checkout && receipt && <Receipt items={items} />}
     </Box>
-  </Box>
-);
+  );
+}
 
 export default CheckoutSection;
 
-export const TotalBar: React.FC<{ total: number }> = ({ total }) => (
-  <Box p={2} zIndex={1} boxShadow={2} width="100%" bgcolor="white" position="fixed" bottom={0} left={0}>
+interface ReceiptProps { items: Items }
+
+export const Receipt: React.FC<ReceiptProps> = ({ items }) => {
+  const receiptRef = useRef<HTMLDivElement>(null);
+
+  const handleDownload = async () => {
+    if (!receiptRef.current) return;
+
+    const canvas = await html2canvas(receiptRef.current, { scale: 2 });
+    const imgData = canvas.toDataURL('image/png');
+
+    const pdf = new jsPDF({
+      orientation: 'portrait',
+      unit: 'pt',
+      format: 'a4',
+    });
+
+    const pageWidth = pdf.internal.pageSize.getWidth();
+    const imgWidth = pageWidth - 40;
+    const imgHeight = (canvas.height * imgWidth)/ canvas.width;
+
+    pdf.addImage(imgData, 'PNG', 20, 20, imgWidth, imgHeight);
+    pdf.save('Gicodes_app_builder_summary.pdf');
+  };
+  
+  return (
+    <Card
+      ref={receiptRef}
+      sx={{ py: 3, px: 4, mx: 'auto', maxWidth: 369, position: 'relative' }}
+    >
+      <Typography variant="h6" fontSize={14} gutterBottom>
+        App Builder Summary
+      </Typography>
+      <Divider />
+
+      <Box my={2}>
+        <Typography variant="subtitle2">
+          Project type: {items.projectType}
+        </Typography>
+
+        {items.dynamicType && (
+          <Typography variant="caption">
+            Dynamic type: {items.dynamicType}
+          </Typography>
+        )}
+
+        {items.staticPages != null && (
+          <Box my={1} color="textSecondary" display="grid">
+            <Typography variant="caption">Layout & Navigation: Yes</Typography>
+            <Typography variant="caption">UI/UX Designs: Yes</Typography>
+            <Typography variant="caption">Page Content: Yes</Typography>
+            {items.staticAddons && Object.keys(items.staticAddons).length > 0 
+              ? Object.entries(items.staticAddons).map(([key, value]) => (
+                  <Typography key={key} variant="caption">
+                    {String(value)} client
+                  </Typography>
+                ))
+              : ""}
+            <Typography variant="caption">
+              Static pages: {items.staticPages}
+            </Typography>
+          </Box>
+        )}
+
+        {items.dynamicPages != null && (
+          <Box my={1} color="textSecondary" display="grid">
+            {Object.entries(items.include).map(
+              ([feature, value]) =>
+                value && (
+                  <Typography key={feature} variant="caption">
+                    {feature}: Yes
+                  </Typography>
+                )
+            )}
+            {items.estimatedTotal > 0 ? (
+              <Typography variant="caption">
+                Dynamic pages: {items.dynamicPages}
+              </Typography>
+            ) : (
+              <Typography variant="caption">
+                No services were selected!
+              </Typography>
+            )}
+          </Box>
+        )}
+      </Box>
+      
+      <Typography variant='caption'> <strong>Note: </strong> 
+        No-coding services and resources such as Designs, Logos, and Domain setup are not included in this project/ estimate.
+      </Typography>
+
+      <Typography variant="subtitle2" my={2}>
+        Estimated Time: {items.estimatedTime} days
+      </Typography>
+      <Typography variant="h6" fontSize={15}>
+        Total: ${items.estimatedTotal}
+      </Typography>
+
+      <Box display="flex" justifyContent="flex-end" mt={2}>
+        <Button
+          sx={{ textTransform: 'none', fontSize: 12 }}
+          onClick={handleDownload}
+          startIcon={<Download fontSize="small" />}
+        >
+          Download
+        </Button>
+      </Box>
+    </Card>
+  );
+};
+
+
+export const TotalBar: React.FC<{ total: number, duration: number }> = ({ total, duration }) => (
+  <Box py={2} px={1.5} zIndex={1} boxShadow={2} width="100%" bgcolor="white" position="fixed" bottom={0} left={0}>
     <Typography display="flex" justifyContent="space-around">
-      Estimated Total: <strong className="text-success">${total}.00</strong>
+      Estimated Total: <span><strong>{duration} </strong>days</span> <strong className="text-success">${total}.00</strong>
     </Typography>
   </Box>
 );

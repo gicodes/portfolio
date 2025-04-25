@@ -1,6 +1,6 @@
 import { Box, FormControlLabel, Checkbox, Stack, Typography, FormControl, FormLabel, RadioGroup, Radio } from "@mui/material";
 import React, { Dispatch } from "react";
-import { Action } from "./builder-state";
+import { Action } from "./state";
 
 interface ServiceOptionProps {
   checked: boolean;

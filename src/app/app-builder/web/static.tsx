@@ -1,5 +1,5 @@
 import { Box, Typography, Stack, TextField, Checkbox, FormControlLabel, Switch } from '@mui/material';
-import { Action, AddonKey } from './builder-state';
+import { Action, AddonKey } from './state';
 import React, { useState, Dispatch } from 'react';
 
 interface StaticOptionsProps {

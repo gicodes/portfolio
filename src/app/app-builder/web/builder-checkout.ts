@@ -1,5 +1,7 @@
+import { useCallback, useMemo } from "react";
+import { Items } from "./checkout";
 import { calculateTotal } from "./builder-calculator";
-import { Action, BuilderState } from "./builder-state";
+import { Action, BuilderState } from "./state";
 
 export const validateSelections = (
   state: BuilderState, 
@@ -12,7 +14,6 @@ export const validateSelections = (
     dispatch({ type: "SET_ALERT", payload: { variant: 'error', text: 'Did you mean to proceed without core app services?' } });
     return false;
   }
-
   if (projectType === 'static' && (typeof staticPages !== 'number' || staticPages < 1)) {
     dispatch({ type: "SET_ALERT", payload: { variant: 'error', text: 'Please enter at least 1 page for a static site' } });
     return false;
@@ -26,33 +27,47 @@ export const validateSelections = (
     dispatch({ type: "SET_ALERT", payload: { variant: 'warning', text: 'Please select all necessary services for platform-specific features' } });
     return false;
   }
-  
+
   return true;
 };
 
-export const useHandlers = (state: BuilderState, dispatch: React.Dispatch<Action>) => {
-  const handleCheckout = (method: "email" | "whatsapp") => {
-    if (!validateSelections(state, dispatch)) return;
+export const useHandlers = (
+  state: BuilderState, 
+  dispatch: React.Dispatch<Action>
+) => {
+  const items: Items = useMemo(() => ({
+    projectType: state.projectType,
+    ...(state.projectType === 'dynamic' && { dynamicType: state.dynamicType }),
+    staticPages: state.projectType === 'static' ? state.staticPages : undefined,
+    staticAddons: {...state.staticAddon},
+    dynamicPages: state.projectType === 'dynamic' ? state.dynamicPages : undefined,
+    include: { ...state.include },
+    estimatedTime: calculateTotal(state).duration,
+    estimatedTotal: calculateTotal(state).total,
+  }), [state])
+  
+  const handleCheckout = useCallback(
+    (method: 'email' | 'whatsapp') => {
+      if (!validateSelections(state, dispatch)) return
 
-    const details = {
-      projectType: state.projectType,
-      ...(state.projectType === 'dynamic' && { dynamicType: state.dynamicType }),
-      staticPages: state.projectType === 'static' ? state.staticPages : undefined,
-      dynamicPages: state.projectType === 'dynamic' ? state.dynamicPages : undefined,
-      ...state.include,
-      estimatedTotal: calculateTotal(state)
-    };
+      const details = { ...items }
+      buildCheckoutUrl(details, method)
 
-    buildCheckoutUrl(details, method);
+      if (method === 'email' && !window.location.href.includes('mailto:')) {
+        dispatch({
+          type: 'SET_ALERT',
+          payload: {
+            variant: 'warning',
+            text: 'This option is not available in your location',
+          },
+        })
+      }
+    },
+    [state, dispatch, items]
+  )
 
-    if (!window.location.href.includes('mailto:')) {
-      dispatch({ type: 'SET_ALERT', payload: { variant: 'warning', text: 'This option is not available in your location' } });
-    }
-  };
-
-  return { handleCheckout };
+  return { handleCheckout, items };
 };
-
 
 export function buildCheckoutUrl(
   details: Record<string, any>, 

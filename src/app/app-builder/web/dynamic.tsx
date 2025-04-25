@@ -1,5 +1,5 @@
 import React from "react";
-import { Action } from "./builder-state";
+import { Action } from "./state";
 import { ServiceOption } from "./services";
 import { Box, Checkbox, Typography, FormControl, FormLabel, RadioGroup, FormControlLabel, Radio, TextField, Switch, Stack } from "@mui/material";
 
@@ -28,7 +28,6 @@ interface DynamicOptionProps {
 export const DynamicOptions = ({ 
   state, 
   dispatch,
-  handleCheckout,
 }: DynamicOptionProps) => {
   const { dynamicType, dynamicPages, include } = state;
 
@@ -55,7 +54,7 @@ export const DynamicOptions = ({
       
       <Box my={4} /* Common Services */>
         <Typography mb={2} variant="subtitle2" color="textSecondary">
-          Common App Services
+          Primary Services <span className="fs-xs text-gray">(Must Choose at least 1)</span>
         </Typography>
         <Stack spacing={2} mt={1}>
           <ServiceOption

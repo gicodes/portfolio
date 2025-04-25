@@ -11,7 +11,7 @@ export const projects = [
   {
     title: 'Phoenix Medicals',
     name: 'pheonix-med',
-    description: 'Bringing tech to health care with this modern, containerized web app.\n Phoenix Med runs a NextJS client that handles multiple user profiles with role-based functions, allows users book, schedule and instantly employ health care professionals.\n Bootstrapped with express, nodeJs and postgres. \n ',
+    description: 'Bringing tech to health care with this modern, containerized web app.\n Phoenix Med runs a NextJs client that handles multiple user profiles with role-based functions, allows users book, schedule and instantly employ health care professionals.\n Bootstrapped with express, nodeJs and postgres. \n ',
     source: 'https://github.com/gicodes/pheonix-med',
     link: 'https://pheonixmed.netlify.app'
   },

@@ -149,6 +149,14 @@ export const DynamicOptions = ({
               </Box>
 
               <Stack spacing={1}>
+                <Box display="flex" justifyContent="space-between" mt={1}>
+                  <Typography>Micro services</Typography>
+                  <Typography color="success">$750</Typography>
+                </Box>
+                <Typography variant="caption" color="textSecondary">
+                  Requires in‑depth discuss on cost evaluation
+                </Typography>
+
                 <Box display="flex" justifyContent="space-between">
                   <Typography>Cloud services</Typography>
                   <Typography color="success">$500</Typography>
@@ -158,7 +166,7 @@ export const DynamicOptions = ({
                 </Typography>
 
                 <Box display="flex" justifyContent="space-between" mt={1}>
-                  <Typography>Micro services</Typography>
+                  <Typography>Subscription services</Typography>
                   <Typography color="success">$300</Typography>
                 </Box>
                 <Typography variant="caption" color="textSecondary">
@@ -255,10 +263,10 @@ export const DynamicOptions = ({
               </Box>
 
               <Typography display="flex" justifyContent="space-between" mt={2}>
-                Third‑party integrations <span className="text-success">$50</span>
+                Third‑party integrations <span className="text-success">$50+</span>
               </Typography>
               <Typography variant="caption" color="textSecondary">
-                Auto‑responder, Google Analytics, Pop‑ups, etc
+                Auto‑responder, Social Media API, Google Analytics, Google Maps API ($250 + usage)
               </Typography>
             </Box>
           )}

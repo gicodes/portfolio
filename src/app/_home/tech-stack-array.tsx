@@ -2,7 +2,7 @@
 export const msco = <>
   <h2 className="mb-2 text-white"> Services </h2> 
   <p>&#x2014; Coding as a Product: Mobile apps, web apps, websites </p>
-  <p>&#x2014; Coding as a Service: Database, Monitor app performance, Ticketing, Documentations, etc </p>
+  <p>&#x2014; Coding as a Service: App & Database Management, Ticketing, Documentations, etc </p>
   <p>&#x2014; Building full-stack applications from scratch with M.E.R.N </p>
   <p>&#x2014; Designing APIs, data models and schemas for backend services </p>
   <p>&#x2014; Integrating new features and functions for frontend apps </p>

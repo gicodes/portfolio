@@ -46,6 +46,7 @@ a {
   box-shadow: 0 0 5px gray;
 }
 
+.text-link { color: #007bff; }
 .text-wahala { color: darkgoldenrod; }
 .text-success { color: forestgreen; }
 .text-gray-500 { color: #505050; }

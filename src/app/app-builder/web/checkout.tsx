@@ -1,4 +1,5 @@
 import jsPDF from 'jspdf';
+import Link from 'next/link';
 import html2canvas from 'html2canvas';
 import { useRef, useState } from "react";
 import { Download } from "@mui/icons-material";
@@ -78,6 +79,7 @@ const CheckoutSection = (
 
 export default CheckoutSection;
 
+
 interface ReceiptProps { items: Items }
 
 export const Receipt: React.FC<ReceiptProps> = ({ items }) => {
@@ -108,9 +110,14 @@ export const Receipt: React.FC<ReceiptProps> = ({ items }) => {
       ref={receiptRef}
       sx={{ py: 3, px: 4, mx: 'auto', maxWidth: 369, position: 'relative' }}
     >
-      <Typography variant="h6" fontSize={14} gutterBottom>
-        App Builder Summary
-      </Typography>
+      <Box display={'flex'} justifyContent={'space-between'}>
+        <Typography variant="h6" fontSize={14} gutterBottom>
+          App Builder Summary
+        </Typography>
+        <Box alignSelf={'end'}><Link className='text-link fs-xs' href={'https://gicodes.dev'}>
+          www.gicodes.dev
+        </Link></Box>
+      </Box>
       <Divider />
 
       <Box my={2}>

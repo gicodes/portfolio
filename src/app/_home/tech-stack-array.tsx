@@ -51,9 +51,9 @@ export const funFacts = (
   <>
     <h2 className="mb-2">Fun Facts About Me</h2>
     <Paragraph>I'm a self-taught Software Developer</Paragraph>
-    <Paragraph>I'm a big fan of football. Siuuu!!</Paragraph>
     <Paragraph>I honestly cannot choose between backend and frontend</Paragraph>
-    <Paragraph>I love to play video games, to figure out missions and objectives</Paragraph>
+    <Paragraph>I'm a big fan of football. Siuuu!!</Paragraph>
+    <Paragraph>In my spare time, I draw, write rap or play video games</Paragraph>
     <Paragraph> I'm <span className="text-wheat"><b>1 of 1</b></span>. Literally</Paragraph>
   </>
 );

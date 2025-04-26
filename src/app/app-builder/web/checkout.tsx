@@ -71,8 +71,8 @@ const CheckoutSection = (
         { checkout && (
             <Box display="flex" justifyContent="flex-end">
               <ButtonGroup>
-                <Button color="success" variant="contained" onClick={() => handleCheckout('email')}>Pay Now</Button>
-                <Button sx={{ bgcolor: 'darkseagreen'}} variant="contained" onClick={() => handleCheckout('whatsapp')}>WhatsApp</Button>
+                <Button sx={{ bgcolor: 'darkseagreen'}} variant="contained" onClick={() => handleCheckout('email')}>Pay Now</Button>
+                <Button color="success" variant="contained" onClick={() => handleCheckout('whatsapp')}>WhatsApp</Button>
               </ButtonGroup>
             </Box>
         )}

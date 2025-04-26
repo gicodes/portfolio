@@ -3,7 +3,6 @@ import { Card, Box } from '@mui/material'
 import Image from 'next/image'
 
 const IndexImage = () => {
-  // smallScreen @600px sets devices such as iPad to false 
   const smallScreen = useMediaQuery('(max-width: 600px)');
   
   return (

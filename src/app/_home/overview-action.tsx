@@ -1,7 +1,8 @@
 import { render } from "../render";
+import { useTheme } from "@mui/material/styles";
 import { CodeSharp } from "@mui/icons-material";
-import { Badge, Container } from "@mui/material";
 import React, { useEffect, useState } from "react";
+import { Badge, Container, Typography } from "@mui/material";
 
 const welcomeText = `
   Hi there,\n I'm Gideon Iduma.
@@ -17,8 +18,8 @@ const pitchText = `
     I will build you a user-friendly application that is responsive, scalable and reliably fast in production.
 `;
 
-
 export const GetToKnowMe = () => {
+  const theme = useTheme();
   const [slidingText, setSlidingText] = useState("");
   const [slidingText2, setSlidingText2] = useState("");
   const [slidingText3, setSlidingText3] = useState("");
@@ -47,63 +48,101 @@ export const GetToKnowMe = () => {
                 pitchIndex++;
               } else {
                 clearInterval(displayPitchText);
-              }  
-            }, 50); // Typing speed for slidingText3
+              }
+            }, 50);
           }
-        }, 50); // Typing speed for slidingText2
+        }, 50);
       }
-    }, 100); // Typing speed for slidingText
-
+    }, 100);
+    
     return () => clearInterval(displayWelcomeText);
   }, []);
 
   return (
     <Container
       sx={{
-        my: 2,
-        w: '100%',
-        minWidth: 'fit-content',
         px: { xs: 3, sm: 4, lg: 0 },
         pt: { xs: 1, sm: 3, lg: 2 },
         pb: { xs: 1, sm: 2, lg: 3 },
         height: { xs: '432px', sm: '369px', lg: '345px' },
       }}
     >
-      <span>
-        { render(slidingText).map((line, idx) => (
-          <h1 key={idx} className="text-gray">
-            { line.includes("Gideon Iduma") ? (
+      <Typography component="div">
+        {render(slidingText).map((line, idx) => (
+          <Typography
+            key={idx}
+            variant="h3"
+            component="h1"
+            sx={{ 
+              py: 1,
+              display: 'block',
+              [theme.breakpoints.down(375)]: {
+                fontSize: 35,
+              },             
+            }}
+          >
+            {line.includes("Gideon Iduma") ? (
               <>
                 {line.split("Gideon Iduma")[0]}
-                <span className="text-wahala">Gideon Iduma</span>
+                <Typography
+                  component="span"
+                  variant="h3"
+                  color="warning.main"
+                  sx={{ 
+                    display: 'inline',
+                    fontSize: 36,
+                    [theme.breakpoints.down(375)]: {
+                      fontSize: 33,
+                    },
+                  }}
+                >
+                  Gideon Iduma
+                </Typography>
                 {line.split("Gideon Iduma")[1]}
               </>
-            ) : line }
-          </h1>
+            ) : (
+              line
+            )}
+          </Typography>
         ))}
-      </span>
-      <p className="typing-effect">
-        { render(slidingText2).map((line, idx) => (
-          <span key={idx} className="text-jolly block fs-mid">
+      </Typography>
+
+      <Typography component="div" className="typing-effect">
+        {render(slidingText2).map((line, idx) => (
+          <Typography
+            key={idx}
+            variant="subtitle1"
+            color="success.main"
+          >
             {line}
-          </span>
+          </Typography>
         ))}
-      </p>
-      <p className="mt-2 typing-effect">
-        { render(slidingText3).map((line, idx) => (
-          <span key={idx} className="block mw-500">
+      </Typography>
+
+      <Typography component="div" className="typing-effect mt-2">
+        {render(slidingText3).map((line, idx) => (
+          <Typography
+            key={idx}
+            component="span"
+            sx={{
+              display: 'block',
+              maxWidth: 500,
+              lineHeight: '1.5rem',
+              fontSize: {xs: 12, sm: 12.5, md: 13, lg: 13.5},
+            }}
+          >
             {line}
-          </span>
+          </Typography>
         ))}
-      </p>
-      
-      <Badge 
-        sx={{ my: 1.5}} 
-        color="warning" 
-        badgeContent="☁️" 
+      </Typography>
+
+      <Badge
+        sx={{ my: 3 }}
+        color="warning"
+        badgeContent="☁️"
         className="beat-fade"
       >
-        <CodeSharp className='text-gray' />
+        <CodeSharp className="text-gray" />
       </Badge>
     </Container>
   );

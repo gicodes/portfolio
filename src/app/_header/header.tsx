@@ -2,8 +2,8 @@ import { CloseSharp, DarkModeSharp, LightModeSharp } from '@mui/icons-material';
 import { Box, Stack, Drawer, IconButton, Grid2 } from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import MenuIcon from '@mui/icons-material/Menu';
+import { useState, useEffect } from 'react';
 import { navLinks } from './nav-links';
-import { useState } from 'react';
 
 interface NavBarProps {
   toggleTheme: () => void
@@ -14,11 +14,18 @@ const Header: React.FC<NavBarProps> = ({
   toggleTheme,
   theme
 }) => {
-  const smallScreen = useMediaQuery('(max-width: 600px)');
-
   const [ open, setOpen ] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  const smallScreen = useMediaQuery('(max-width: 600px)');
   const handleClose = () => setOpen(false);
   const handleOpen = () => setOpen(true);
+
+  if (!isMounted) return null;
 
   return (
     <nav>

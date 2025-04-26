@@ -53,6 +53,7 @@ a {
 .text-warning { color: goldenrod; }
 .text-jolly { color: seagreen; }
 .text-gray { color: gray; }
+.text-silver { color: silver;}
 .text-wheat { color: wheat; }
 .text-tertiary { color: indigo}
 .text-primary { color: var(--text-primary); }

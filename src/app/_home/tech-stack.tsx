@@ -1,5 +1,5 @@
-import { useState, useMemo, useCallback } from 'react';
 import styles from "../page.module.css";
+import { useState, useMemo, useCallback } from 'react';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { fut, msco, funFacts } from './tech-stack-array';
 import { Card, Stack, Box, Pagination } from '@mui/material';
@@ -8,16 +8,15 @@ export const TechStack = () => {
   const [page, setPage] = useState(1);
 
   const pagesContent = useMemo(() => [msco, fut, funFacts], []);
-  const cardBackgrounds = useMemo(
-    () => ['/styledCard1.avif', '/styledCard2.avif', '/styledCard3.avif'],
-    []
+  const cardBackgrounds = useMemo(() => 
+    ['/styledCard1.avif', '/styledCard2.avif', '/styledCard3.avif'], []
   );
 
   const handlePageChange = useCallback(
     (_event: React.ChangeEvent<unknown>, value: number) => {
       setPage(value);
-    },
-    []);
+    },[]
+  );
 
   const smallScreen = useMediaQuery('(max-width: 600px)');
 

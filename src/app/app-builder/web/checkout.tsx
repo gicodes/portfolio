@@ -33,6 +33,26 @@ const CheckoutSection = (
 ) => {
   const [ receipt, setReceipt] = useState(false);
   const getreceipt = () => setReceipt(!receipt);
+  const receiptRef = useRef<HTMLDivElement>(null);
+
+  const handleDownload = async () => {
+    if (!receiptRef.current) return;
+
+    const canvas = await html2canvas(receiptRef.current, { scale: 2 });
+    const imgData = canvas.toDataURL('image/png');
+
+    const pdf = new jsPDF({
+      orientation: 'portrait',
+      unit: 'pt',
+      format: 'a4',
+    });
+    const pageWidth = pdf.internal.pageSize.getWidth();
+    const imgWidth = pageWidth - 40;
+    const imgHeight = (canvas.height * imgWidth)/ canvas.width;
+
+    pdf.addImage(imgData, 'PNG', 20, 20, imgWidth, imgHeight);
+    pdf.save('Gicodes_app_builder_summary.pdf');
+  };
 
   return (
     <Box>
@@ -72,40 +92,47 @@ const CheckoutSection = (
           </Button>
         </Box>
       }
-      {checkout && receipt && (
+      { checkout && receipt && (
         <Box>
           <Box
-        position="fixed"
-        top={0}
-        left={0}
-        width="100vw"
-        height="100vh"
-        bgcolor="rgba(0, 0, 0, 0.5)"
-        zIndex={1300}
-        display="flex"
-        justifyContent="center"
-        alignItems="center"
+            position="fixed"
+            top={0}
+            left={0}
+            width="100vw"
+            height="100vh"
+            bgcolor="rgba(0, 0, 0, 0.5)"
+            zIndex={1300}
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
           >
-        <Box
-          bgcolor="white"
-          p={3}
-          borderRadius={2}
-          boxShadow={3}
-          maxWidth="90%"
-          maxHeight="90%"
-          overflow="auto"
-        >
-          <Receipt items={items} />
-          <Box display="flex" justifyContent="flex-end" mt={2}>
-            <Button
-          variant="contained"
-          color="error"
-          onClick={() => setReceipt(false)}
+            <Box
+              bgcolor="whitesmoke"
+              p={2}
+              borderRadius={2}
+              boxShadow={3}
+              maxWidth="90%"
+              maxHeight="90%"
+              overflow="auto"
             >
-          Close
-            </Button>
-          </Box>
-        </Box>
+              <Receipt items={items} receiptRef={receiptRef} />
+              <Box display="flex" justifyContent="space-between" mt={2}>
+                <Button
+                  sx={{ textTransform: 'none', fontSize: 12 }}
+                  onClick={handleDownload}
+                  startIcon={<Download fontSize="small" />}
+                >
+                  Download
+                </Button>
+                <Button
+                  color="warning"
+                  variant="contained"
+                  onClick={() => setReceipt(false)}
+                >
+                  Close
+                </Button>
+              </Box>
+            </Box>
           </Box>
         </Box>
       )}
@@ -115,126 +142,97 @@ const CheckoutSection = (
 
 export default CheckoutSection;
 
-interface ReceiptProps { items: Items }
+interface ReceiptProps { 
+  items: Items 
+  receiptRef: React.RefObject<HTMLDivElement>
+}
 
-export const Receipt: React.FC<ReceiptProps> = ({ items }) => {
-  const receiptRef = useRef<HTMLDivElement>(null);
-
-  const handleDownload = async () => {
-    if (!receiptRef.current) return;
-
-    const canvas = await html2canvas(receiptRef.current, { scale: 2 });
-    const imgData = canvas.toDataURL('image/png');
-
-    const pdf = new jsPDF({
-      orientation: 'portrait',
-      unit: 'pt',
-      format: 'a4',
-    });
-    const pageWidth = pdf.internal.pageSize.getWidth();
-    const imgWidth = pageWidth - 40;
-    const imgHeight = (canvas.height * imgWidth)/ canvas.width;
-
-    pdf.addImage(imgData, 'PNG', 20, 20, imgWidth, imgHeight);
-    pdf.save('Gicodes_app_builder_summary.pdf');
-  };
-  
-  return (
-    <Card
-      ref={receiptRef}
-      sx={{ py: 3, px: 4, mx: 'auto', maxWidth: 369, position: 'relative' }}
-    >
-      <Box display={'flex'} justifyContent={'space-between'}>
-        <Typography variant="h6" fontSize={14} gutterBottom>
-          App Builder Summary
-        </Typography>
-        <Box alignSelf={'end'}>
-          <Link className='text-link fs-xs' href={'https://gicodes.dev'}>
-            www.gicodes.dev
-          </Link>
-        </Box>
+export const Receipt: React.FC<ReceiptProps> = ({ items, receiptRef }) => (
+  <Card
+    ref={receiptRef}
+    sx={{ py: 3, px: 4, mx: 'auto', maxWidth: 369, position: 'relative' }}
+  >
+    <Box display={'flex'} justifyContent={'space-between'}>
+      <Typography variant="h6" fontSize={14} gutterBottom>
+        App Builder Summary
+      </Typography>
+      <Box alignSelf={'end'}>
+        <Link className='text-link fs-xs' href={'https://gicodes.dev'}>
+          www.gicodes.dev
+        </Link>
       </Box>
-      <Divider />
+    </Box>
+    <Divider />
 
-      <Box my={2}>
-        <Typography variant="subtitle2">
-          Project type:{" "} 
-          <span className='fw-light'>{items.projectType==="static" ? "Static" : "Dynamic"}</span>
+    <Box my={2}>
+      <Typography variant="subtitle2">
+        Project type:{" "} 
+        <span className='fw-light'>{items.projectType==="static" ? "Static" : "Dynamic"}</span>
+      </Typography>
+
+      {items.dynamicType && (
+        <Typography variant="caption">
+          Dynamic type: {items.dynamicType==="server" ? "Server" : "Serverless"}
         </Typography>
+      )}
 
-        {items.dynamicType && (
+      {items.staticPages != null && (
+        <Box my={1} color="textSecondary" display="grid">
+          <Typography variant="caption">Layout & Navigation: Yes</Typography>
+          <Typography variant="caption">UI/UX Designs: Yes</Typography>
+          <Typography variant="caption">Page Content: Yes</Typography>
+          { items.staticAddons && Object.keys(items.staticAddons).length > 0 
+            ? Object.entries(items.staticAddons).map(([key, value]) => (
+                <Typography key={key} variant="caption">
+                  {String(value).replace(/^./, str => str.toUpperCase())} client
+                </Typography>
+              ))
+            : ""}
           <Typography variant="caption">
-            Dynamic type: {items.dynamicType}
+            Static pages: {items.staticPages}
           </Typography>
-        )}
+        </Box>
+      )}
 
-        {items.staticPages != null && (
-          <Box my={1} color="textSecondary" display="grid">
-            <Typography variant="caption">Layout & Navigation: Yes</Typography>
-            <Typography variant="caption">UI/UX Designs: Yes</Typography>
-            <Typography variant="caption">Page Content: Yes</Typography>
-            { items.staticAddons && Object.keys(items.staticAddons).length > 0 
-              ? Object.entries(items.staticAddons).map(([key, value]) => (
-                  <Typography key={key} variant="caption">
-                    {String(value)} client
-                  </Typography>
-                ))
-              : ""}
+      { items.dynamicPages != null && (
+        <Box my={1} color="textSecondary" display="grid">
+          {Object.entries(items.include).map(
+            ([feature, value]) =>
+              value && (
+                <Typography key={feature} variant="caption">
+                  {feature.replace(/^./, str => str.toUpperCase())}: Yes
+                </Typography>
+              )
+          )}
+          {items.estimatedTotal > 0 ? (
             <Typography variant="caption">
-              Static pages: {items.staticPages}
+              Dynamic pages: {items.dynamicPages}
             </Typography>
-          </Box>
-        )}
+          ) : (
+            <Typography variant="caption">
+              No services were selected!
+            </Typography>
+          )}
+        </Box>
+      )}
+    </Box>
+    
+    <Typography variant='caption'> <strong>Note: </strong> 
+      For project requirements to be met, there are no-code resources needed—
+      Product design, standard set of logos, etc. 
+      <span className='block'> Domain is setup on demand. Learn more from <Link className='text-link' 
+      href={'https://www.wpbeginner.com/beginners-guide/beginners-guide-what-is-a-domain-name-and-how-do-domains-work/'}>WpBeginners</Link>.</span>
+    </Typography>
 
-        { items.dynamicPages != null && (
-          <Box my={1} color="textSecondary" display="grid">
-            {Object.entries(items.include).map(
-              ([feature, value]) =>
-                value && (
-                  <Typography key={feature} variant="caption">
-                    {feature}: yes
-                  </Typography>
-                )
-            )}
-            {items.estimatedTotal > 0 ? (
-              <Typography variant="caption">
-                Dynamic pages: {items.dynamicPages}
-              </Typography>
-            ) : (
-              <Typography variant="caption">
-                No services were selected!
-              </Typography>
-            )}
-          </Box>
-        )}
-      </Box>
-      
-      <Typography variant='caption'> <strong>Note: </strong> 
-        For project requirements to be met, there are no-code resources needed—
-        Product design, standard set of logos, etc. 
-        <span className='block'> Domain is setup on demand. Learn more from <Link className='text-link' 
-        href={'https://www.wpbeginner.com/beginners-guide/beginners-guide-what-is-a-domain-name-and-how-do-domains-work/'}>WpBeginners</Link>.</span>
-      </Typography>
+    <Typography variant="subtitle2" my={2}>
+      Estimated Time: <span className='fw-light'>{items.estimatedTime} days</span>
+    </Typography>
+    <Typography variant="h6" fontSize={15}>
+      Estimated Cost: <span className='fw-light'>${items.estimatedTotal}</span>
+    </Typography>
+  </Card>
+);
 
-      <Typography variant="subtitle2" my={2}>
-        Estimated Time: {items.estimatedTime} days
-      </Typography>
-      <Typography variant="h6" fontSize={15}>
-        Total: <span className='fw-light'>${items.estimatedTotal}</span>
-      </Typography>
-
-      <Box display="flex" justifyContent="flex-end" mt={2}>
-        <Button
-          sx={{ textTransform: 'none', fontSize: 12 }}
-          onClick={handleDownload}
-          startIcon={<Download fontSize="small" />}
-        >
-          Download
-        </Button>
-      </Box>
-    </Card>
-  );
-};
 
 
 export const TotalBar: React.FC<{ total: number, duration: number }> = ({ total, duration }) => (

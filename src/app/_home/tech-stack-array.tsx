@@ -3,14 +3,14 @@ import Link from "next/link"
 // my skills currently offer
 export const msco = <>
   <h2 className="mb-2 text-white"> Services </h2> 
-  <p>&#x2014; <b>Coding as a Product</b>: Build mobile apps, web apps, etc</p>
-  <p>&#x2014; <b>Coding as a Service</b>: App management, Ticketing, DBms, Documentations, etc </p>
+  <p>&#x2014; <b>Coding as a Product</b>: Write mobile apps, web apps, etc</p>
+  <p>&#x2014; <b>Coding as a Service</b>: App management, ticketing, DbMs, documentations, etc </p>
   <p>&#x2014; Build full-stack apps from scratch with the right tools. 
     <span> Use <Link className="text-wahala" href={'/app-builder'}><strong>App Builder</strong></Link> to simulate and estimate project cost</span></p>
-  <p>&#x2014; Design APIs, data models & schemas, writing app architecture for both backend services and client app</p>
+  <p>&#x2014; Design APIs, data models & schemas, writing app architecture for client apps and backend services</p>
   <p>&#x2014; Integrate new features and functions for frontend apps </p>
-  <p>&#x2014; Manage Domains, Web infrastructure & Microservices </p>
-  <p>&#x2014; Deploy apps to the Web, Cloud, Apple & Google playstores </p>
+  <p>&#x2014; Manage Domains, web infrastructure & microservices </p>
+  <p>&#x2014; Deploy apps to the web, cloud, apple & google playstores </p>
 </>
 
 // frequently used tools

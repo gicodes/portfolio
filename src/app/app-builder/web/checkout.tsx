@@ -115,7 +115,6 @@ const CheckoutSection = (
 
 export default CheckoutSection;
 
-
 interface ReceiptProps { items: Items }
 
 export const Receipt: React.FC<ReceiptProps> = ({ items }) => {
@@ -132,7 +131,6 @@ export const Receipt: React.FC<ReceiptProps> = ({ items }) => {
       unit: 'pt',
       format: 'a4',
     });
-
     const pageWidth = pdf.internal.pageSize.getWidth();
     const imgWidth = pageWidth - 40;
     const imgHeight = (canvas.height * imgWidth)/ canvas.width;
@@ -150,15 +148,18 @@ export const Receipt: React.FC<ReceiptProps> = ({ items }) => {
         <Typography variant="h6" fontSize={14} gutterBottom>
           App Builder Summary
         </Typography>
-        <Box alignSelf={'end'}><Link className='text-link fs-xs' href={'https://gicodes.dev'}>
-          www.gicodes.dev
-        </Link></Box>
+        <Box alignSelf={'end'}>
+          <Link className='text-link fs-xs' href={'https://gicodes.dev'}>
+            www.gicodes.dev
+          </Link>
+        </Box>
       </Box>
       <Divider />
 
       <Box my={2}>
         <Typography variant="subtitle2">
-          Project type: {items.projectType}
+          Project type:{" "} 
+          <span className='fw-light'>{items.projectType==="static" ? "Static" : "Dynamic"}</span>
         </Typography>
 
         {items.dynamicType && (
@@ -191,7 +192,7 @@ export const Receipt: React.FC<ReceiptProps> = ({ items }) => {
               ([feature, value]) =>
                 value && (
                   <Typography key={feature} variant="caption">
-                    {feature}: Yes
+                    {feature}: yes
                   </Typography>
                 )
             )}
@@ -219,7 +220,7 @@ export const Receipt: React.FC<ReceiptProps> = ({ items }) => {
         Estimated Time: {items.estimatedTime} days
       </Typography>
       <Typography variant="h6" fontSize={15}>
-        Total: ${items.estimatedTotal}
+        Total: <span className='fw-light'>${items.estimatedTotal}</span>
       </Typography>
 
       <Box display="flex" justifyContent="flex-end" mt={2}>

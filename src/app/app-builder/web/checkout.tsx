@@ -167,7 +167,7 @@ export const Receipt: React.FC<ReceiptProps> = ({ items, receiptRef }) => (
     <Box my={2}>
       <Typography variant="subtitle2">
         Project type:{" "} 
-        <span className='fw-light'>{items.projectType==="static" ? "Static" : "Dynamic"}</span>
+        <span className='fw-light'>{items.projectType==="static" ? "Client" : "Full Stack"}</span>
       </Typography>
 
       {items.dynamicType && (

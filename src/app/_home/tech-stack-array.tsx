@@ -22,11 +22,11 @@ export const msco = (
       </span>
     </Paragraph>
     <Paragraph lineHeight={1.5}>
-      Design APIs, data models & schemas, writing app architecture for client apps and backend services
+      Design APIs, data models & schemas, app architecture for client apps and backend services
     </Paragraph>
-    <Paragraph>Integrate new features and functions for frontend apps</Paragraph>
+    <Paragraph>Integrate new features & functions, scale applications</Paragraph>
     <Paragraph>Manage Domains, web infrastructure & microservices</Paragraph>
-    <Paragraph>Deploy apps to the web, cloud, apple & google playstores</Paragraph>
+    <Paragraph>Deploy apps to the web, cloud, apple & google playstore</Paragraph>
   </>
 );
 
@@ -35,7 +35,7 @@ export const fut = (
     <h2 className="mb-2">Frequently Used Tools</h2>
     <Paragraph>Next.js: Build client-side & full-stack web apps</Paragraph>
     <Paragraph>
-      MERN/ PERN: Build full-stack web apps with Node.js, Express, React, & MongoDB/ Firebase/ Postgres(SQL)
+      MERN/ PERN: Build full-stack web apps with Node.js, Express, React, & MongoDB/ Firebase/ PostgresSQL
     </Paragraph>
     <Paragraph>TypeScript: Write clean, robust code that is easily maintainable and scalable</Paragraph>
     <Paragraph>Flutter: Build cross-platform (iOS & android) apps with Dart, and deploy to app stores</Paragraph>
@@ -43,7 +43,7 @@ export const fut = (
       Material UI: Style apps with in-built plugin support. Other familiar libraries: Tailwind CSS, Bootstrap, SCSS
     </Paragraph>
     <Paragraph>GitHub: Version control, manage codebase and collaborate on projects</Paragraph>
-    <Paragraph>Docker: Manage larger apps in containerized environments. Test, deploy & iterate software</Paragraph>
+    <Paragraph>Docker: Manage apps in containerized environments. Test, deploy & iterate software</Paragraph>
   </>
 );
 

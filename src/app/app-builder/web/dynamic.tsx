@@ -54,7 +54,7 @@ export const DynamicOptions = ({
       
       <Box my={4} /* Common Services */>
         <Typography mb={2} variant="subtitle2" color="textSecondary">
-          Primary Services <span className="fs-xs text-gray">(Must Choose at least 1)</span>
+          Primary Services <span className="fs-xs text-gray">(Must Choose at least 2)</span>
         </Typography>
         <Stack spacing={2} mt={1}>
           <ServiceOption
@@ -271,7 +271,7 @@ export const DynamicOptions = ({
           )}
 
           <Box width="100%"> {/* Platform specific services */}
-            <Typography variant="subtitle2" my={1} color="textSecondary">Platform-specific Services</Typography>
+            <Typography variant="subtitle2" my={1} color="textSecondary">Platform-specific Services <span className="fs-xs text-gray">(optional)</span></Typography>
             {(['blog','ecom','fintech','chat'] as Array<'blog' | 'ecom' | 'fintech' | 'chat'>).map((key) => {
               const labels = {
                 blog: 'Blog app',

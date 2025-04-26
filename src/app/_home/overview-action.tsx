@@ -2,7 +2,7 @@ import { render } from "../render";
 import { useTheme } from "@mui/material/styles";
 import { CodeSharp } from "@mui/icons-material";
 import React, { useEffect, useState } from "react";
-import { Badge, Container, Typography } from "@mui/material";
+import { Badge, Box, Container, Typography } from "@mui/material";
 
 const welcomeText = `
   Hi there,\n I'm Gideon Iduma.
@@ -107,7 +107,7 @@ export const GetToKnowMe = () => {
         ))}
       </Typography>
 
-      <Typography component="div" className="typing-effect">
+      <Box my={2}><Typography component="div" className="typing-effect">
         {render(slidingText2).map((line, idx) => (
           <Typography
             key={idx}
@@ -117,9 +117,9 @@ export const GetToKnowMe = () => {
             {line}
           </Typography>
         ))}
-      </Typography>
+      </Typography></Box>
 
-      <Typography component="div" className="typing-effect mt-2">
+      <Typography component="div" className="typing-effect">
         {render(slidingText3).map((line, idx) => (
           <Typography
             key={idx}

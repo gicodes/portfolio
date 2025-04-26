@@ -113,7 +113,7 @@ export const SendInstantEmail = ({ handleSendEmail }: SendInstantEmailProps) => 
       >
         <form onSubmit={handleSendEmail}>
           <Box my={2} className='text-center'>
-            <Typography variant='h6'> Send Instant E-mail </Typography >
+            <Typography variant='h6'> Send Instant Message </Typography >
             <Typography variant='caption' color='textSecondary'>You can send detailed information on what you want</Typography>
           </Box>
 
@@ -154,7 +154,7 @@ export const SendInstantEmail = ({ handleSendEmail }: SendInstantEmailProps) => 
               color="inherit" 
               size="large"
             >
-              Send Email
+              Send Message
             </Button>
           </Box>
         </form>

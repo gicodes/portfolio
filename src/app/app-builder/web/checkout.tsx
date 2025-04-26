@@ -68,11 +68,47 @@ const CheckoutSection = (
             }}
             color={receipt ? "warning" : "info"}
           >
-            {receipt ? "Close" : "Get"} Checkout Summary
+            {receipt ? "" : "View"} Checkout Summary
           </Button>
         </Box>
       }
-      {checkout && receipt && <Receipt items={items} />}
+      {checkout && receipt && (
+        <Box>
+          <Box
+        position="fixed"
+        top={0}
+        left={0}
+        width="100vw"
+        height="100vh"
+        bgcolor="rgba(0, 0, 0, 0.5)"
+        zIndex={1300}
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+          >
+        <Box
+          bgcolor="white"
+          p={3}
+          borderRadius={2}
+          boxShadow={3}
+          maxWidth="90%"
+          maxHeight="90%"
+          overflow="auto"
+        >
+          <Receipt items={items} />
+          <Box display="flex" justifyContent="flex-end" mt={2}>
+            <Button
+          variant="contained"
+          color="error"
+          onClick={() => setReceipt(false)}
+            >
+          Close
+            </Button>
+          </Box>
+        </Box>
+          </Box>
+        </Box>
+      )}
     </Box>
   );
 }
@@ -136,7 +172,7 @@ export const Receipt: React.FC<ReceiptProps> = ({ items }) => {
             <Typography variant="caption">Layout & Navigation: Yes</Typography>
             <Typography variant="caption">UI/UX Designs: Yes</Typography>
             <Typography variant="caption">Page Content: Yes</Typography>
-            {items.staticAddons && Object.keys(items.staticAddons).length > 0 
+            { items.staticAddons && Object.keys(items.staticAddons).length > 0 
               ? Object.entries(items.staticAddons).map(([key, value]) => (
                   <Typography key={key} variant="caption">
                     {String(value)} client
@@ -149,7 +185,7 @@ export const Receipt: React.FC<ReceiptProps> = ({ items }) => {
           </Box>
         )}
 
-        {items.dynamicPages != null && (
+        { items.dynamicPages != null && (
           <Box my={1} color="textSecondary" display="grid">
             {Object.entries(items.include).map(
               ([feature, value]) =>
@@ -173,7 +209,10 @@ export const Receipt: React.FC<ReceiptProps> = ({ items }) => {
       </Box>
       
       <Typography variant='caption'> <strong>Note: </strong> 
-        No-coding services and resources such as Designs, Logos, and Domain setup are not included in this project/ estimate.
+        For project requirements to be met, there are no-code resources needed—
+        Product design, standard set of logos, etc. 
+        <span className='block'> Domain is setup on demand. Learn more from <Link className='text-link' 
+        href={'https://www.wpbeginner.com/beginners-guide/beginners-guide-what-is-a-domain-name-and-how-do-domains-work/'}>WpBeginners</Link>.</span>
       </Typography>
 
       <Typography variant="subtitle2" my={2}>
@@ -200,7 +239,11 @@ export const Receipt: React.FC<ReceiptProps> = ({ items }) => {
 export const TotalBar: React.FC<{ total: number, duration: number }> = ({ total, duration }) => (
   <Box py={2} px={1.5} zIndex={1} boxShadow={2} width="100%" bgcolor="white" position="fixed" bottom={0} left={0}>
     <Typography display="flex" justifyContent="space-around">
-      Estimated Total: <span><strong>{duration} </strong>days</span> <strong className="text-success">${total}.00</strong>
+      Estimated Total: 
+      <span>
+        <strong>{duration} </strong>days
+      </span> 
+      <strong className="text-success">${total}.00</strong>
     </Typography>
   </Box>
 );

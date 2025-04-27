@@ -53,7 +53,7 @@ export const funFacts = (
     <Paragraph>I'm a self-taught Software Developer</Paragraph>
     <Paragraph>I honestly cannot choose between backend and frontend</Paragraph>
     <Paragraph>I'm a big fan of football. Siuuu!!</Paragraph>
-    <Paragraph>In my spare time, I draw, write rap or play video games</Paragraph>
+    <Paragraph>In my leisure time, I watch drag races or play video games</Paragraph>
     <Paragraph> I'm <span className="text-wheat"><b>1 of 1</b></span>. Literally</Paragraph>
   </>
 );

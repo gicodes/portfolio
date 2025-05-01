@@ -6,7 +6,7 @@ interface ServiceOptionProps {
   checked: boolean;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   label: string;
-  description?: string;
+  description?: React.ReactNode;
   price: number;
   children?: React.ReactNode;
 }

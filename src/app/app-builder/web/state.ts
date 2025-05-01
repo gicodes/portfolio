@@ -1,5 +1,6 @@
 import { AlertProps } from '../../_alerts/alert';
 
+
 export interface BuilderState { // Define the shape of your builder's state
   projectType: 'static' | 'dynamic';
   dynamicType: 'serverless' | 'server';
@@ -14,9 +15,11 @@ export interface BuilderState { // Define the shape of your builder's state
     providers: boolean;
     generative: boolean;
     authUser: boolean;
+    authUserCount: number;
     authAdmin: boolean;
     blog: boolean;
     ecom: boolean;
+    ticketing: boolean;
     chat: boolean;
     fintech: boolean;
   };
@@ -24,6 +27,7 @@ export interface BuilderState { // Define the shape of your builder's state
   duration: number | undefined;
   alert: AlertProps | null;
 }
+
 
 export const initialState: BuilderState = { // Initial default values for the builder
   projectType: 'static',
@@ -39,9 +43,11 @@ export const initialState: BuilderState = { // Initial default values for the bu
     providers: false,
     generative: false,
     authUser: false,
+    authUserCount: 1,
     authAdmin: false,
     blog: false,
     ecom: false,
+    ticketing: false,
     chat: false,
     fintech: false,
   },
@@ -50,8 +56,11 @@ export const initialState: BuilderState = { // Initial default values for the bu
   alert: null,
 };
 
+
 export type IncludeKey = keyof BuilderState['include']; // Keys of the "include" object, for type-safe toggling
+
 export type AddonKey = 'generative' | 'form' | 'plugin'; // Keys for static addons
+
 
 export type Action = // Define the actions your reducer can handle
   | { type: 'SET_PROJECT_TYPE'; payload: BuilderState['projectType'] }
@@ -59,12 +68,14 @@ export type Action = // Define the actions your reducer can handle
   | { type: 'SET_STATIC_PAGES'; payload: BuilderState['staticPages'] }
   | { type: 'SET_DYNAMIC_PAGES'; payload: BuilderState['dynamicPages'] }
   | { type: 'TOGGLE_INCLUDE'; payload: IncludeKey }
+  | { type: 'SET_AUTH_USER_COUNT'; payload: number }
   | { type: 'SET_CHECKOUT'; payload: BuilderState['checkout'] }
   | { type: 'SET_STATIC_ADDON'; payload?: BuilderState['staticAddon'] }
   | { type: 'HANDLE_CHECKOUT'; payload?: 'email' | 'whatsapp' }
   | { type: 'SET_DURATION'; payload?: BuilderState['duration']}
   | { type: 'SET_ALERT'; payload: BuilderState['alert'] };
 
+  
 export function stateReducer(
   state: BuilderState, action: Action
 ): BuilderState {
@@ -88,6 +99,14 @@ export function stateReducer(
         include: { ...state.include, 
           [action.payload]: !state.include[action.payload],
         },
+      };
+    case 'SET_AUTH_USER_COUNT':
+      return { 
+        ...state, 
+        include: { 
+          ...state.include, 
+          authUserCount: action.payload 
+        } 
       };
     case 'SET_CHECKOUT':
       return { ...state, checkout: action.payload };

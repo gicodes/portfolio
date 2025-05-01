@@ -196,19 +196,18 @@ export const Receipt: React.FC<ReceiptProps> = ({ items, receiptRef }) => (
 
       { items.dynamicPages != null && (
         <Box my={1} color="textSecondary" display="grid">
-          {Object.entries(items.include).map(
-            ([feature, value]) =>
-              value && (
-                <Typography key={feature} variant="caption">
-                  {feature.replace(/^./, str => str.toUpperCase())}: Yes
-                </Typography>
-              )
-          )}
-          {items.estimatedTotal > 0 ? (
-            <Typography variant="caption">
-              Dynamic pages: {items.dynamicPages}
+          { Object.entries(items.include).map(([feature, value]) =>
+            value && feature !== "authUserCount" ? (
+            <Typography key={feature} variant="caption">
+              {`${feature.replace(/^./, str => str.toUpperCase())}: Yes`}
             </Typography>
-          ) : (
+              ) : null
+              )}
+              { items.include.frontend && items.estimatedTotal > 0 ? (
+              <Typography variant="caption">
+                Dynamic pages: {items.dynamicPages}
+              </Typography>
+            ) : (
             <Typography variant="caption">
               No services were selected!
             </Typography>
@@ -218,9 +217,9 @@ export const Receipt: React.FC<ReceiptProps> = ({ items, receiptRef }) => (
     </Box>
     
     <Typography variant='caption'> <strong>Note: </strong> 
-      For project requirements to be met, there are no-code resources needed—
-      Product design, standard set of logos, etc. 
-      <span className='block'> Domain is setup on demand. Learn more from <Link className='text-link' 
+      For project requirements to be met, there are no-code resources needed≫
+      Product design, standard set of logo, etc 
+      <span className='block'> Domain setup on demand. Learn more from <Link className='text-link' 
       href={'https://www.wpbeginner.com/beginners-guide/beginners-guide-what-is-a-domain-name-and-how-do-domains-work/'}>WpBeginners</Link>.</span>
     </Typography>
 

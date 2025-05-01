@@ -12,11 +12,13 @@ export interface CalculateTotalParams {
     providers?: boolean;
     generative?: boolean;
     authUser?: boolean;
+    authUserCount: number;
     authAdmin?: boolean;
     blog?: boolean;
     ecom?: boolean;
-    fintech?: boolean;
+    ticketing?: boolean;
     chat?: boolean;
+    fintech?: boolean;
   };
 }
 
@@ -80,11 +82,16 @@ export const calculateTotal = ({
       duration += 2;
     }
     if (include.authUser) {
-      total += 50;
-      duration += 4;
+      if (include.authUserCount) {
+        total += include.authUserCount * 100;
+        duration += include.authUserCount * 4;
+      } else {
+        total += 100;
+        duration += 4;
+      }
     }
     if (include.authAdmin) {
-      total += 100;
+      total += 200;
       duration += 7;
     }
     if (include.blog) {
@@ -95,13 +102,17 @@ export const calculateTotal = ({
       total += 450;
       duration += 14;
     }
-    if (include.fintech) {
-      total += 1000;
-      duration += 30;
+    if (include.ticketing) {
+      total += 750;
+      duration += 5;
     }
     if (include.chat) {
       total += 1500;
       duration += 36;
+    }
+    if (include.fintech) {
+      total += 2000;
+      duration += 30;
     }
   }
 

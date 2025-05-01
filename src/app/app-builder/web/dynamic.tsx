@@ -15,7 +15,8 @@ interface State {
     frontend: boolean;
     generative: boolean;
     providers: boolean;
-    [key: string]: boolean;
+    authUserCount?: any;
+    [key: string]: boolean | number; 
   };
 }
 
@@ -78,25 +79,38 @@ export const DynamicOptions = ({
               <Typography variant="subtitle2" color="textSecondary">
                 Auth and Access Levels
               </Typography>
-              <Box my={1} display="flex" justifyContent="space-between">
+                <Box my={1} display="flex" justifyContent="space-between">
                 <FormControlLabel
                   control={
-                    <Checkbox
-                      checked={include.authUser}
-                      onChange={() => dispatch({ type: 'TOGGLE_INCLUDE', payload: 'authUser' })}
-                    />
+                  <Checkbox
+                    checked={include.authUser}
+                    onChange={() => dispatch({ type: 'TOGGLE_INCLUDE', payload: 'authUser' })}
+                  />
                   }
                   label={
                     <Stack>
-                      <Typography>User Profile</Typography>
-                      <Typography variant="caption" display="block">
-                        Sign‑up, Login, Password Reset
-                      </Typography>
+                      <Typography>User Role(s)</Typography>
+                      <Typography variant="caption" display="block"> Sign‑up, Login, Edit Profile, etc </Typography>
                     </Stack>
                   }
                 />
-                <Typography color="success">$50</Typography>
-              </Box>
+                <Typography color="success">${100 * (include.authUserCount || 1)}</Typography>
+                </Box>
+                {include.authUser && (
+                  <Box my={2}>
+                    <TextField
+                      label="Number of User Roles"
+                      type="number"
+                      size="small"
+                      value={include.authUser ? (include.authUserCount ?? 1) : 1}
+                      onChange={(e) =>
+                        dispatch({ type: 'SET_AUTH_USER_COUNT', payload: Math.max(1, +e.target.value) })
+                      }
+                      helperText="i.e. Sellers, Buyers, etc"
+                      sx={{ width: 180 }}
+                    />
+                  </Box>
+                )}
               <Box my={1} display="flex" justifyContent="space-between">
                 <FormControlLabel
                   control={
@@ -107,14 +121,14 @@ export const DynamicOptions = ({
                   }
                   label={
                     <Stack>
-                      <Typography>Admin/ Mod Profile</Typography>
+                      <Typography>Admin/ Moderator Role(s)</Typography>
                       <Typography variant="caption" display="block">
-                        Role‑based access controls (CRUD)
+                        Sudo role‑based functions <span className="-mt block fs-xs text-gray">i.e. Create, Read, Update, Delete</span>
                       </Typography>
                     </Stack>
                   }
                 />
-                <Typography color="success">$100</Typography>
+                <Typography color="success">$200</Typography>
               </Box>
 
               <Typography my={2} variant="subtitle2" color="textSecondary">
@@ -183,13 +197,17 @@ export const DynamicOptions = ({
             </Box>
           )}
 
-          <ServiceOption
-            checked={include.frontend}
-            onChange={() => dispatch({ type: 'TOGGLE_INCLUDE', payload: 'frontend' })}
-            label="Frontend Bundle"
-            description="Layout & Nav— $100, Pages— $200, UI/UX— $250, Deployment— $50"
-            price={600}
-          />
+            <ServiceOption
+              checked={include.frontend}
+              onChange={() => dispatch({ type: 'TOGGLE_INCLUDE', payload: 'frontend' })}
+              label="Frontend Bundle"
+              description={
+                <Typography variant="caption" color="textSecondary">
+                  Layout & Nav— $100, Pages— $200, UI/UX— $250, Deploy— $50
+                </Typography>
+              }
+              price={600}
+            />
 
           {include.frontend && (
             <Box sx={{ ml: 2, my: 2 }}>
@@ -220,8 +238,8 @@ export const DynamicOptions = ({
                   label={
                     <Stack>
                       <Typography>Generative Pages with AI</Typography>
-                      <Typography variant="caption" color="textSecondary">
-                        Privacy Policy, Cookie Policy, etc
+                      <Typography variant="caption" color="textSecondary"> 
+                        Privacy Policy, Cookie Policy, etc 
                       </Typography>
                     </Stack>
                   }
@@ -234,7 +252,9 @@ export const DynamicOptions = ({
                 label={
                   <Stack display={'flex'} justifyContent={'space-between'}>
                     <Typography variant="body2">Feedback form (1 free)</Typography>
-                    <Typography variant="caption"><span className="text-success">$25</span> each. Billed as you go</Typography>
+                    <Typography variant="caption">
+                      <span className="text-success">$25</span> each. Billed as you go
+                    </Typography>
                   </Stack>
                 }
               />
@@ -252,9 +272,7 @@ export const DynamicOptions = ({
                   label={
                     <Stack>
                       <Typography>Performance Providers</Typography>
-                      <Typography variant="caption">
-                        Alert, Loading, User, Product, Search
-                      </Typography>
+                      <Typography variant="caption"> Alert, Loading, User, Product, Search </Typography>
                     </Stack>
                   }
                 />
@@ -265,31 +283,39 @@ export const DynamicOptions = ({
                 Third‑party integrations <span className="text-success">$50+</span>
               </Typography>
               <Typography variant="caption" color="textSecondary">
-                Auto‑responder, Social Media API, Google Analytics, Google Maps API ($250 + usage)
+                Auto‑responder, Google Analytics, Google Maps API ($200 + usage)
               </Typography>
             </Box>
           )}
 
           <Box width="100%"> {/* Platform specific services */}
-            <Typography variant="subtitle2" my={1} color="textSecondary">Platform-specific Services <span className="fs-xs text-gray">(optional)</span></Typography>
-            {(['blog','ecom','fintech','chat'] as Array<'blog' | 'ecom' | 'fintech' | 'chat'>).map((key) => {
+            <Typography variant="subtitle2" my={1} color="textSecondary">
+              Platform-specific Services <span className="fs-xs text-gray">(optional)</span>
+            </Typography>
+
+            {(['blog','ecom', 'ticketing', 'chat', 'fintech'] as Array<'blog' | 'ecom' | 'ticketing' | 'chat' | 'fintech'>).map((key) => {
               const labels = {
                 blog: 'Blog app',
                 ecom: 'E-commerce',
+                ticketing: 'Ticketing',
                 fintech: 'Fin Tech',
                 chat: 'Chat app'
               };
-              const prices = { blog: 250, ecom: 450, fintech: 1000, chat: 1500 };
+
+              const prices = { blog: 250, ecom: 450, ticketing: 750, chat: 1500, fintech: 2000 };
+              
               const descs = {
                 blog: 'Control, Manage, Publish Content',
-                ecom: 'Store, Cart, Checkout, Payments',
-                fintech: 'Accounts, Banking, Payments',
-                chat: 'Chat rooms, p2p networks, Notifications'
+                ecom: 'Store, Cart, Checkout, Payment solution',
+                ticketing: 'Automated logs for Tasks, Features, Issues, Fixes',
+                chat: 'Chat rooms, p2p networks, Notifications',
+                fintech: 'Accounts, Banking, Secure payments',
               };
+
               return (
                 <ServiceOption
                   key={key}
-                  checked={include[key]}
+                  checked={!!include[key]}
                   onChange={() => dispatch({ type: 'TOGGLE_INCLUDE', payload: key })}
                   label={labels[key]}
                   description={descs[key]}

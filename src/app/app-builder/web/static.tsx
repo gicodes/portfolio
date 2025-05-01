@@ -40,7 +40,7 @@ export const StaticOptions: React.FC<StaticOptionsProps> = ({ staticPages, dispa
         </Typography>
 
         <Box display="flex" justifyContent="space-between">
-          <Typography variant="subtitle2">Page Content</Typography>
+          <Typography variant="subtitle2">Page(s) as Menu Option</Typography>
           <TextField
             type="number"
             size="small"

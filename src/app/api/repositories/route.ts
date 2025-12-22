@@ -12,22 +12,20 @@ export async function GET() {
     const projects = [
       // These repositories have been pre-authorized. Please avoid making changes without permission
       { name: "afro-fashion" },
-      { name: "app.text.js" },
+      { name: "hospitalplug" },
       { name: "attribution.js" },
-      { name: "barcode-scanner-app" },
-      { name: "dashboardJs" },
       { name: "global-prompt" },
       { name: "mechtatel" }, 
       { name: "ukanwears" },
       { name: "pheonix-med"},
       { name: "starforge" },
-      { name: "scan-a-barcode" },
+      { name: "tictask" },
     ];
 
     const formatDate = (dateString: string): string => {
       const date = new Date(dateString);
       const day = String(date.getDate()).padStart(2, '0');
-      const month = String(date.getMonth() + 1).padStart(2, '0'); // Months are 0-based
+      const month = String(date.getMonth() + 1).padStart(2, '0');
       const year = date.getFullYear();
       return `${day}-${month}-${year}`;
     };

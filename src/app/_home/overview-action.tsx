@@ -3,6 +3,7 @@ import { useTheme } from "@mui/material/styles";
 import { CodeSharp } from "@mui/icons-material";
 import React, { useEffect, useState } from "react";
 import { Badge, Box, Container, Typography } from "@mui/material";
+import { motion } from 'framer-motion';
 
 const welcomeText = `
   Hi there,\n I'm Gideon Iduma.
@@ -18,6 +19,16 @@ const pitchText = `
     I will build you a user-friendly application that is responsive, scalable and reliably fast in production.
 `;
 
+const lineVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.05,
+    },
+  }),
+}
 export const GetToKnowMe = () => {
   const theme = useTheme();
   const [slidingText, setSlidingText] = useState("");
@@ -26,6 +37,7 @@ export const GetToKnowMe = () => {
 
   useEffect(() => {
     let welcomeIndex = 0;
+    
     const displayWelcomeText = setInterval(() => {
       if (welcomeIndex < welcomeText.length) {
         setSlidingText((prev) => prev + welcomeText[welcomeIndex]);
@@ -59,16 +71,21 @@ export const GetToKnowMe = () => {
   }, []);
 
   return (
-    <Container
-      sx={{
-        px: { xs: 3, sm: 4, lg: 0 },
-        pt: { xs: 1, sm: 3, lg: 2 },
-        pb: { xs: 1, sm: 2, lg: 3 },
-        height: { xs: '432px', sm: '369px', lg: '345px' },
-      }}
+    <motion.div
+      initial={{ opacity: 0, x: -50 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.8, delay: 0.2 }}
     >
-      <Typography component="div">
-        {render(slidingText).map((line, idx) => (
+      <Container
+        sx={{
+          px: { xs: 3, sm: 4, lg: 0 },
+          pt: { xs: 1, sm: 3, lg: 2 },
+          pb: { xs: 1, sm: 2, lg: 3 },
+          height: { xs: '432px', sm: '369px', lg: '345px' },
+        }}
+      >
+        <Typography component="div">
+          {render(slidingText).map((line, idx) => (
           <Typography
             key={idx}
             variant="h3"
@@ -145,5 +162,5 @@ export const GetToKnowMe = () => {
         <CodeSharp className="text-gray" />
       </Badge>
     </Container>
-  );
-};
+  </motion.div>
+)}

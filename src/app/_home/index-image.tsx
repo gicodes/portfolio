@@ -2,7 +2,7 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import { Card, Box } from '@mui/material';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import heroImage from '@/public/Gicodes.jpg';
+import heroImage from '../../../public/Gicodes.jpg';
 
 const IndexImage = () => {
   const smallScreen = useMediaQuery('(max-width: 600px)');

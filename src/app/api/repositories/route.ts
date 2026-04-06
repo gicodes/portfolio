@@ -14,12 +14,12 @@ export async function GET() {
       { name: "afro-fashion" },
       { name: "hospitalplug" },
       { name: "attribution.js" },
-      { name: "global-prompt" },
+      { name: "barcode-scanner-app" },
       { name: "mechtatel" }, 
       { name: "ukanwears" },
       { name: "pheonix-med"},
       { name: "starforge" },
-      { name: "tictask" },
+      { name: "TicTask" },
     ];
 
     const formatDate = (dateString: string): string => {
@@ -32,11 +32,11 @@ export async function GET() {
     
     const promises = projects.map(async (project) => {
       try {
-        const res = await axios.get(`
-          ${GITHUB_API_URL}/repos/${GITHUB_USERNAME}/${project.name}
-          `, {
-          headers,
-        });
+        const owner = (project as any).owner || GITHUB_USERNAME;
+        const res = await axios.get(
+          `${GITHUB_API_URL}/repos/${owner}/${project.name}`,
+          { headers }
+        );
 
         return {
           name: project.name,

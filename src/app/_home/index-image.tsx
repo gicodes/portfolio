@@ -51,7 +51,7 @@ const IndexImage = () => {
           sx={{
             position: 'relative',
             width: smallScreen ? 340 : 504,
-            height: smallScreen ? 262 : 500,
+            height: smallScreen ? 300 : 500,
             overflow: 'hidden',
           }}
         >

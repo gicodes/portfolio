@@ -75,7 +75,7 @@ export function FeaturedShowcase() {
                         <iframe
                           title="Project Preview"
                           src={project.link}
-                          style={{ border: 0, width: '100%', height: '300px' }}
+                          style={{ border: 0, width: '100%', height: '420px' }}
                           onLoad={() => setLinkError(false)}
                           onError={handleLinkError}
                         />

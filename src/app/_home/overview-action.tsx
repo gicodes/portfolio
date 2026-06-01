@@ -81,7 +81,7 @@ export const GetToKnowMe = () => {
           px: { xs: 3, sm: 4, lg: 0 },
           pt: { xs: 1, sm: 3, lg: 2 },
           pb: { xs: 1, sm: 2, lg: 3 },
-          height: { xs: '432px', sm: '369px', lg: '345px' },
+          height: { xs: '500px', sm: '420px', lg: '360px' },
         }}
       >
         <Typography component="div">

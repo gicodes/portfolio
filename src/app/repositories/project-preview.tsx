@@ -40,7 +40,7 @@ const ProjectPreview: React.FC<ProjectPreviewProps> = ({
               <iframe
                 title="Project Preview"
                 src={projectLink}
-                style={{ border: 0, width: '100%', height: '300px' }}
+                style={{ border: 0, width: '100%', height: '360px' }}
                 onLoad={() => setLinkError(false)}
                 onError={handleLinkError}
               />

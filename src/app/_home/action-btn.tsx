@@ -1,22 +1,46 @@
-import { Box, Button, Typography } from '@mui/material';
+import { Box, Button, ButtonGroup, Typography } from '@mui/material';
 
 const ActionButton = () => {
   return (
     <Box 
-      p={2} 
+      mt={10} 
       display={'flex'} 
-      justifyContent={'center'}
+      justifyContent={'center'} 
+      alignItems={'center'} 
     >
-      <Button 
-        variant='contained'
-        href='/connect' 
-        sx={{ 
-          bgcolor: 'darkslategrey',
-          width: {xs: '100%', sm: '100%', lg: '25%'},
-        }}
-      > 
-        <Typography>Hire Me</Typography>
-      </Button> 
+      <ButtonGroup>
+        <Button 
+          variant='contained'
+          href='/connect' 
+          sx={{ 
+            bgcolor: 'darkslategrey',
+            borderRadius: '99px',
+            height: '50px',
+            '&:hover': {
+              bgcolor: 'slategrey',
+              transform: 'scale(1.05)',
+              transition: 'transform 0.3s ease-in-out',
+            }
+          }}
+        > 
+          <Typography fontWeight={700}>Hire Me</Typography>
+        </Button> 
+        <Button 
+          variant='contained'
+          href='/app-builder' 
+          sx={{ 
+            borderRadius: '99px',
+            height: '50px',
+            '&:hover': {
+              bgcolor: 'slategrey',
+              transform: 'scale(1.05)',
+              transition: 'transform 0.3s ease-in-out',
+            }
+          }}
+        > 
+          Get Estimate with App-builder
+        </Button>
+      </ButtonGroup>
     </Box>          
   )
 }

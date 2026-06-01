@@ -1,6 +1,7 @@
-import { Box, Typography, Stack, TextField, Checkbox, FormControlLabel, Switch } from '@mui/material';
+import { Box, Typography, Stack, TextField, Checkbox, FormControlLabel, Switch, Divider } from '@mui/material';
 import { Action, AddonKey } from './state';
 import React, { useState, Dispatch } from 'react';
+import { MarketingOptions } from './marketingOptions';
 
 interface StaticOptionsProps {
   staticPages: number;
@@ -26,21 +27,21 @@ export const StaticOptions: React.FC<StaticOptionsProps> = ({ staticPages, dispa
 
   return (
     <Box width="100%" /* Static Type */>
-      <Typography variant="subtitle2" color="textSecondary">
+      <Typography py={1} color="textSecondary" fontWeight={500}>
         Static Website Options
       </Typography>
 
       <Stack spacing={2} mt={2}>
         <Typography variant="subtitle2" display="flex" justifyContent="space-between">
-          Layout & Navigation <span className="text-success"> $100</span>
+          Layout & Navigation <span className="text-success"> $120</span>
         </Typography>
 
         <Typography variant="subtitle2" display="flex" justifyContent="space-between">
-          UI/UX Designs <span className="text-success"> $100</span>
+          UI/UX Designs <span className="text-success"> $120</span>
         </Typography>
 
-        <Box display="flex" justifyContent="space-between">
-          <Typography variant="subtitle2">Page(s) as Menu Option</Typography>
+        <Box display="flex" justifyContent="space-between" gap={1.5}>
+          <Typography variant="subtitle2">Page(s) as Menu</Typography>
           <TextField
             type="number"
             size="small"
@@ -53,16 +54,21 @@ export const StaticOptions: React.FC<StaticOptionsProps> = ({ staticPages, dispa
         </Box>
 
         <Stack direction="row" justifyContent="space-between">
-          <Stack>
-            <Typography variant="subtitle2">Deployment</Typography>
+          <Typography variant="subtitle2">Deployment</Typography>
+          <Typography variant="subtitle2" color="success" my="auto"> $0 </Typography>
+        </Stack>
+
+        <Stack my={1} direction="column" justifyContent="space-between">
+          <Stack direction="row" justifyContent="space-between">
             <Typography variant="subtitle2" display="flex" justifyContent="space-between">
               Hosting <span className='text-secondary'>&nbsp;(Free Tier)</span>
             </Typography>
+            <Typography variant="subtitle2" color="success" my="auto"> $50 </Typography>
           </Stack>
-          <Typography variant="subtitle2" color="success" my="auto"> $50 </Typography>
+          <Divider />
         </Stack>
 
-        <Typography my={2} variant="subtitle2" color="textSecondary"> Website Add‑ons</Typography>
+        <Typography py={1} color="textSecondary" fontWeight={500}> Website Add‑ons</Typography>
 
         <Box display="flex" justifyContent="space-between" mb={2}>
           <FormControlLabel
@@ -76,7 +82,7 @@ export const StaticOptions: React.FC<StaticOptionsProps> = ({ staticPages, dispa
               <Stack>
                 <Typography variant='body2'>Integrated Services</Typography>
                 <Typography variant="caption" color="textSecondary">
-                  Plugin, Client APIs, or 3rd party services 
+                  Extensions/ plugins or third party services 
                 </Typography>
               </Stack>
             }
@@ -96,7 +102,7 @@ export const StaticOptions: React.FC<StaticOptionsProps> = ({ staticPages, dispa
               <Stack>
                 <Typography variant='body2'>Generative Pages with AI</Typography>
                 <Typography variant="caption" color="textSecondary">
-                  Info pages, Deep-search contents, etc
+                  READ-MEs/ info pages or content generation
                 </Typography>
               </Stack>
             }
@@ -123,6 +129,7 @@ export const StaticOptions: React.FC<StaticOptionsProps> = ({ staticPages, dispa
           />
           <Typography variant='body2' color="success">$25</Typography>
         </Box>
+        <MarketingOptions state={{ include: addons } as any} dispatch={dispatch} isDynamic={false} />
       </Stack>
     </Box>
   );

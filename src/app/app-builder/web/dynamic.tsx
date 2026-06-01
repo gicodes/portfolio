@@ -2,10 +2,15 @@ import React from "react";
 import { Action } from "./state";
 import { ServiceOption } from "./services";
 import { Box, Checkbox, Typography, FormControl, FormLabel, RadioGroup, FormControlLabel, Radio, TextField, Switch, Stack } from "@mui/material";
+import { MarketingOptions } from "./marketingOptions";
 
 interface State { 
   dynamicType: string;
   dynamicPages: number;
+  projectType?: string;
+  staticPages?: number;
+  staticAddon?: any;
+  checkout?: any;
   include: {
     database: boolean;
     backend: boolean;
@@ -34,9 +39,9 @@ export const DynamicOptions = ({
 
   return (
     <Box width="100%" /* Base Setup */>
-      <Box sx={{ my: 2, p: { xs: 2, sm: 3 }, bgcolor: 'rgba(0,0,0,0.1)' }}>
+      <Box sx={{ my: 2, p: { xs: 2, sm: 3 }, bgcolor: 'rgba(0,0,0,0.05)' }}>
         <FormControl component="fieldset">
-          <FormLabel component="legend">Dynamic Web App</FormLabel>
+          <FormLabel component="legend" sx={{ fontWeight: 500}}>Dynamic Web App</FormLabel>
             <RadioGroup 
               row sx={{ pt: 1 }}
               value={dynamicType}
@@ -54,9 +59,15 @@ export const DynamicOptions = ({
       </Box>
       
       <Box my={4} /* Common Services */>
-        <Typography mb={2} variant="subtitle2" color="textSecondary">
-          Primary Services <span className="fs-xs text-gray">(Must Choose at least 2)</span>
-        </Typography>
+        <Box>
+          <Typography variant="h6" gutterBottom>
+            Primary Services <span className="fs-sm text-gray">(Must Choose at least 1)</span>
+          </Typography>
+          <Typography variant="caption" color="textSecondary" paragraph>
+            Core services that are essential for any dynamic web application, such as database setup, backend and API development, and frontend development. These services form the foundation of the web app and are necessary for its basic functionality and performance.
+          </Typography>
+        </Box>
+        
         <Stack spacing={2} mt={1}>
           <ServiceOption
             checked={include.database}
@@ -79,7 +90,7 @@ export const DynamicOptions = ({
               <Typography variant="subtitle2" color="textSecondary">
                 Auth and Access Levels
               </Typography>
-                <Box my={1} display="flex" justifyContent="space-between">
+              <Box my={1} display="flex" justifyContent="space-between">
                 <FormControlLabel
                   control={
                   <Checkbox
@@ -95,22 +106,22 @@ export const DynamicOptions = ({
                   }
                 />
                 <Typography color="success">${100 * (include.authUserCount || 1)}</Typography>
+              </Box>
+              {include.authUser && (
+                <Box my={2}>
+                  <TextField
+                    label="Number of User Roles"
+                    type="number"
+                    size="small"
+                    value={include.authUser ? (include.authUserCount ?? 1) : 1}
+                    onChange={(e) =>
+                      dispatch({ type: 'SET_AUTH_USER_COUNT', payload: Math.max(1, +e.target.value) })
+                    }
+                    helperText="i.e. Sellers, Buyers, etc"
+                    sx={{ width: 180 }}
+                  />
                 </Box>
-                {include.authUser && (
-                  <Box my={2}>
-                    <TextField
-                      label="Number of User Roles"
-                      type="number"
-                      size="small"
-                      value={include.authUser ? (include.authUserCount ?? 1) : 1}
-                      onChange={(e) =>
-                        dispatch({ type: 'SET_AUTH_USER_COUNT', payload: Math.max(1, +e.target.value) })
-                      }
-                      helperText="i.e. Sellers, Buyers, etc"
-                      sx={{ width: 180 }}
-                    />
-                  </Box>
-                )}
+              )}
               <Box my={1} display="flex" justifyContent="space-between">
                 <FormControlLabel
                   control={
@@ -197,17 +208,17 @@ export const DynamicOptions = ({
             </Box>
           )}
 
-            <ServiceOption
-              checked={include.frontend}
-              onChange={() => dispatch({ type: 'TOGGLE_INCLUDE', payload: 'frontend' })}
-              label="Frontend Bundle"
-              description={
-                <Typography variant="caption" color="textSecondary">
-                  Layout & Nav— $100, Pages— $200, UI/UX— $250, Deploy— $50
-                </Typography>
-              }
-              price={600}
-            />
+          <ServiceOption
+            checked={include.frontend}
+            onChange={() => dispatch({ type: 'TOGGLE_INCLUDE', payload: 'frontend' })}
+            label="Frontend Bundle"
+            description={
+              <Typography variant="caption" color="textSecondary">
+                Layout & Nav— $100, Pages— $200, UI/UX— $250, Deploy— $50
+              </Typography>
+            }
+            price={600}
+          />
 
           {include.frontend && (
             <Box sx={{ ml: 2, my: 2 }}>
@@ -288,11 +299,17 @@ export const DynamicOptions = ({
             </Box>
           )}
 
-          <Box width="100%"> {/* Platform specific services */}
-            <Typography variant="subtitle2" my={1} color="textSecondary">
-              Platform-specific Services <span className="fs-xs text-gray">(optional)</span>
-            </Typography>
-
+          <br/>
+          <Box width="100%" display={'grid'} gap={2}> {/* Platform specific services */}
+            <Box>
+              <Typography variant="h6" gutterBottom>
+                Platform-specific Services <span className="fs-sm text-gray">(optional)</span>
+              </Typography>
+              <Typography variant="caption" color="textSecondary" paragraph>  
+                Services that are specific to the web platform, such as SEO optimization, web accessibility compliance, and cross-browser compatibility testing. These services ensure that the web app performs well across different browsers and devices, and is optimized for search engines to improve visibility and reach.
+              </Typography>
+            </Box>
+            
             {(['blog','ecom', 'ticketing', 'chat', 'fintech'] as Array<'blog' | 'ecom' | 'ticketing' | 'chat' | 'fintech'>).map((key) => {
               const labels = {
                 blog: 'Blog app',
@@ -324,6 +341,7 @@ export const DynamicOptions = ({
               );
             })}
           </Box>
+          <MarketingOptions state={state as any} dispatch={dispatch} isDynamic={true} />
         </Stack>
       </Box>
     </Box>

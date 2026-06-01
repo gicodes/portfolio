@@ -1,7 +1,7 @@
 import { GetToKnowMe } from './overview-action';
-import IndexImage from './index-image';
 import { Box, Paper } from '@mui/material';
 import { motion } from 'framer-motion';
+import IndexImage from './index-image';
 
 export const Overview = () => {
   return (
@@ -10,8 +10,8 @@ export const Overview = () => {
       sx={{
         backgroundColor: 'var(--background)',
         color: 'var(--text-primary)',
-        mt: 5,
         overflow: 'hidden',
+        mt: 5,
       }}
     >
       <Box 
@@ -21,10 +21,20 @@ export const Overview = () => {
         transition={{ duration: 0.8 }}
         minWidth={'fit-content'}
         marginTop={{ lg: 5 }}
-        padding={{ xs: 1, sm: 1, lg: 3 }} 
-        display={{ xs: 'grid', sm: 'grid', lg: 'flex' }} 
-        justifyContent={{
-          xs: 'center', sm: 'center', lg: 'space-between'
+        padding={{ 
+          xs: 1, 
+          sm: 1, 
+          lg: 3 
+        }} 
+        display={{ 
+          xs: 'grid', 
+          sm: 'grid', 
+          lg: 'flex' 
+        }} 
+        justifyContent={{ 
+          xs: 'center', 
+          sm: 'center', 
+          lg: 'space-between' 
         }}   
         gap={{ xs: 4, lg: 6 }}
       >

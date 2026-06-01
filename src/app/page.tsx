@@ -1,15 +1,17 @@
 "use client";
 
 import { Overview } from './_home/overview';
-import ActionButton from './_home/action-btn';
+import ActionButtons from './_home/action-btn';
 import { TechStack } from './_home/tech-stack';
+import { FeaturedShowcase } from './_home/featured-show';
 
 export default function Home() {
   return (
     <main>
       <Overview />
+      <FeaturedShowcase />
       <TechStack />
-      <ActionButton />
+      <ActionButtons />
     </main>
   );
 };

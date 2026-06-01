@@ -16,6 +16,17 @@ export interface CalculateTotalParams {
     authAdmin?: boolean;
     blog?: boolean;
     ecom?: boolean;
+    basicSeo?: boolean;
+    advancedSeo?: boolean;
+    googleBusiness?: boolean;
+    analytics?: boolean;
+    performanceOpt?: boolean;
+    socialIntegration?: boolean;
+    googleAds?: boolean;
+    metaAds?: boolean;
+    leadGen?: boolean;
+    emailMarketing?: boolean;
+    chatbot?: boolean;
     ticketing?: boolean;
     chat?: boolean;
     fintech?: boolean;
@@ -34,8 +45,8 @@ export const calculateTotal = ({
   let duration = 0;
 
   if (projectType === 'static') {
-    total += 100; // layout & nav
-    total += 100; // UI/UX
+    total += 120; // layout & nav
+    total += 120; // UI/UX
     total += 100 + Math.max(0, (staticPages - 5) * 25);
     total += 50;  // deployment
     duration += 14; // duration in duration
@@ -101,6 +112,50 @@ export const calculateTotal = ({
     if (include.ecom) {
       total += 450;
       duration += 14;
+    }
+    if (include.basicSeo) {
+      total += 250;
+      duration += 7;
+    }
+    if (include.advancedSeo) {
+      total += 650;
+      duration += 18;
+    }
+    if (include.googleBusiness) {
+      total += 150;
+      duration += 3;
+    }
+    if (include.analytics) {
+      total += 120;
+      duration += 3;
+    }
+    if (include.performanceOpt) {
+      total += 200;
+      duration += 5;
+    }
+    if (include.socialIntegration) {
+      total += 150;
+      duration += 4;
+    }
+    if (include.googleAds) {
+      total += 200;
+      duration += 5;
+    }
+    if (include.metaAds) {
+      total += 200;
+      duration += 5;
+    }
+    if (include.leadGen) {
+      total += 300;
+      duration += 7;
+    }
+    if (include.emailMarketing) {
+      total += 250;
+      duration += 6;
+    }
+    if (include.chatbot) {
+      total += 350;
+      duration += 10;
     }
     if (include.ticketing) {
       total += 750;

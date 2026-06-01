@@ -1,5 +1,5 @@
+import { Box, Button, Stack, Card, Chip, Typography } from "@mui/material";
 import { AltRoute, Visibility, StarSharp } from "@mui/icons-material";
-import { Box, Button, Stack, Card } from "@mui/material";
 import ProjectPreview from "./project-preview";
 import { useEffect, useState } from "react";
 import { render } from "../render";
@@ -11,6 +11,9 @@ export interface ProjectProps {
   description: string;
   link: string;
   source: string;
+  category: string | string[];
+  tech: string[];
+  license?: string;
 }
 
 export const RepoCard = (project: ProjectProps) => {
@@ -91,24 +94,34 @@ export const RepoCard = (project: ProjectProps) => {
           </Card>
           
           <Box // project description. I intentionally used project.description instead of repoData[]?.description
-           p={{ sm: 1, lg: 1}} my={2}
-           fontSize={{ xs: 'smaller', sm: 'small' }}
+           p={{ sm: 1, lg: 1}} my={2}          
           >
-          {/* p> {repoData[project.name]?.description} </p> */}
-
             { render(project.description).map((data, idx) => (
               <span key={idx} className="block mt">
-                {data}
+                <Typography>{data}</Typography>
               </span>
             ))}
           </Box>
 
-          <Box fontSize={'small'} my={1} px={1}>
-            <span className="text-tertiary">Last Updated -- </span> 
-            <span className="text-gray">{repoData[project.name]?.lastUpdated}</span>
-          </Box>
+          <Stack my={1} px={1} gap={1} mb={2}>
+            <Typography variant="h6" fontWeight={700}>Category</Typography> 
+            <Stack direction={'row'} spacing={1}>
+              {Array.isArray(project.category) ? project.category.map((cat, idx) => <Chip key={idx} label={cat} />) : <Chip label={project.category} />}
+            </Stack>
+          </Stack>  
+
+          <Stack direction={'row'} width={'100%'} justifyContent={'space-between'} my={1} px={1}>
+            <Box maxWidth={400}>
+              <Typography variant="h6" fontWeight={700}>Licenses </Typography> 
+              <span className="text-gray">{project?.license}</span>
+            </Box>
+            
+            <Box>
+              <Typography variant="h6" fontWeight={700}>Last Updated </Typography>
+              <span className="text-gray">{repoData[project.name]?.lastUpdated}</span>
+            </Box>
+          </Stack>
         </Stack>
-        <br />
 
         <Box width={{ sm: "100%", lg: "40%" }}>
           <ProjectPreview projectLink={project.link} />

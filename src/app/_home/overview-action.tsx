@@ -89,7 +89,8 @@ export const GetToKnowMe = () => {
           <Typography
             key={idx}
             variant="h3"
-            component="h1"
+            component="h1" 
+            fontWeight={600}
             sx={{ 
               py: 1,
               display: 'block',
@@ -107,9 +108,10 @@ export const GetToKnowMe = () => {
                   color="warning.main"
                   sx={{ 
                     display: 'inline',
-                    fontSize: 36,
+                    fontSize: 40,
+                    fontWeight: 700,
                     [theme.breakpoints.down(375)]: {
-                      fontSize: 33,
+                      fontSize: 36,
                     },
                   }}
                 >
@@ -124,17 +126,23 @@ export const GetToKnowMe = () => {
         ))}
       </Typography>
 
-      <Box my={2}><Typography component="div" className="typing-effect">
-        {render(slidingText2).map((line, idx) => (
-          <Typography
-            key={idx}
-            variant="subtitle1"
-            color="success.main"
-          >
-            {line}
-          </Typography>
-        ))}
-      </Typography></Box>
+      <Box my={2}>
+        <Typography 
+          component="div" 
+          className="typing-effect"
+        >
+          {render(slidingText2).map((line, idx) => (
+            <Typography
+              key={idx}
+              variant="h6"
+              fontSize={22}
+              color="success.main"
+            >
+              {line}
+            </Typography>
+          ))}
+        </Typography>
+      </Box>
 
       <Typography component="div" className="typing-effect">
         {render(slidingText3).map((line, idx) => (
@@ -144,8 +152,8 @@ export const GetToKnowMe = () => {
             sx={{
               display: 'block',
               maxWidth: 500,
-              lineHeight: '1.5rem',
-              fontSize: {xs: 12, sm: 12.5, md: 13, lg: 13.5},
+              lineHeight: '2rem',
+              fontSize: { xs: 15, sm: 16, lg: 18 },
             }}
           >
             {line}

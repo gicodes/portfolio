@@ -15,6 +15,8 @@ export interface RepoProps {
   language: string;
   description: string;
   lastUpdated: string;
+  license: string;
+  tech: string[];
 }
 
 const Repositories = () => {

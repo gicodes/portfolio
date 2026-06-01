@@ -14,11 +14,22 @@ export interface BuilderState { // Define the shape of your builder's state
     caching: boolean;
     providers: boolean;
     generative: boolean;
+    basicSeo: boolean;
     authUser: boolean;
     authUserCount: number;
     authAdmin: boolean;
     blog: boolean;
     ecom: boolean;
+    advancedSeo: boolean;
+    googleBusiness: boolean;
+    analytics: boolean;
+    performanceOpt: boolean;
+    socialIntegration: boolean;
+    googleAds: boolean;
+    metaAds: boolean;
+    leadGen: boolean;
+    emailMarketing: boolean;
+    chatbot: boolean;
     ticketing: boolean;
     chat: boolean;
     fintech: boolean;
@@ -47,6 +58,17 @@ export const initialState: BuilderState = { // Initial default values for the bu
     authAdmin: false,
     blog: false,
     ecom: false,
+    basicSeo: false,
+    advancedSeo: false,
+    googleBusiness: false,
+    analytics: false,
+    performanceOpt: false,
+    socialIntegration: false,
+    googleAds: false,
+    metaAds: false,
+    leadGen: false,
+    emailMarketing: false,
+    chatbot: false,
     ticketing: false,
     chat: false,
     fintech: false,
@@ -117,3 +139,35 @@ export function stateReducer(
     default: return state;
   }
 }
+
+export interface MarketingProps {
+  state: BuilderState;
+  dispatch: React.Dispatch<Action>;
+  isDynamic: boolean;
+}
+
+export const validateSelections = (state: BuilderState, dispatch: React.Dispatch<Action>): boolean => {
+  if (state.projectType === 'dynamic' && !state.include.backend) {
+    dispatch({
+      type: 'SET_ALERT',
+      payload: {
+        variant: 'error',
+        text: 'Backend is required for dynamic projects. Please include it to proceed.',
+      },
+    });
+    return false;
+  }
+
+   if (state.include.authUser && state.include.authUserCount < 1) {
+    dispatch({
+      type: 'SET_ALERT',
+      payload: {
+        variant: 'error',
+        text: 'Please specify at least 1 user for authentication.',
+      },
+    });
+    return false;
+  }
+
+  return true;
+};

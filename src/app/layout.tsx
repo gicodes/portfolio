@@ -3,6 +3,7 @@ import localFont from 'next/font/local';
 import type { Metadata } from 'next';
 import ClientLayout from './app'; 
 
+// @ts-ignore: Ignore missing type declarations for CSS side-effect import
 import './globals.css';
 
 const geistSans = localFont({

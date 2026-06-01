@@ -1,6 +1,16 @@
-import { Box, FormControlLabel, Checkbox, Stack, Typography, FormControl, FormLabel, RadioGroup, Radio } from "@mui/material";
-import React, { Dispatch } from "react";
+import { 
+  Box, 
+  FormControlLabel, 
+  Checkbox, 
+  Stack, 
+  Typography, 
+  FormControl, 
+  RadioGroup, 
+  Radio, 
+  Divider 
+} from "@mui/material";
 import { Action } from "./state";
+import React, { Dispatch } from "react";
 
 interface ServiceOptionProps {
   checked: boolean;
@@ -42,22 +52,48 @@ interface ProjectTypeSelectorProps {
 export const ProjectTypeSelector: React.FC<ProjectTypeSelectorProps> = ({ projectType, dispatch }) => (
   <Box sx={{ my: 2, p: { xs: 2, sm: 3 }, bgcolor: 'whitesmoke' }} /* Base Setup */>
     <FormControl component="fieldset">
-      <Typography variant="subtitle1">Type of web project</Typography>
-      <Typography variant="caption" my={1} color="textSecondary">
-        💼 &nbsp;Typescript, Next, React, Express & NodeJs
-      </Typography>
+      <Stack spacing={2}>
+        <Typography variant="h5"fontWeight={500}>Choose Project Type</Typography>
+        <Typography variant="body2" color="textSecondary">
+          Choose between a static website or a dynamic web application based on your needs and goals. You can also select specific features and integrations to further customize your project.
+        </Typography>
+      </Stack>
+      
+      <Divider sx={{ my: 2 }} />
+
       <RadioGroup
         row 
         value={projectType}
-        onChange={e => dispatch({ type: 'SET_PROJECT_TYPE', payload: e.target.value as 'static' | 'dynamic' })}
+        onChange={e => dispatch({ 
+          type: 'SET_PROJECT_TYPE', 
+          payload: e.target.value as 'static' | 'dynamic' }
+        )}
       >
-        <FormControlLabel value="static" control={<Radio />} label={<span>Static (Website)</span>} />
-        <FormControlLabel value="dynamic" control={<Radio />} label={<span>Dynamic (Web app)</span>} />
+        <Stack direction={{ xs: 'column', sm: 'row' }} spacing={4} width={'100%'}>
+          <FormControlLabel 
+            value="static" 
+            control={<Radio />} 
+            label={<span>Static </span>} 
+          />
+          <FormControlLabel 
+            value="dynamic" 
+            control={<Radio />} 
+            label={<span>Dynamic </span>} 
+          />
+        </Stack>
       </RadioGroup>
-      <Typography variant="caption" color="textSecondary">
-        {projectType === 'static'
-          ? "Static— Ideal for landing pages or portfolio"
-          : "Ideal for user interactions i.e. E-commerce"}
+
+      <Typography 
+        p={1}  
+        borderRadius={1}
+        variant="caption"
+        maxWidth={'max-content'}
+        bgcolor={'rgba(0,0,0,0.09)'}
+      >
+        { projectType === 'static' ? 
+          "Ideal for landing pages or portfolios, blogs, documentation site."
+          : "Ideal for user interactions i.e. E-commerce, Fintech, SaaS, etc."
+        }
       </Typography>
     </FormControl>
   </Box>

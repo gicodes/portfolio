@@ -15,7 +15,7 @@ export interface RepoProps {
   language: string;
   description: string;
   lastUpdated: string;
-  license: string;
+  license: string | undefined; 
   tech: string[];
 }
 

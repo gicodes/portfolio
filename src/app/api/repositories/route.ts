@@ -61,6 +61,7 @@ export async function GET() {
           forks: 0,
           watchers: 0,
           size: 0,
+          license: "N/A",
           language: "",
           description: "",
           lastUpdated: "",
@@ -83,6 +84,8 @@ export async function GET() {
           forks: repo.forks,
           watchers: repo.watchers,
           size: repo.size,
+          license: repo.license,
+          tech: [], // Placeholder for tech stack, can be populated based on project data
           language: repo.language,
           description: repo.description,
           lastUpdated: repo.lastUpdated, 

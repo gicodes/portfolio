@@ -1,100 +1,219 @@
 'use client';
 
-import { Box, Button, ButtonGroup, Card, Typography } from '@mui/material';
-import { ArrowBackIosNewSharp, TouchApp } from '@mui/icons-material';
 import React, { useState } from 'react';
+import {
+  Box,
+  Button,
+  Card,
+  Stack,
+  Typography,
+  Fade,
+} from '@mui/material';
+import {
+  ArrowBackRounded,
+  TouchAppRounded,
+  LanguageRounded,
+  PhoneIphoneRounded,
+} from '@mui/icons-material';
 
-const Page = () => {
-  const [optionButtons, setOptionButtons] = useState(false);
-  const handleOptionButtons = () => setOptionButtons(!optionButtons);
-
-  const Back = () => <Button color='warning'> <ArrowBackIosNewSharp fontSize='small'/> &nbsp; Back </Button>
+export default function Page() {
+  const [showOptions, setShowOptions] = useState(false);
 
   return (
-    <Box my={2} textAlign={'center'} width={'100%'}>
-      { !optionButtons && 
-        <Box 
-          alignItems={'center'}
-          position={'relative'}
-          width={'100%'}
-          my={5}
+    <Box>
+      <Fade in={!showOptions}>
+        <Box
+          sx={{
+            minHeight: '100vh',
+            position: 'relative',
+            display: showOptions ? 'none' : 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            px: 2,
+          }}
         >
+          {/* Background */}
           <Box
             sx={{
+              position: 'absolute',
+              inset: 0,
               backgroundImage: 'url(/builder2.avif)',
-              backgroundPosition: 'center',
               backgroundSize: 'cover',
-              loading: 'lazy',
-              height: '100vh',
-              width: '100%',
+              backgroundPosition: 'center',
             }}
           />
 
-          <Card 
-            sx={{ 
-              width: {xs: '85%', sm: '50.5%'},
-              p: {xs: 2, sm: 4},
-              position: 'absolute', 
-              left: '50%', top: '25%', 
-              transform: 'translate(-50%, -50%)',
+          {/* Overlay */}
+          <Box
+            sx={{
+              position: 'absolute',
+              inset: 0,
+              background:
+                'linear-gradient(to bottom, rgba(0,0,0,.45), rgba(0,0,0,.65))',
+            }}
+          />
+
+          {/* Content */}
+          <Card
+            elevation={0}
+            sx={{
+              position: 'relative',
+              zIndex: 1,
+              maxWidth: 720,
+              width: '100%',
+              p: { xs: 3, md: 5 },
+              borderRadius: 4,
+              backdropFilter: 'blur(12px)',
+              background: 'rgba(255,255,255,0.9)',
             }}
           >
-            <Typography sx={{ typography: { xs: 'h3', sm: 'h2', md: 'h1' }, fontWeight: { xs: 501, sm: 501, md: 555} }}>
+            <Typography
+              variant="h2"
+              fontWeight={700}
+              textAlign="center"
+              gutterBottom
+            >
               Build Your Next App
             </Typography>
-            <Box my={2}>
-              <Typography variant={'h6'} display={'inline'} fontWeight={400}> From Scratch・</Typography>
-              <Typography variant='h6' display={'inline'} color='error.main' fontWeight={200}>With the right tools and technology・</Typography>
-              <Typography variant={'h6'}  display={'inline'} fontWeight={400}>Lead the Project </Typography>
-            </Box>
 
-            <Box display={'flex'} alignItems={'center'}>
-              <Button onClick={handleOptionButtons} 
-                sx={{ 
-                  py: 2,
-                  px: { xs: 1.2, sm: 2, md: 3 },
-                  width: '100%', 
-                  bgcolor: 'whitesmoke',
-                  textTransform: 'none', 
-                  justifyContent: 'space-between', 
-                  '&:hover': {
-                    bgcolor: 'wheat',
-                    boxShadow: '0px 0px 10px rgba(0,0,0,0.1)',
-                  },
-                }} 
-                color='inherit'
-              >
-                <Typography variant={'caption'} fontWeight={400} color='textSecondary'>
-                  Sounds about right..  Let's get started!
-                </Typography>
-                <TouchApp sx={{ cursor: 'pointer'}} />
-              </Button>
-            </Box>
-          </Card>
-
-          <Box sx={{ bgcolor: 'rgba(255,255,255, 0.5)'}} py={2} px={1}>
-            <Typography variant='caption'>
-              Choose from a variety of standard, re-usable features and services to customize your app and get a good structure of a finished project with budget friendly setup.
+            <Typography
+              variant="h6"
+              color="text.secondary"
+              textAlign="center"
+              sx={{ mb: 4 }}
+            >
+              From idea to launch using proven technologies,
+              reusable features, and a structured development process.
             </Typography>
-          </Box>
-        </Box>
-      } { optionButtons && 
-        <Box my={6}>
-          <Box my={10} onClick={handleOptionButtons}><Back /></Box>
 
-          <Typography variant='body1' mb={5}> Choose Application Type </Typography>
-          <ButtonGroup>
-            <Button sx={{ p: 1.5}} href='/app-builder/web' variant='contained' color='success'>
-              Web Application
+            <Button
+              fullWidth
+              size="large"
+              variant="contained"
+              endIcon={<TouchAppRounded />}
+              onClick={() => setShowOptions(true)}
+              sx={{
+                py: 1.75,
+                borderRadius: 3,
+                textTransform: 'none',
+                fontSize: '1rem',
+              }}
+            >
+              Start Building
             </Button>
-            <Button sx={{ p: 1.5}} href='/app-builder/mobile' variant='contained' color='secondary'>
-              Mobile Application
-            </Button>
-          </ButtonGroup>
+
+            <Typography
+              variant="body2"
+              color="text.secondary"
+              textAlign="center"
+              mt={3}
+            >
+              Generate a project structure and estimate based on your
+              application requirements.
+            </Typography>
+          </Card>
         </Box>
-      }
+      </Fade>
+
+      <Fade in={showOptions}>
+        <Box
+          sx={{
+            display: !showOptions ? 'none' : 'block',
+            maxWidth: 900,
+            mx: 'auto',
+            px: 2,
+            py: 8,
+          }}
+        >
+          <Button
+            startIcon={<ArrowBackRounded />}
+            onClick={() => setShowOptions(false)}
+            sx={{ mb: 4 }}
+          >
+            Back
+          </Button>
+
+          <Typography
+            variant="h4"
+            fontWeight={700}
+            textAlign="center"
+            gutterBottom
+          >
+            Choose Application Type
+          </Typography>
+
+          <Typography
+            color="text.secondary"
+            textAlign="center"
+            mb={5}
+          >
+            Select the platform you want to build for.
+          </Typography>
+
+          <Stack
+            direction={{ xs: 'column', md: 'row' }}
+            spacing={3}
+          >
+            <Card
+              component="a"
+              href="/app-builder/web"
+              sx={{
+                flex: 1,
+                p: 4,
+                textDecoration: 'none',
+                cursor: 'pointer',
+                transition: '0.25s',
+                '&:hover': {
+                  transform: 'translateY(-4px)',
+                  boxShadow: 6,
+                },
+              }}
+            >
+              <LanguageRounded
+                color="primary"
+                sx={{ fontSize: 40, mb: 2 }}
+              />
+
+              <Typography variant="h6" fontWeight={600}>
+                Web Application
+              </Typography>
+
+              <Typography color="text.secondary" mt={1}>
+                Responsive applications accessed through a browser.
+              </Typography>
+            </Card>
+
+            <Card
+              component="a"
+              href="/app-builder/mobile"
+              sx={{
+                flex: 1,
+                p: 4,
+                textDecoration: 'none',
+                cursor: 'pointer',
+                transition: '0.25s',
+                '&:hover': {
+                  transform: 'translateY(-4px)',
+                  boxShadow: 6,
+                },
+              }}
+            >
+              <PhoneIphoneRounded
+                color="secondary"
+                sx={{ fontSize: 40, mb: 2 }}
+              />
+
+              <Typography variant="h6" fontWeight={600}>
+                Mobile Application
+              </Typography>
+
+              <Typography color="text.secondary" mt={1}>
+                Native or cross-platform apps for iOS and Android.
+              </Typography>
+            </Card>
+          </Stack>
+        </Box>
+      </Fade>
     </Box>
-  )
+  );
 }
-
-export default Page

@@ -4,14 +4,13 @@ import { useState, useEffect } from 'react';
 import { Card, Box } from '@mui/material';
 import Image from 'next/image';
 
-import heroImage from '../../../public/Gicodes0.jpg';
-
+import image1 from '../../../public/Gicodes1.jpg';
 import image2 from '../../../public/Gicodes3.jpg';
 import image3 from '../../../public/Gicodes2.jpeg';
 import image4 from '../../../public/Gicodes4.jpg';
 
 const images = [
-  { src: heroImage, alt: 'Senior Full-Stack Engineer [Gideon Chino]' },
+  { src: image1, alt: 'Senior Full-Stack Engineer [Gideon Chino]' },
   { src: image2, alt: 'Project 2' },
   { src: image3, alt: 'Project 3' },
   { src: image4, alt: 'Project 4' },

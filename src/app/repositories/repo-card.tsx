@@ -48,7 +48,7 @@ export const RepoCard = (project: ProjectProps) => {
         <Stack
           m={1} 
           px={1} 
-          width={{ sm: "100%", lg: "50%" }}
+          width={{ lg: "50%" }}
         >
           <Box px={1}>
             <h3>{project.title}</h3>
@@ -110,13 +110,19 @@ export const RepoCard = (project: ProjectProps) => {
             </Stack>
           </Stack>  
 
-          <Stack direction={'row'} width={'100%'} justifyContent={'space-between'} my={1} px={1}>
-            <Box maxWidth={400}>
+          <Stack 
+            direction={{ xs: 'column', sm: 'row'}}
+            justifyContent={'space-between'}  
+            width={'100%'} 
+            my={1} px={1} 
+            gap={2}
+          >
+            <Box maxWidth={360} display={'grid'} gap={1}>
               <Typography variant="h6" fontWeight={700}>Licenses </Typography> 
               <span className="text-gray">{project?.license}</span>
             </Box>
             
-            <Box>
+            <Box display={'grid'} gap={1}>
               <Typography variant="h6" fontWeight={700}>Last Updated </Typography>
               <span className="text-gray">{repoData[project.name]?.lastUpdated}</span>
             </Box>

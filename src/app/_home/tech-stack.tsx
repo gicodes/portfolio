@@ -43,7 +43,7 @@ export const TechStack = () => {
         height={{ xs: '400px', sm: '420px', lg: '360px' }}
       >
         <Stack
-          fontSize="12.5px"
+          fontSize="14px"
           className="font-special"
           padding={{ xs: 1, sm: 3, lg: '36px 180px' }}
         >

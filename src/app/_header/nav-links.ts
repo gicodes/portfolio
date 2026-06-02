@@ -4,7 +4,7 @@ export const navLinks = [
     href: '/'
   }, 
   {
-    name: 'Build an App',
+    name: 'App Builder',
     href: '/app-builder'
   },
   {

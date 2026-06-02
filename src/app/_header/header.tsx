@@ -2,13 +2,33 @@ import { CloseSharp, DarkModeSharp, LightModeSharp } from '@mui/icons-material';
 import { Box, Stack, Drawer, IconButton, Grid2 } from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import MenuIcon from '@mui/icons-material/Menu';
+import { usePathname } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import { navLinks } from './nav-links';
+import Link from 'next/link';
 
 interface NavBarProps {
   toggleTheme: () => void
   theme: "light" | "dark";
 }
+
+const navLinkStyles = ({
+  isActive,
+}: {
+  isActive: boolean;
+}) => ({
+  textDecoration: 'none',
+  padding: '10px 18px',
+  borderRadius: '8px',
+  fontWeight: 600,
+  transition: 'all 0.2s ease',
+  backgroundColor: isActive
+    ? 'var(--text-primary)'
+    : 'transparent',
+  color: isActive
+    ? 'var(--background)'
+    : 'var(--text-primary)',
+});
 
 const Header: React.FC<NavBarProps> = ({
   toggleTheme,
@@ -20,6 +40,16 @@ const Header: React.FC<NavBarProps> = ({
   useEffect(() => {
     setIsMounted(true);
   }, []);
+
+  const pathname = usePathname();
+
+  const isActive = (href: string) => {
+    if (href === '/') {
+      return pathname === '/';
+    }
+
+    return pathname.startsWith(href);
+  };
 
   const smallScreen = useMediaQuery('(max-width: 600px)');
   const handleClose = () => setOpen(false);
@@ -68,7 +98,15 @@ const Header: React.FC<NavBarProps> = ({
               <Box p={8}>
                 <Stack spacing={4}>
                   { navLinks.map((item, index) => 
-                    <a key={index} href={item.href}><b>{item.name}</b></a>
+                    <Link
+                      key={index} 
+                      href={item.href}                    
+                      style={navLinkStyles({
+                        isActive: isActive(item.href),
+                      })}
+                    >
+                      <b>{item.name}</b>
+                    </Link>
                   )}
                 </Stack>
               </Box>
@@ -82,7 +120,15 @@ const Header: React.FC<NavBarProps> = ({
               padding={2}
             >
               { navLinks.map((item, index) => 
-                <a key={index} href={item.href}>{item.name}</a>
+                <Link
+                  key={index} 
+                  href={item.href}                
+                  style={navLinkStyles({
+                    isActive: isActive(item.href),
+                  })}
+                >
+                  <b>{item.name}</b>
+                </Link>
               )}
             </Stack>
           </Box>

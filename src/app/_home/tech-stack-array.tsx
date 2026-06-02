@@ -9,8 +9,11 @@ const Paragraph = ({ children, lineHeight }: { children: React.ReactNode; lineHe
 export const msco = (
   <>
     <h2 className="mb-2">Services</h2>
-    <Paragraph><b>Coding as a Product</b>: Write mobile apps, web apps, etc</Paragraph>
+    <Paragraph><b>Coding as a Product</b>: Write mobile apps, Web apps and Software programs</Paragraph>
     <Paragraph><b>Coding as a Service</b>: App monitoring, DbMs, ticketing</Paragraph>
+    <Paragraph lineHeight={1.5}>
+      <b>Coding as a Consultancy</b>: Provide technical guidance, code reviews, and mentorship to help clients achieve their goals.{" "}
+    </Paragraph>
     <Paragraph lineHeight={1.5}>
       Build full-stack apps from scratch with the right tools.{" "}
       <span>
@@ -21,12 +24,9 @@ export const msco = (
         to simulate and estimate project cost
       </span>
     </Paragraph>
-    <Paragraph lineHeight={1.5}>
-      Design APIs, data models & schemas, app architecture for client apps and backend services
-    </Paragraph>
-    <Paragraph>Integrate new features & functions, scale applications</Paragraph>
-    <Paragraph>Manage Domains, web infrastructure & microservices</Paragraph>
-    <Paragraph>Deploy apps to the web, cloud, apple & google playstore</Paragraph>
+    <Paragraph>Integrate new features, APIs/ Schemas & Scale applications</Paragraph>
+    <Paragraph>Manage Domains, Web infrastructure & Microservices</Paragraph>
+    <Paragraph>Deploy apps to the web, Cloud i.e. Apple Store & Google Store</Paragraph>
   </>
 );
 
@@ -42,8 +42,9 @@ export const fut = (
     <Paragraph>
       Material UI: Style apps with in-built plugin support. Other familiar libraries: Tailwind CSS, Bootstrap, SCSS
     </Paragraph>
-    <Paragraph>GitHub: Version control, manage codebase and collaborate on projects</Paragraph>
+    <Paragraph>Github: Version control, manage codebase and collaborate on projects</Paragraph>
     <Paragraph>Docker: Manage apps in containerized environments. Test, deploy & iterate software</Paragraph>
+    <Paragraph>Postman: Test APIs, debug and document endpoints for seamless integration</Paragraph>
   </>
 );
 

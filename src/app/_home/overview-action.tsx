@@ -6,7 +6,7 @@ import { Badge, Box, Container, Typography } from "@mui/material";
 import { motion } from 'framer-motion';
 
 const welcomeText = `
-  Hi there,\n I'm Gideon Iduma.
+  Hi there,\n I'm Gideon Chino.
 `;
 
 const honouryText = `
@@ -81,14 +81,14 @@ export const GetToKnowMe = () => {
           px: { xs: 3, sm: 4, lg: 0 },
           pt: { xs: 1, sm: 3, lg: 2 },
           pb: { xs: 1, sm: 2, lg: 3 },
-          height: { xs: '500px', sm: '420px', lg: '360px' },
+          height: { xs: '504px', sm: '420px', lg: '360px' },
         }}
       >
         <Typography component="div">
           {render(slidingText).map((line, idx) => (
           <Typography
             key={idx}
-            variant="h3"
+            variant="h4"
             component="h1" 
             fontWeight={600}
             sx={{ 
@@ -99,9 +99,9 @@ export const GetToKnowMe = () => {
               },             
             }}
           >
-            {line.includes("Gideon Iduma") ? (
+            {line.includes("Gideon Chino") ? (
               <>
-                {line.split("Gideon Iduma")[0]}
+                {line.split("Gideon Chino")[0]}
                 <Typography
                   component="span"
                   variant="h3"
@@ -115,9 +115,9 @@ export const GetToKnowMe = () => {
                     },
                   }}
                 >
-                  Gideon Iduma
+                  Gideon Chino
                 </Typography>
-                {line.split("Gideon Iduma")[1]}
+                {line.split("Gideon Chino")[1]}
               </>
             ) : (
               line

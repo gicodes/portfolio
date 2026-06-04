@@ -40,7 +40,7 @@ export const TechStack = () => {
         py={3}
         px={{ sm: 0, lg: 4 }}
         width={{ sm: '90%', lg: '100%' }}
-        height={{ xs: '400px', sm: '420px', lg: '360px' }}
+        height={{ xs: '500px', sm: '444px', lg: '360px' }}
       >
         <Stack
           fontSize="14px"

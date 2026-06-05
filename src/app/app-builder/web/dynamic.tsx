@@ -1,8 +1,9 @@
 import React from "react";
 import { Action } from "./state";
 import { ServiceOption } from "./services";
-import { Box, Checkbox, Typography, FormControl, FormLabel, RadioGroup, FormControlLabel, Radio, TextField, Switch, Stack } from "@mui/material";
 import { MarketingOptions } from "./marketingOptions";
+import { Remove, Add } from "@mui/icons-material";
+import { Box, Checkbox, Typography, FormControl, FormLabel, RadioGroup, FormControlLabel, Radio, TextField, Stack, IconButton, Card } from "@mui/material";
 
 interface State { 
   dynamicType: string;
@@ -20,6 +21,7 @@ interface State {
     frontend: boolean;
     generative: boolean;
     providers: boolean;
+    logics: number;
     authUserCount?: any;
     [key: string]: boolean | number; 
   };
@@ -221,10 +223,16 @@ export const DynamicOptions = ({
           />
 
           {include.frontend && (
-            <Box sx={{ ml: 2, my: 2 }}>
-              <Typography variant="subtitle2" color="textSecondary">
+            <Box sx={{ ml: 2, py: 2 }}>
+              <Stack>
+                <Typography variant="h6">
                 Frontend Add‑ons
               </Typography>
+              <Typography variant="caption" color="textSecondary" paragraph>
+                Additional features and functionalities that can be added to the frontend of the web app, such as interactive pages, generative AI content, complex logic, performance providers, and third‑party integrations. These add‑ons enhance the user experience and provide additional value to the web app.
+              </Typography>
+              </Stack>
+              
               <Box my={2}>
                 <TextField
                   label="Pages"
@@ -258,18 +266,6 @@ export const DynamicOptions = ({
                 <Typography color="success">$50</Typography>
               </Box>
 
-              <FormControlLabel
-                control={<Switch />}
-                label={
-                  <Stack display={'flex'} justifyContent={'space-between'}>
-                    <Typography variant="body2">Feedback form (1 free)</Typography>
-                    <Typography variant="caption">
-                      <span className="text-success">$25</span> each. Billed as you go
-                    </Typography>
-                  </Stack>
-                }
-              />
-
               <Box display="flex" justifyContent="space-between" mt={2}>
                 <FormControlLabel
                   control={
@@ -290,12 +286,52 @@ export const DynamicOptions = ({
                 <Typography color="success">$200</Typography>
               </Box>
 
-              <Typography display="flex" justifyContent="space-between" mt={2}>
-                Third‑party integrations <span className="text-success">$50+</span>
-              </Typography>
-              <Typography variant="caption" color="textSecondary">
-                Auto‑responder, Google Analytics, Google Maps API ($200 + usage)
-              </Typography>
+              <Card sx={{ p: 2, my: 1}}>  
+                <Box display="flex" justifyContent="space-between">
+                  <Stack>
+                    <Typography>Math/ Logic</Typography>
+                    <Typography variant="caption" color="textSecondary">
+                      Complex calculations, data processing, etc
+                    </Typography>
+                  </Stack>
+                  <Box display="flex" alignItems="center">
+                    <IconButton
+                      onClick={() => dispatch({ type: 'SET_LOGIC_COUNT', payload: Math.max(0, include.logics - 1) })}
+                    >
+                      <Remove />
+                    </IconButton>
+                    <TextField
+                      type="number"
+                      value={include.logics}
+                      onChange={e =>
+                        dispatch({ type: 'SET_LOGIC_COUNT', payload: +e.target.value })
+                      }
+                      sx={{ maxWidth: 66, width: '100%', mx: 'auto' }}
+                    />
+                    <IconButton
+                      onClick={() =>
+                        dispatch({ type: 'SET_LOGIC_COUNT', payload: include.logics + 1 })
+                      }
+                    >
+                      <Add />
+                    </IconButton>
+                  </Box>
+                  <Typography color="success">${include.logics * 100}</Typography>
+                </Box>
+              </Card>
+
+              <Card sx={{ p: 2, my: 1, bgcolor: 'rgba(0,0,0,0.03)' }}>  
+                <Typography display="flex" justifyContent="space-between" mb={1}>
+                  Third‑party integrations <span className="text-success">$100+</span>
+                </Typography>
+                <Typography variant="caption" color="textSecondary">
+                  These are additional features that can be integrated into the web app using third‑party services or APIs, such as payment gateways, social media integrations, analytics tools, and more. The cost of these integrations can vary widely depending on the specific services chosen and the complexity of the integration.
+                  <br/>
+                  Requires in‑depth discuss on cost evaluation.
+                  <br/>
+                  Examples include payment solutions, QR codes, sockets, real-time communication/ indicators, Google map, etc
+                </Typography>
+              </Card>
             </Box>
           )}
 

@@ -6,7 +6,7 @@ import IndexImage from './index-image';
 export const Overview = () => {
   return (
     <Paper 
-      elevation={4}
+      elevation={0}
       sx={{
         backgroundColor: 'var(--background)',
         color: 'var(--text-primary)',

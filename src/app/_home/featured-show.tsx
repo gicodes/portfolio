@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, Typography, Grid, Card, CardContent, Chip, IconButton, Container, Stack, Button, Divider } from '@mui/material';
+import { Box, Typography, Grid, Card, CardContent, Chip, IconButton, Container, Stack, Button } from '@mui/material';
 import { ArrowOutward, GitHub, Launch } from '@mui/icons-material';
 import { projects } from '../repositories/projects';
 import { motion } from 'framer-motion';
@@ -114,7 +114,6 @@ export function FeaturedShowcase() {
                       }}
                     />
 
-                    {/* Tech Stack */}
                     <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, my: 3 }}>
                       {project.tech.map((tech) => (
                         <Chip
@@ -130,7 +129,6 @@ export function FeaturedShowcase() {
                       ))}
                     </Box>
 
-                    {/* Action Buttons */}
                     <Box sx={{ display: 'flex', gap: 1 }}>
                       <IconButton
                         href={project.link}
@@ -175,7 +173,6 @@ export function FeaturedShowcase() {
             View Full Portfolio
           </Button>
         </Box>
-        <Divider sx={{ my: 10, bgcolor: '#ccc' }} />
       </Container>
     </Box>
   );

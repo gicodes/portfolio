@@ -5,6 +5,7 @@ export interface CalculateTotalParams {
   staticAddon: ('generative' | 'form' | 'plugin')[];
   dynamicPages: number;
   include: {
+    logics: number;
     database?: boolean;
     backend?: boolean;
     frontend?: boolean;
@@ -74,6 +75,10 @@ export const calculateTotal = ({
       duration += dynamicType === 'serverless' ? 7 : 10;
     }
     if (include.frontend) {
+      if (include.logics) {
+        total += include.logics * 100;
+        duration += include.logics * 5;
+      }
       total += 100;
       total += 250;
       total += 200 + Math.max(0, (dynamicPages - 10) * 25);

@@ -120,7 +120,7 @@ export const StaticOptions: React.FC<StaticOptionsProps> = ({ staticPages, dispa
             }
             label={
               <Stack>
-                <Typography variant="body2">Opt-in form</Typography>
+                <Typography variant="body2">Follow-up form</Typography>
                 <Typography variant="caption" color="textSecondary">
                   Whatsapp or email checkout
                 </Typography>

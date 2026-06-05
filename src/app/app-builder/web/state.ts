@@ -8,6 +8,7 @@ export interface BuilderState { // Define the shape of your builder's state
   staticAddon: [] | ('generative' | 'form' | 'plugin')[];
   dynamicPages: number;
   include: {
+    logics: number;
     database: boolean;
     backend: boolean;
     frontend: boolean;
@@ -55,6 +56,7 @@ export const initialState: BuilderState = { // Initial default values for the bu
     generative: false,
     authUser: false,
     authUserCount: 1,
+    logics: 0,
     authAdmin: false,
     blog: false,
     ecom: false,
@@ -90,6 +92,7 @@ export type Action = // Define the actions your reducer can handle
   | { type: 'SET_STATIC_PAGES'; payload: BuilderState['staticPages'] }
   | { type: 'SET_DYNAMIC_PAGES'; payload: BuilderState['dynamicPages'] }
   | { type: 'TOGGLE_INCLUDE'; payload: IncludeKey }
+  | { type: 'SET_LOGIC_COUNT'; payload: number }
   | { type: 'SET_AUTH_USER_COUNT'; payload: number }
   | { type: 'SET_CHECKOUT'; payload: BuilderState['checkout'] }
   | { type: 'SET_STATIC_ADDON'; payload?: BuilderState['staticAddon'] }
@@ -136,6 +139,14 @@ export function stateReducer(
       return { ...state, duration: action.payload };
     case 'SET_ALERT':
       return { ...state, alert: action.payload };
+    case 'SET_LOGIC_COUNT':
+      return {
+        ...state,
+        include: {
+          ...state.include,
+          logics: action.payload,
+        },
+      };
     default: return state;
   }
 }

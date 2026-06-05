@@ -1,174 +1,208 @@
 import { render } from "../render";
-import { useTheme } from "@mui/material/styles";
-import { CodeSharp } from "@mui/icons-material";
 import React, { useEffect, useState } from "react";
-import { Badge, Box, Container, Typography } from "@mui/material";
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from "framer-motion";
+import {
+  Badge,
+  Box,
+  Container,
+  Paper,
+  Typography,
+} from "@mui/material";
+import { CodeSharp } from "@mui/icons-material";
+import { useTypewriter } from "../hooks/useTypewriter";
 
-const welcomeText = `
-  Hi there,\n I'm Gideon Chino.
-`;
-
-const honouryText = `
-  Software Engineer, Full-Stack Developer
-`;
-
-const pitchText = `
-    I speak fluent Javascript. Certified in JS, Python and Dart. \n
-    I've written over 25 real-world programs that are widely in use today. \n
-    I will build you a user-friendly application that is responsive, scalable and reliably fast in production.
-`;
-
-const lineVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: (i: number) => ({
+const MotionDiv = motion.div;
+const itemVariants = {
+  hidden: {
+    opacity: 0,
+    y: 24,
+  },
+  visible: {
     opacity: 1,
     y: 0,
     transition: {
-      delay: i * 0.05,
+      duration: 0.6,
+      ease: "easeOut" as const,
     },
-  }),
-}
+  },
+};
+
+const Intro = () => (
+  <MotionDiv
+    variants={itemVariants}
+    initial="hidden"
+    animate="visible"
+  >
+    <Typography
+      variant="h2"
+      fontWeight={800}
+      sx={{
+        fontSize: {
+          xs: "2.5rem",
+          md: "4rem",
+        },
+        lineHeight: 1.1,
+      }}
+    >
+      Hi there,
+    </Typography>
+
+    <Typography
+      variant="h2"
+      fontWeight={800}
+      sx={{
+        fontSize: {
+          xs: "2.5rem",
+          md: "4rem",
+        },
+        lineHeight: 1.1,
+      }}
+    >
+      I'm{" "}
+      <Box
+        component="span"
+        color="warning.main"
+      >
+        Gideon Chino
+      </Box>
+    </Typography>
+  </MotionDiv>
+);
+
+const Role = () => (
+  <MotionDiv
+    variants={itemVariants}
+    initial="hidden"
+    animate="visible"
+    transition={{ delay: 0.3 }}
+  >
+    <Typography
+      mt={3}
+      color="success.main"
+      fontWeight={600}
+      sx={{
+        fontSize: {
+          xs: "1.1rem",
+          md: "1.35rem",
+        },
+      }}
+    >
+      Full-Stack Developer · DevOps · Software Engineer
+    </Typography>
+  </MotionDiv>
+);
+
+const introSummary = `
+  I build software that people depend on.
+  With expertise in JavaScript, Python, and Dart, I create modern applications that combine exceptional user experience with scalable architecture.
+  Having delivered 25+ production applications, I help businesses transform ideas into reliable digital products that perform in the real world.
+`;
+
 export const GetToKnowMe = () => {
-  const theme = useTheme();
-  const [slidingText, setSlidingText] = useState("");
-  const [slidingText2, setSlidingText2] = useState("");
-  const [slidingText3, setSlidingText3] = useState("");
+  const [stage, setStage] = useState(0);
 
   useEffect(() => {
-    let welcomeIndex = 0;
-    
-    const displayWelcomeText = setInterval(() => {
-      if (welcomeIndex < welcomeText.length) {
-        setSlidingText((prev) => prev + welcomeText[welcomeIndex]);
-        welcomeIndex++;
-      } else {
-        clearInterval(displayWelcomeText);
+    const timers = [
+      setTimeout(() => setStage(1), 100),
+      setTimeout(() => setStage(2), 400),
+      setTimeout(() => setStage(3), 800),
+    ];
 
-        let honouryIndex = 0;
-        const displayHonouryText = setInterval(() => {
-          if (honouryIndex < honouryText.length) {
-            setSlidingText2((prev) => prev + honouryText[honouryIndex]);
-            honouryIndex++;
-          } else {
-            clearInterval(displayHonouryText);
-
-            let pitchIndex = 0;
-            const displayPitchText = setInterval(() => {
-              if (pitchIndex < pitchText.length) {
-                setSlidingText3((prev) => prev + pitchText[pitchIndex]);
-                pitchIndex++;
-              } else {
-                clearInterval(displayPitchText);
-              }
-            }, 50);
-          }
-        }, 50);
-      }
-    }, 100);
-    
-    return () => clearInterval(displayWelcomeText);
+    return () => timers.forEach(clearTimeout);
   }, []);
 
+  const typedContent = useTypewriter(introSummary, 15);
+
   return (
-    <motion.div
-      initial={{ opacity: 0, x: -50 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.8, delay: 0.2 }}
+    <Container
+      maxWidth="md"
     >
-      <Container
-        sx={{
-          px: { xs: 3, sm: 4, lg: 0 },
-          pt: { xs: 1, sm: 3, lg: 2 },
-          pb: { xs: 1, sm: 2, lg: 3 },
-          height: { xs: '504px', sm: '420px', lg: '360px' },
-        }}
-      >
-        <Typography component="div">
-          {render(slidingText).map((line, idx) => (
-          <Typography
-            key={idx}
-            variant="h4"
-            component="h1" 
-            fontWeight={600}
-            sx={{ 
-              py: 1,
-              display: 'block',
-              [theme.breakpoints.down(375)]: {
-                fontSize: 35,
-              },             
-            }}
-          >
-            {line.includes("Gideon Chino") ? (
-              <>
-                {line.split("Gideon Chino")[0]}
-                <Typography
+      <AnimatePresence>
+        {stage >= 1 && (
+          <Intro key="intro" />
+        )}
+
+        {stage >= 2 && (
+          <Role key="role" />
+        )}
+
+        {stage >= 3 && (
+          <React.Fragment key="summary">
+            <motion.div variants={itemVariants}>
+              <Paper
+                elevation={0}
+                sx={{
+                  py: 2,
+                  px: 3,
+                  mt: 4,
+                  maxWidth: 720,
+                  borderRadius: 4,
+                  border: "1px solid rgba(255, 193, 7, 0.2)",
+                  boxShadow:
+                    "0 0 30px rgba(255, 193, 7, 0.18), 0 0 45px rgba(255, 193, 7, 0.12)",
+                }}
+              >
+                {render(typedContent).map((line, index) => (
+                  <Typography
+                    key={index}
+                    sx={{
+                      mt: index === 0 ? 0 : 2,
+                      fontSize: {
+                        xs: 14,
+                        md: 16,
+                      },
+                      lineHeight: 1.9,
+                      fontFamily: "math",
+                      color: "text.primary",
+                      fontWeight: index === 0 ? 700 : 500,
+                    }}
+                  >
+                    {line}
+                  </Typography>
+                ))}
+
+                <Box
                   component="span"
-                  variant="h3"
-                  color="warning.main"
-                  sx={{ 
-                    display: 'inline',
-                    fontSize: 40,
-                    fontWeight: 700,
-                    [theme.breakpoints.down(375)]: {
-                      fontSize: 36,
+                  sx={{
+                    display: "inline-block",
+                    ml: 0.5,
+                    width: "10px",
+                    color: "warning.main",
+                    animation: "blink 1s infinite",
+                    "@keyframes blink": {
+                      "0%,50%": {
+                        opacity: 1,
+                      },
+                      "51%,100%": {
+                        opacity: 0,
+                      },
                     },
                   }}
                 >
-                  Gideon Chino
-                </Typography>
-                {line.split("Gideon Chino")[1]}
-              </>
-            ) : (
-              line
-            )}
-          </Typography>
-        ))}
-      </Typography>
+                  |
+                </Box>
+              </Paper>
+            </motion.div>
 
-      <Box my={2}>
-        <Typography 
-          component="div" 
-          className="typing-effect"
-        >
-          {render(slidingText2).map((line, idx) => (
-            <Typography
-              key={idx}
-              variant="h6"
-              fontSize={22}
-              color="success.main"
-            >
-              {line}
-            </Typography>
-          ))}
-        </Typography>
-      </Box>
-
-      <Typography component="div" className="typing-effect">
-        {render(slidingText3).map((line, idx) => (
-          <Typography
-            key={idx}
-            component="span"
-            sx={{
-              display: 'block',
-              maxWidth: 500,
-              lineHeight: '2rem',
-              fontSize: { xs: 15, sm: 16, lg: 18 },
-            }}
-          >
-            {line}
-          </Typography>
-        ))}
-      </Typography>
-
-      <Badge
-        sx={{ my: 3 }}
-        color="warning"
-        badgeContent="☁️"
-        className="beat-fade"
-      >
-        <CodeSharp className="text-gray" />
-      </Badge>
+            <motion.div variants={itemVariants}>
+              <Badge
+                color="warning"
+                badgeContent="☁️"
+                sx={{
+                  mt: 5,
+                }}
+              >
+                <CodeSharp
+                  sx={{
+                    fontSize: 30,
+                    color: "text.secondary",
+                  }}
+                />
+              </Badge>
+            </motion.div>
+          </React.Fragment>
+        )}      
+      </AnimatePresence>
     </Container>
-  </motion.div>
-)}
+  );
+};

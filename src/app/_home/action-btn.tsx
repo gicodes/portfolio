@@ -3,7 +3,7 @@ import { Box, Button, ButtonGroup, Typography } from '@mui/material';
 const ActionButton = () => {
   return (
     <Box 
-      mt={10} 
+      my={10} 
       display={'flex'} 
       justifyContent={'center'} 
       alignItems={'center'} 

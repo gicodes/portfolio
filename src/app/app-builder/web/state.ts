@@ -1,3 +1,4 @@
+import { Build } from '@mui/icons-material';
 import { AlertProps } from '../../_alerts/alert';
 
 
@@ -5,9 +6,10 @@ export interface BuilderState { // Define the shape of your builder's state
   projectType: 'static' | 'dynamic';
   dynamicType: 'serverless' | 'server';
   staticPages: number;
-  staticAddon: [] | ('generative' | 'form' | 'plugin')[];
+  staticAddon: [] | ('generative' | 'plugin')[];
   dynamicPages: number;
   include: {
+    forms: number;
     logics: number;
     database: boolean;
     backend: boolean;
@@ -31,7 +33,7 @@ export interface BuilderState { // Define the shape of your builder's state
     leadGen: boolean;
     emailMarketing: boolean;
     chatbot: boolean;
-    ticketing: boolean;
+    crm: boolean;
     chat: boolean;
     fintech: boolean;
   };
@@ -48,6 +50,8 @@ export const initialState: BuilderState = { // Initial default values for the bu
   dynamicPages: 10,
   staticAddon: [],
   include: {
+    forms: 0,
+    logics: 0,
     database: false,
     backend: false,
     frontend: false,
@@ -56,7 +60,6 @@ export const initialState: BuilderState = { // Initial default values for the bu
     generative: false,
     authUser: false,
     authUserCount: 1,
-    logics: 0,
     authAdmin: false,
     blog: false,
     ecom: false,
@@ -71,7 +74,7 @@ export const initialState: BuilderState = { // Initial default values for the bu
     leadGen: false,
     emailMarketing: false,
     chatbot: false,
-    ticketing: false,
+    crm: false,
     chat: false,
     fintech: false,
   },
@@ -83,8 +86,7 @@ export const initialState: BuilderState = { // Initial default values for the bu
 
 export type IncludeKey = keyof BuilderState['include']; // Keys of the "include" object, for type-safe toggling
 
-export type AddonKey = 'generative' | 'form' | 'plugin'; // Keys for static addons
-
+export type AddonKey = 'generative' | 'plugin'; // Keys for static addons
 
 export type Action = // Define the actions your reducer can handle
   | { type: 'SET_PROJECT_TYPE'; payload: BuilderState['projectType'] }
@@ -98,7 +100,8 @@ export type Action = // Define the actions your reducer can handle
   | { type: 'SET_STATIC_ADDON'; payload?: BuilderState['staticAddon'] }
   | { type: 'HANDLE_CHECKOUT'; payload?: 'email' | 'whatsapp' }
   | { type: 'SET_DURATION'; payload?: BuilderState['duration']}
-  | { type: 'SET_ALERT'; payload: BuilderState['alert'] };
+  | { type: 'SET_ALERT'; payload: BuilderState['alert'] }
+  | { type: 'SET_FORMS'; payload: BuilderState['include']['forms'] };
 
   
 export function stateReducer(

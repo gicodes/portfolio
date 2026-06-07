@@ -4,7 +4,7 @@ export const projects = [
     title: 'TicTask',
     name: 'TicTask',
     owner: 'gicodes',
-    description: 'Future of workflow and task management. Smart ticketing app with AI assistance and useful resources. \n Built for fast, friendly, agile teamwork. Whether you are a small team or a large enterprise, TicTask is designed to meet your needs with its intuitive interface and robust features. \n',
+    description: 'Future of workflow and task management. Smart crm app with AI assistance and useful resources. \n Built for fast, friendly, agile teamwork. Whether you are a small team or a large enterprise, TicTask is designed to meet your needs with its intuitive interface and robust features. \n',
     source: 'https://github.com/gicodes/TicTask',
     link: 'https://tictask.org',
     category: ['Productivity', 'AI',],

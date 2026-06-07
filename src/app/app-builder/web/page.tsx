@@ -1,16 +1,16 @@
 'use client';
 
 import React, { useReducer, useState } from 'react';
+import WebDevDescription from './web-desc';
 import { StaticOptions } from './static';
 import { DynamicOptions } from './dynamic';
 import ShowAlert from '../../_alerts/alert';
 import { ProjectTypeSelector } from './services';
 import { useHandlers } from './builder-checkout';
-import { Typography, Paper, Box, Grid, Card } from '@mui/material';
+import { stateReducer, initialState } from './state';
 import { calculateTotal } from './builder-calculator';
 import CheckoutSection, { TotalBar } from './checkout';
-import { stateReducer, initialState } from './state';
-import WebDevDescription from './web-desc';
+import { Typography, Paper, Box, Grid } from '@mui/material';
 
 const Page: React.FC = () => {
   const [description, setDescription] = useState(false);
@@ -24,10 +24,10 @@ const Page: React.FC = () => {
     <Paper 
       sx={{ 
         p: 4, 
-        maxWidth: 1000, 
-        mx: 'auto', 
         gap: 3, 
-        display: 'grid' 
+        mx: 'auto', 
+        maxWidth: 1000, 
+        display: 'grid',
       }} 
       elevation={3}
     >
@@ -35,9 +35,11 @@ const Page: React.FC = () => {
 
       <Box gap={1} display={'grid'}>
         <Typography variant="h4" fontWeight={600}>Web App Builder</Typography>
+
         <Typography variant="body1" display="block" gutterBottom>
           A simple tool to estimate the cost of your web project. Select options as you build on paper, and get a quote instantly.
         </Typography>
+
         <Grid display="grid" gap={2}>
           <Typography 
             variant="caption" 
@@ -53,16 +55,14 @@ const Page: React.FC = () => {
               What is a web app?
             </Box> 
           </Typography>  
-          {
-            description && <WebDevDescription />
-          }       
+          { description && <WebDevDescription /> }       
         </Grid>
       </Box>
       
       <ProjectTypeSelector projectType={state.projectType} dispatch={dispatch} />
 
       {state.projectType === 'static' ? (
-        <StaticOptions staticPages={state.staticPages} dispatch={dispatch} />
+        <StaticOptions state={state} staticPages={state.staticPages} dispatch={dispatch} />
       ) : (
         <DynamicOptions state={state} dispatch={dispatch} handleCheckout={handleCheckout} />
       )}

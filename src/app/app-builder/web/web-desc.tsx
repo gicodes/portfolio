@@ -31,7 +31,7 @@ const WebDevDescription = () => {
           <Grid>
             <Typography fontWeight={500} sx={{ opacity: 0.75, p: 1 }}> Ecosystem/ Technology </Typography>
             <Card variant="outlined" sx={{ p: 2, bgcolor: 'rgba(0,0,0,0.03)' }}>
-              <Typography variant='body2'> JavaScript, TypeScript, Node.js, React.js, Next.js, Express.js</Typography>
+              <Typography variant='body2'> TypeScript, JavasScript, Node.js, React.js, Next.js, Firebase, Vercel</Typography>
             </Card>
           </Grid>
         </Box> 

@@ -92,7 +92,7 @@ export const ProjectTypeSelector: React.FC<ProjectTypeSelectorProps> = ({ projec
       >
         { projectType === 'static' ? 
           "Ideal for landing pages or portfolios, blogs, documentation site."
-          : "Ideal for user interactions i.e. E-commerce, Fintech, SaaS, etc."
+          : "Ideal for user interactions i.e. E-commerce, Fintech, Gaming, etc."
         }
       </Typography>
     </FormControl>

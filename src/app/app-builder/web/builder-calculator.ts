@@ -1,10 +1,35 @@
+export interface State { 
+  dynamicType: string;
+  dynamicPages: number;
+  projectType?: string;
+  staticPages?: number;
+  staticAddon?: any;
+  checkout?: any;
+  include: {
+    forms: number;
+    logics: number;
+    database: boolean;
+    backend: boolean;
+    authUser: boolean;
+    authAdmin: boolean;
+    caching: boolean;
+    frontend: boolean;
+    generative: boolean;
+    providers: boolean;
+    authUserCount?: any;
+    [key: string]: boolean | number; 
+  };
+}
+
+
 export interface CalculateTotalParams {
   projectType: string;
   dynamicType: string;
   staticPages: number;
-  staticAddon: ('generative' | 'form' | 'plugin')[];
+  staticAddon: ('generative' |'plugin')[];
   dynamicPages: number;
   include: {
+    forms: number;
     logics: number;
     database?: boolean;
     backend?: boolean;
@@ -28,7 +53,7 @@ export interface CalculateTotalParams {
     leadGen?: boolean;
     emailMarketing?: boolean;
     chatbot?: boolean;
-    ticketing?: boolean;
+    crm?: boolean;
     chat?: boolean;
     fintech?: boolean;
   };
@@ -52,6 +77,12 @@ export const calculateTotal = ({
     total += 50;  // deployment
     duration += 14; // duration in duration
 
+    if (include.forms && include.forms > 0) {
+      console.log('Including forms:', include);
+      total += include.forms * 25;
+      duration += include.forms * 2;
+    }
+
     if (staticAddon.includes('plugin')) {
       total += 75;
       duration += 3;
@@ -59,10 +90,6 @@ export const calculateTotal = ({
     if (staticAddon.includes('generative')) {
       total += 50;
       duration += 2;
-    }
-    if (staticAddon.includes('form')) {
-      total += 25;
-      duration += 1;
     }
   } else {
     if (include.database) {
@@ -111,11 +138,11 @@ export const calculateTotal = ({
       duration += 7;
     }
     if (include.blog) {
-      total += 250;
+      total += 500;
       duration += 10;
     }
     if (include.ecom) {
-      total += 450;
+      total += 1000;
       duration += 14;
     }
     if (include.basicSeo) {
@@ -162,16 +189,16 @@ export const calculateTotal = ({
       total += 350;
       duration += 10;
     }
-    if (include.ticketing) {
-      total += 750;
+    if (include.crm) {
+      total += 2000;
       duration += 5;
     }
     if (include.chat) {
-      total += 1500;
+      total += 5000;
       duration += 36;
     }
     if (include.fintech) {
-      total += 2000;
+      total += 10000;
       duration += 30;
     }
   }

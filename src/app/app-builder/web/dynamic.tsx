@@ -1,31 +1,24 @@
-import React from "react";
 import { Action } from "./state";
+import React, { useState} from "react";
 import { ServiceOption } from "./services";
-import { MarketingOptions } from "./marketingOptions";
+import { State } from "./builder-calculator";
 import { Remove, Add } from "@mui/icons-material";
-import { Box, Checkbox, Typography, FormControl, FormLabel, RadioGroup, FormControlLabel, Radio, TextField, Stack, IconButton, Card } from "@mui/material";
-
-interface State { 
-  dynamicType: string;
-  dynamicPages: number;
-  projectType?: string;
-  staticPages?: number;
-  staticAddon?: any;
-  checkout?: any;
-  include: {
-    database: boolean;
-    backend: boolean;
-    authUser: boolean;
-    authAdmin: boolean;
-    caching: boolean;
-    frontend: boolean;
-    generative: boolean;
-    providers: boolean;
-    logics: number;
-    authUserCount?: any;
-    [key: string]: boolean | number; 
-  };
-}
+import { MarketingOptions } from "./marketingOptions";
+import { 
+  Box, 
+  Checkbox, 
+  Typography, 
+  FormControl, 
+  FormLabel, 
+  RadioGroup, 
+  FormControlLabel, 
+  Radio, 
+  TextField, 
+  Stack, 
+  IconButton, 
+  Card, 
+  Paper 
+} from "@mui/material";
 
 interface DynamicOptionProps {
   state: State;
@@ -38,35 +31,62 @@ export const DynamicOptions = ({
   dispatch,
 }: DynamicOptionProps) => {
   const { dynamicType, dynamicPages, include } = state;
-
+  const [formCount, setFormCount] = useState<number>(1);
+  
   return (
     <Box width="100%" /* Base Setup */>
-      <Box sx={{ my: 2, p: { xs: 2, sm: 3 }, bgcolor: 'rgba(0,0,0,0.05)' }}>
-        <FormControl component="fieldset">
-          <FormLabel component="legend" sx={{ fontWeight: 500}}>Dynamic Web App</FormLabel>
+      <Paper sx={{ p: 3, maxWidth: 500, }}>
+        <FormControl 
+          component="fieldset" 
+          sx={{ 
+            mx: 'auto',
+            display: 'flex',
+            textAlign: 'center' 
+          }}
+        >
+          <FormLabel 
+            component="legend" 
+            sx={{ fontWeight: 600}}
+          > 
+            How Should Your Application Run?
+            </FormLabel>
             <RadioGroup 
-              row sx={{ pt: 1 }}
+              row 
+                sx={{ 
+                  py: 1, 
+                  gap: 4,
+                  mx: 'auto', 
+                  justifyContent: 'center', 
+                }}
               value={dynamicType}
               onChange={e => dispatch({ type: 'SET_DYNAMIC_TYPE', payload: e.target.value as 'serverless' | 'server' })}
             >
-              <FormControlLabel value="serverless" control={<Radio />} label={<span>Serverless</span>} />
-              <FormControlLabel value="server" control={<Radio />} label={<span>Server</span>} />
+              <FormControlLabel value="serverless" control={<Radio />} label={<span>Serverless 🚀</span>} />
+              <FormControlLabel value="server" control={<Radio />} label={<span>Server 🖥️</span>} />
             </RadioGroup>
-            <Typography variant="caption" color="textSecondary">
-              { dynamicType === 'serverless'
-                ? "Only calls the backend services on client demand— Saves resources"
-                : "Backend services run 24/7. Ideal for tracking, fintech, chat apps, etc"}
-            </Typography>
+
+            <Box 
+              bgcolor={'rgba(0,0,0,1)'} 
+              borderRadius={2}
+              color={'white'}
+              p={1}
+            >
+              <Typography variant="caption">
+                { dynamicType === 'serverless'
+                  ? "Backend services run on client demand — Saves resources"
+                  : "Backend services run 24/7 — Better for performance and complex tasks"}
+              </Typography>
+            </Box>
         </FormControl>
-      </Box>
+      </Paper>
       
       <Box my={4} /* Common Services */>
         <Box>
           <Typography variant="h6" gutterBottom>
-            Primary Services <span className="fs-sm text-gray">(Must Choose at least 1)</span>
+            Primary Services <span className="fs-sm text-gray">(Choose at least 1)</span>
           </Typography>
           <Typography variant="caption" color="textSecondary" paragraph>
-            Core services that are essential for any dynamic web application, such as database setup, backend and API development, and frontend development. These services form the foundation of the web app and are necessary for its basic functionality and performance.
+            Core services required for the web app, such as database setup, backend development, frontend development, and deployment. These services form the foundation of the web app and are essential for its functionality and performance.
           </Typography>
         </Box>
         
@@ -88,11 +108,25 @@ export const DynamicOptions = ({
           />
 
           {include.backend && (
-            <Box sx={{ ml: 2, my: 2 }} /* Auth and Access Levels */>
-              <Typography variant="subtitle2" color="textSecondary">
-                Auth and Access Levels
-              </Typography>
-              <Box my={1} display="flex" justifyContent="space-between">
+            <Box 
+              sx={{ 
+                px: 2,
+                py: 3,  
+                my: 2,
+                bgcolor: 'rgba(0,0,0,0.05)',
+                borderRadius: 4
+              }} /* Auth and Access Levels */
+            >
+              <Stack my={1} spacing={1}>
+                <Typography>
+                  Authentication, Authorization & Access Levels (RBAC)
+                </Typography>
+                <Typography variant="caption" color="textSecondary">
+                  User roles, permissions, and secure access control for the web app. This includes features such as user registration, login, role-based access control (RBAC), and other authentication mechanisms to ensure that only authorized users can access certain parts of the web app.
+                </Typography>
+              </Stack>
+              
+              <Box py={1} display="flex" justifyContent="space-between">
                 <FormControlLabel
                   control={
                   <Checkbox
@@ -103,16 +137,16 @@ export const DynamicOptions = ({
                   label={
                     <Stack>
                       <Typography>User Role(s)</Typography>
-                      <Typography variant="caption" display="block"> Sign‑up, Login, Edit Profile, etc </Typography>
+                      <Typography variant="caption" display="block"> Define user roles and permissions. Permissions vary and can be customized for each role, with added cost. </Typography>
                     </Stack>
                   }
                 />
-                <Typography color="success">${100 * (include.authUserCount || 1)}</Typography>
+                <Typography color="success">${100 * (include.authUserCount || 1)}+</Typography>
               </Box>
               {include.authUser && (
                 <Box my={2}>
                   <TextField
-                    label="Number of User Roles"
+                    label="Number Of User Roles"
                     type="number"
                     size="small"
                     value={include.authUser ? (include.authUserCount ?? 1) : 1}
@@ -136,7 +170,7 @@ export const DynamicOptions = ({
                     <Stack>
                       <Typography>Admin/ Moderator Role(s)</Typography>
                       <Typography variant="caption" display="block">
-                        Sudo role‑based functions <span className="-mt block fs-xs text-gray">i.e. Create, Read, Update, Delete</span>
+                        Higher access level with permissions to manage users, content, and settings. Requires user role(s) to be defined. Permissions vary and can be customized for each role, with added cost.
                       </Typography>
                     </Stack>
                   }
@@ -147,6 +181,7 @@ export const DynamicOptions = ({
               <Typography my={2} variant="subtitle2" color="textSecondary">
                 Backend Add‑ons
               </Typography>
+
               <Box my={2}>
                 <TextField
                   label="API routes"
@@ -177,7 +212,7 @@ export const DynamicOptions = ({
               <Stack spacing={1}>
                 <Box display="flex" justifyContent="space-between" mt={1}>
                   <Typography>Micro services</Typography>
-                  <Typography color="success">$750</Typography>
+                  <Typography color="success">$750+</Typography>
                 </Box>
                 <Typography variant="caption" color="textSecondary">
                   Requires in‑depth discuss on cost evaluation
@@ -185,7 +220,7 @@ export const DynamicOptions = ({
 
                 <Box display="flex" justifyContent="space-between">
                   <Typography>Cloud services</Typography>
-                  <Typography color="success">$500</Typography>
+                  <Typography color="success">$500+</Typography>
                 </Box>
                 <Typography variant="caption" color="textSecondary">
                   Requires in‑depth discuss on cost evaluation
@@ -193,7 +228,7 @@ export const DynamicOptions = ({
 
                 <Box display="flex" justifyContent="space-between" mt={1}>
                   <Typography>Subscription services</Typography>
-                  <Typography color="success">$300</Typography>
+                  <Typography color="success">$300+</Typography>
                 </Box>
                 <Typography variant="caption" color="textSecondary">
                   Requires in‑depth discuss on cost evaluation
@@ -242,8 +277,8 @@ export const DynamicOptions = ({
                   onChange={e =>
                     dispatch({ type: 'SET_DYNAMIC_PAGES', payload: +e.target.value })
                   }
-                  helperText="$25 per page"
                   sx={{ width: 111 }}
+                  helperText="$25 per page"
                 />
               </Box>
               <Box display="flex" justifyContent="space-between" mb={2}>
@@ -279,7 +314,7 @@ export const DynamicOptions = ({
                   label={
                     <Stack>
                       <Typography>Performance Providers</Typography>
-                      <Typography variant="caption"> Alert, Loading, User, Product, Search </Typography>
+                      <Typography variant="caption"> Alert system, loading, memorization etc. </Typography>
                     </Stack>
                   }
                 />
@@ -309,9 +344,7 @@ export const DynamicOptions = ({
                       sx={{ maxWidth: 66, width: '100%', mx: 'auto' }}
                     />
                     <IconButton
-                      onClick={() =>
-                        dispatch({ type: 'SET_LOGIC_COUNT', payload: include.logics + 1 })
-                      }
+                      onClick={() => dispatch({ type: 'SET_LOGIC_COUNT', payload: include.logics + 1 })}
                     >
                       <Add />
                     </IconButton>
@@ -325,7 +358,7 @@ export const DynamicOptions = ({
                   Third‑party integrations <span className="text-success">$100+</span>
                 </Typography>
                 <Typography variant="caption" color="textSecondary">
-                  These are additional features that can be integrated into the web app using third‑party services or APIs, such as payment gateways, social media integrations, analytics tools, and more. The cost of these integrations can vary widely depending on the specific services chosen and the complexity of the integration.
+                  These are additional features that can be integrated into the web app using third‑party services or APIs, such as payment gateways, social media integrations, analytics tools, and more. The cost of these integrations can vary widely depending on the specific services chosen and the complexity of the integration
                   <br/>
                   Requires in‑depth discuss on cost evaluation.
                   <br/>
@@ -335,34 +368,69 @@ export const DynamicOptions = ({
             </Box>
           )}
 
-          <br/>
+          <Box display="flex" justifyContent="space-between" mb={2}>
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={include.forms > 0}
+                  onChange={() => dispatch({ type: 'TOGGLE_INCLUDE', payload: 'forms' })}
+                />
+              }
+              label={
+                <Stack>
+                  <Typography>Follow up forms</Typography>
+                  <Typography variant="caption" display="block"> Retain users and gather feedback </Typography>
+                </Stack>
+              }
+            />
+            {include.forms > 0 && (
+              <Box my={2}>
+                <TextField
+                  label="Number of forms"
+                  type="number"
+                  size="small"
+                  value={formCount}
+                  onChange={e => {
+                    const count = parseInt(e.target.value, 10);
+                    setFormCount(count);
+                    dispatch({ type: 'SET_FORMS', payload: count });
+                  }}
+                  InputProps={{ inputProps: { min: 0 } }}
+                  helperText="Each form adds $25. Billed on app completion."
+                  sx={{ width: 180 }}
+                />
+              </Box>
+            )}
+            <Typography variant='body2' color="success">${include.forms ? formCount * 25 : 0}</Typography>
+          </Box>
+
           <Box width="100%" display={'grid'} gap={2}> {/* Platform specific services */}
-            <Box>
+            <Box mt={5}>
               <Typography variant="h6" gutterBottom>
-                Platform-specific Services <span className="fs-sm text-gray">(optional)</span>
+                Business Services
               </Typography>
               <Typography variant="caption" color="textSecondary" paragraph>  
-                Services that are specific to the web platform, such as SEO optimization, web accessibility compliance, and cross-browser compatibility testing. These services ensure that the web app performs well across different browsers and devices, and is optimized for search engines to improve visibility and reach.
+                Services that are specific to the web platform, such as SEO optimization, web accessibility compliance, and cross-browser compatibility testing. These services ensure that the web app performs well across different browsers and devices, and is optimized for search engines to improve visibility and reach
               </Typography>
             </Box>
             
-            {(['blog','ecom', 'ticketing', 'chat', 'fintech'] as Array<'blog' | 'ecom' | 'ticketing' | 'chat' | 'fintech'>).map((key) => {
+            {(['blog','ecom', 'crm', 'chat', 'fintech'] as Array<'blog' | 'ecom' | 'crm' | 'chat' | 'fintech'>).map((key) => {
               const labels = {
                 blog: 'Blog app',
                 ecom: 'E-commerce',
-                ticketing: 'Ticketing',
-                fintech: 'Fin Tech',
+                crm: 'CRM',
+                fintech: 'Fin tech',
                 chat: 'Chat app'
               };
 
-              const prices = { blog: 250, ecom: 450, ticketing: 750, chat: 1500, fintech: 2000 };
+              const prices = { blog: 500, ecom: 1000, crm: 2000, chat: 5000, fintech: 10000 };
               
               const descs = {
-                blog: 'Control, Manage, Publish Content',
-                ecom: 'Store, Cart, Checkout, Payment solution',
-                ticketing: 'Automated logs for Tasks, Features, Issues, Fixes',
-                chat: 'Chat rooms, p2p networks, Notifications',
-                fintech: 'Accounts, Banking, Secure payments',
+                blog: 'Article listing, Categories, Comments, etc',
+                ecom: 'Product listing, Cart, Checkout, etc',
+                crm: 'Customer management, interactions, etc',
+                chat: 'Real-time communication, indicators, etc',
+                fintech: 'Financial services, banking, secure payments, etc',
               };
 
               return (

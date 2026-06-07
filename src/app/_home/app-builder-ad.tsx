@@ -29,7 +29,7 @@ const AppBuilderAdd = () => {
               Sketch Your Dream App with My App Builder
             </Typography>
             <Typography variant="h5" sx={{ opacity: 0.8}} gutterBottom>
-              Whether you need a sleek portfolio, a dynamic blog, or a powerful e-commerce site, my App Builder has got you covered. With an intuitive interface and a wide range of customizable templates, you can create stunning websites without any coding experience. Get started today and bring your ideas to life!
+              Whether you need a sleek portfolio, a dynamic website, or a powerful e-commerce app, my App Builder has got you covered. With an intuitive interface and a wide range of customizable templates, you can create stunning websites without any coding experience. Get started today and bring your ideas to life!
             </Typography>
           </Box>
         </Box>

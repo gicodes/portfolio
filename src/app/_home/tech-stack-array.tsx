@@ -10,7 +10,7 @@ export const msco = (
   <>
     <h2 className="mb-2">Services</h2>
     <Paragraph><b>Coding as a Product</b>: Write mobile apps, Web apps and Software programs</Paragraph>
-    <Paragraph><b>Coding as a Service</b>: App monitoring, DbMs, ticketing</Paragraph>
+    <Paragraph><b>Coding as a Service</b>: App monitoring, DbMs, crm</Paragraph>
     <Paragraph lineHeight={1.5}>
       <b>Coding as a Consultancy</b>: Provide technical guidance, code reviews, and mentorship to help clients achieve their goals.{" "}
     </Paragraph>

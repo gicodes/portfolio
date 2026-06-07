@@ -1,19 +1,29 @@
-import { Box, Typography, Stack, TextField, Checkbox, FormControlLabel, Switch, Divider } from '@mui/material';
+import { 
+  Box, 
+  Typography, 
+  Stack, 
+  TextField, 
+  Checkbox, 
+  FormControlLabel, 
+  Divider 
+} from '@mui/material';
 import { Action, AddonKey } from './state';
 import React, { useState, Dispatch } from 'react';
 import { MarketingOptions } from './marketingOptions';
 
 interface StaticOptionsProps {
+  state: any;
   staticPages: number;
   dispatch: Dispatch<Action>;
 }
 
-export const StaticOptions: React.FC<StaticOptionsProps> = ({ staticPages, dispatch }) => {
+export const StaticOptions: React.FC<StaticOptionsProps> = ({ state, staticPages, dispatch }) => {
   const [addons, setAddons] = useState<Record<AddonKey, boolean>>({
     generative: false,
-    form: false,
     plugin: false,
   });
+  const [formCount, setFormCount] = useState<number>(1);
+  const { include } = state;
 
   const handleAddonChange = (addon: AddonKey) => {
     const newValue = !addons[addon];
@@ -27,9 +37,16 @@ export const StaticOptions: React.FC<StaticOptionsProps> = ({ staticPages, dispa
 
   return (
     <Box width="100%" /* Static Type */>
-      <Typography py={1} color="textSecondary" fontWeight={500}>
-        Static Website Options
-      </Typography>
+      <Box py={1} gap={1} display={'grid'}>
+        <Typography variant='h6' fontWeight={500}>
+          Static Website Options
+        </Typography>
+        <Typography color="textSecondary" variant='caption'>
+          Landing Pages, Portfolio, Blogs and more. Use lightweight but powerful tools to run dynamic tasks, give feedback and convert clients
+        </Typography> 
+      </Box>
+
+      <Divider />
 
       <Stack spacing={2} mt={2}>
         <Typography variant="subtitle2" display="flex" justifyContent="space-between">
@@ -65,9 +82,9 @@ export const StaticOptions: React.FC<StaticOptionsProps> = ({ staticPages, dispa
             </Typography>
             <Typography variant="subtitle2" color="success" my="auto"> $50 </Typography>
           </Stack>
-          <Divider />
         </Stack>
 
+        <Divider />
         <Typography py={1} color="textSecondary" fontWeight={500}> Website Add‑ons</Typography>
 
         <Box display="flex" justifyContent="space-between" mb={2}>
@@ -113,23 +130,39 @@ export const StaticOptions: React.FC<StaticOptionsProps> = ({ staticPages, dispa
         <Box display="flex" justifyContent="space-between" mb={2}>
           <FormControlLabel
             control={
-              <Switch
-                checked={addons.form}
-                onChange={() => handleAddonChange('form')}
+              <Checkbox
+                checked={include.forms && include.forms > 0}
+                onChange={() => dispatch({ type: 'TOGGLE_INCLUDE', payload: 'forms' })}
               />
             }
             label={
               <Stack>
-                <Typography variant="body2">Follow-up form</Typography>
-                <Typography variant="caption" color="textSecondary">
-                  Whatsapp or email checkout
-                </Typography>
+                <Typography>Follow up forms</Typography>
+                <Typography variant="caption" display="block"> Retain users and gather feedback </Typography>
               </Stack>
             }
           />
-          <Typography variant='body2' color="success">$25</Typography>
+          {include.forms > 0 && (
+            <Box my={2}>
+              <TextField
+                label="Number of forms"
+                type="number"
+                size="small"
+                value={formCount}
+                onChange={e => {
+                  const count = parseInt(e.target.value, 10);
+                  setFormCount(count);
+                  dispatch({ type: 'SET_FORMS', payload: count });
+                }}
+                InputProps={{ inputProps: { min: 0 } }}
+                helperText="Each form adds $25. Extra billed on completion."
+                sx={{ width: 180 }}
+              />
+            </Box>
+          )}
+          <Typography variant='body2' color="success">${include.forms ? formCount * 25 : 0}</Typography>
         </Box>
-        <MarketingOptions state={{ include: addons } as any} dispatch={dispatch} isDynamic={false} />
+        <MarketingOptions state={{ include: include } as any} dispatch={dispatch} isDynamic={false} />
       </Stack>
     </Box>
   );

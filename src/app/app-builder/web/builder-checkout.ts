@@ -8,21 +8,49 @@ export const validateSelections = (
   dispatch: React.Dispatch<Action>
 ) => {
   const { projectType, staticPages, include, dynamicPages } = state;
-  const { blog, ecom, fintech, chat, backend, frontend, database, providers } = include ?? {};
+  const { 
+    backend, 
+    frontend, 
+    database, 
+    providers, 
+    forms, 
+    logics, 
+    authUserCount,
+    authAdmin,  
+    advancedSeo, 
+    googleBusiness, 
+    analytics, 
+    performanceOpt, 
+    socialIntegration, 
+    googleAds, 
+    metaAds, 
+    leadGen, 
+    emailMarketing, 
+    chatbot, 
+    blog, 
+    ecom, 
+    fintech, 
+    chat, 
+    crm,  
+  } = include ?? {};
 
   if (projectType === 'dynamic' && !database || projectType === 'dynamic' && !backend) {
     dispatch({ type: "SET_ALERT", payload: { variant: 'error', text: 'Did you mean to proceed without core app services?' } });
     return false;
   }
+
   if (projectType === 'static' && (typeof staticPages !== 'number' || staticPages < 1)) {
     dispatch({ type: "SET_ALERT", payload: { variant: 'error', text: 'Please enter at least 1 page for a static site' } });
     return false;
   }
+  
   if (projectType === 'dynamic' && frontend && (typeof dynamicPages !== 'number' || dynamicPages < 1)) {
     dispatch({ type: "SET_ALERT", payload: { variant: 'error', text: 'Please enter at least 2 pages for a dynamic web app' } });
     return false;
   }
-  const platformServices = blog || ecom || fintech || chat;
+
+  const platformServices = blog || ecom || fintech || chat || crm;
+
   if (platformServices && (!backend || !frontend || !database || !providers)) {
     dispatch({ type: "SET_ALERT", payload: { variant: 'warning', text: 'Please select all necessary services for platform-specific features' } });
     return false;

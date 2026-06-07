@@ -11,6 +11,7 @@ export default function Home() {
     <main>
       <Overview />
       <FeaturedShowcase />
+      <> {/* Reviews & Recommendations */} </>
       <AppBuilderAd />
       <ActionButtons />
       <TechStack />

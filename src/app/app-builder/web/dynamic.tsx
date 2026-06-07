@@ -251,7 +251,7 @@ export const DynamicOptions = ({
             label="Frontend Bundle"
             description={
               <Typography variant="caption" color="textSecondary">
-                Layout & Nav— $100, Pages— $200, UI/UX— $250, Deploy— $50
+                Layout & Landing— $100, Pages— $200, UI/UX— $250, Deploy— $50
               </Typography>
             }
             price={600}

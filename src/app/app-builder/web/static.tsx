@@ -50,7 +50,7 @@ export const StaticOptions: React.FC<StaticOptionsProps> = ({ state, staticPages
 
       <Stack spacing={2} mt={2}>
         <Typography variant="subtitle2" display="flex" justifyContent="space-between">
-          Layout & Navigation <span className="text-success"> $65</span>
+          Layout & Landing Page <span className="text-success"> $65</span>
         </Typography>
 
         <Typography variant="subtitle2" display="flex" justifyContent="space-between">

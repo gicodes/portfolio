@@ -50,11 +50,11 @@ export const StaticOptions: React.FC<StaticOptionsProps> = ({ state, staticPages
 
       <Stack spacing={2} mt={2}>
         <Typography variant="subtitle2" display="flex" justifyContent="space-between">
-          Layout & Navigation <span className="text-success"> $120</span>
+          Layout & Navigation <span className="text-success"> $65</span>
         </Typography>
 
         <Typography variant="subtitle2" display="flex" justifyContent="space-between">
-          UI/UX Designs <span className="text-success"> $120</span>
+          UI/UX Designs <span className="text-success"> $200+</span>
         </Typography>
 
         <Box display="flex" justifyContent="space-between" gap={1.5}>
@@ -67,7 +67,7 @@ export const StaticOptions: React.FC<StaticOptionsProps> = ({ state, staticPages
             sx={{ width: 120 }}
             helperText="Max Default (5)"
           />
-          <Typography variant="subtitle2" color="success"> $100 </Typography>
+          <Typography variant="subtitle2" color="success"> $125+ </Typography>
         </Box>
 
         <Stack direction="row" justifyContent="space-between">
@@ -78,7 +78,7 @@ export const StaticOptions: React.FC<StaticOptionsProps> = ({ state, staticPages
         <Stack my={1} direction="column" justifyContent="space-between">
           <Stack direction="row" justifyContent="space-between">
             <Typography variant="subtitle2" display="flex" justifyContent="space-between">
-              Hosting <span className='text-secondary'>&nbsp;(Free Tier)</span>
+              Hosting <span className='text-secondary'>&nbsp;(You Pay For Tier)</span>
             </Typography>
             <Typography variant="subtitle2" color="success" my="auto"> $50 </Typography>
           </Stack>

@@ -54,21 +54,20 @@ export const DynamicOptions = ({
               row 
                 sx={{ 
                   py: 1, 
-                  gap: 4,
-                  mx: 'auto', 
+                  gap: { xs: 1, sm: 2, md: 3 },
+                  mx: 'auto',
                   justifyContent: 'center', 
                 }}
               value={dynamicType}
               onChange={e => dispatch({ type: 'SET_DYNAMIC_TYPE', payload: e.target.value as 'serverless' | 'server' })}
             >
-              <FormControlLabel value="serverless" control={<Radio />} label={<span>Serverless 🚀</span>} />
+              <FormControlLabel value="serverless" control={<Radio />} label={<span >Serverless 🚀</span>} />
               <FormControlLabel value="server" control={<Radio />} label={<span>Server 🖥️</span>} />
             </RadioGroup>
 
             <Box 
-              bgcolor={'rgba(0,0,0,1)'} 
+              bgcolor={'rgba(0,0,0,0.1)'} 
               borderRadius={2}
-              color={'white'}
               p={1}
             >
               <Typography variant="caption">
@@ -83,7 +82,7 @@ export const DynamicOptions = ({
       <Box my={4} /* Common Services */>
         <Box>
           <Typography variant="h6" gutterBottom>
-            Primary Services <span className="fs-sm text-gray">(Choose at least 1)</span>
+            ⌝ Primary Services <span className="fs-sm text-gray">(Choose at least 1)</span>
           </Typography>
           <Typography variant="caption" color="textSecondary" paragraph>
             Core services required for the web app, such as database setup, backend development, frontend development, and deployment. These services form the foundation of the web app and are essential for its functionality and performance.
@@ -178,9 +177,14 @@ export const DynamicOptions = ({
                 <Typography color="success">$200</Typography>
               </Box>
 
-              <Typography my={2} variant="subtitle2" color="textSecondary">
-                Backend Add‑ons
-              </Typography>
+              <Box py={2}>
+                <Typography variant="h6">
+                  ⌍ Backend Add‑ons
+                </Typography>
+                <Typography variant="caption" color="text.secondary">
+
+                </Typography>
+              </Box>
 
               <Box my={2}>
                 <TextField
@@ -261,11 +265,11 @@ export const DynamicOptions = ({
             <Box sx={{ ml: 2, py: 2 }}>
               <Stack>
                 <Typography variant="h6">
-                Frontend Add‑ons
-              </Typography>
-              <Typography variant="caption" color="textSecondary" paragraph>
-                Additional features and functionalities that can be added to the frontend of the web app, such as interactive pages, generative AI content, complex logic, performance providers, and third‑party integrations. These add‑ons enhance the user experience and provide additional value to the web app.
-              </Typography>
+                  ⌍ Frontend Add‑ons
+                </Typography>
+                <Typography variant="caption" color="textSecondary" paragraph>
+                  Additional features and functionalities that can be added to the frontend of the web app, such as interactive pages, generative AI content, complex logic, performance providers, and third‑party integrations. These add‑ons enhance the user experience and provide additional value to the web app.
+                </Typography>
               </Stack>
               
               <Box my={2}>
@@ -280,6 +284,26 @@ export const DynamicOptions = ({
                   sx={{ width: 111 }}
                   helperText="$25 per page"
                 />
+              </Box>
+
+              <Box display="flex" justifyContent="space-between" my={2}>
+                <FormControlLabel
+                  control={
+                    <Checkbox
+                      checked={include.providers}
+                      onChange={() =>
+                        dispatch({ type: 'TOGGLE_INCLUDE', payload: 'providers' })
+                      }
+                    />
+                  }
+                  label={
+                    <Stack>
+                      <Typography>Performance Providers</Typography>
+                      <Typography variant="caption"> Alert system, loading, memorization etc. </Typography>
+                    </Stack>
+                  }
+                />
+                <Typography color="success">$200</Typography>
               </Box>
               <Box display="flex" justifyContent="space-between" mb={2}>
                 <FormControlLabel
@@ -301,25 +325,41 @@ export const DynamicOptions = ({
                 <Typography color="success">$50</Typography>
               </Box>
 
-              <Box display="flex" justifyContent="space-between" mt={2}>
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      checked={include.providers}
-                      onChange={() =>
-                        dispatch({ type: 'TOGGLE_INCLUDE', payload: 'providers' })
-                      }
-                    />
-                  }
-                  label={
-                    <Stack>
-                      <Typography>Performance Providers</Typography>
-                      <Typography variant="caption"> Alert system, loading, memorization etc. </Typography>
-                    </Stack>
-                  }
+              <Box display="flex" justifyContent="space-between" mb={2}>
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={include.forms > 0}
+                  onChange={() => dispatch({ type: 'TOGGLE_INCLUDE', payload: 'forms' })}
                 />
-                <Typography color="success">$200</Typography>
+              }
+              label={
+                <Stack>
+                  <Typography>Follow up forms</Typography>
+                  <Typography variant="caption" display="block"> Retain users and gather feedback </Typography>
+                </Stack>
+              }
+            />
+            {include.forms > 0 && (
+              <Box my={2}>
+                <TextField
+                  label="Number of forms"
+                  type="number"
+                  size="small"
+                  value={formCount}
+                  onChange={e => {
+                    const count = parseInt(e.target.value, 10);
+                    setFormCount(count);
+                    dispatch({ type: 'SET_FORMS', payload: count });
+                  }}
+                  InputProps={{ inputProps: { min: 0 } }}
+                  helperText="Each form adds $25. Extra Billed on app completion."
+                  sx={{ width: 180 }}
+                />
               </Box>
+            )}
+            <Typography variant='body2' color="success">${include.forms ? formCount * 25 : 0}</Typography>
+          </Box>
 
               <Card sx={{ p: 2, my: 1}}>  
                 <Box display="flex" justifyContent="space-between">
@@ -368,46 +408,13 @@ export const DynamicOptions = ({
             </Box>
           )}
 
-          <Box display="flex" justifyContent="space-between" mb={2}>
-            <FormControlLabel
-              control={
-                <Checkbox
-                  checked={include.forms > 0}
-                  onChange={() => dispatch({ type: 'TOGGLE_INCLUDE', payload: 'forms' })}
-                />
-              }
-              label={
-                <Stack>
-                  <Typography>Follow up forms</Typography>
-                  <Typography variant="caption" display="block"> Retain users and gather feedback </Typography>
-                </Stack>
-              }
-            />
-            {include.forms > 0 && (
-              <Box my={2}>
-                <TextField
-                  label="Number of forms"
-                  type="number"
-                  size="small"
-                  value={formCount}
-                  onChange={e => {
-                    const count = parseInt(e.target.value, 10);
-                    setFormCount(count);
-                    dispatch({ type: 'SET_FORMS', payload: count });
-                  }}
-                  InputProps={{ inputProps: { min: 0 } }}
-                  helperText="Each form adds $25. Billed on app completion."
-                  sx={{ width: 180 }}
-                />
-              </Box>
-            )}
-            <Typography variant='body2' color="success">${include.forms ? formCount * 25 : 0}</Typography>
-          </Box>
+          
+          <MarketingOptions state={state as any} dispatch={dispatch} isDynamic={true} />
 
           <Box width="100%" display={'grid'} gap={2}> {/* Platform specific services */}
             <Box mt={5}>
               <Typography variant="h6" gutterBottom>
-                Business Services
+                ⚙︎ Business Application
               </Typography>
               <Typography variant="caption" color="textSecondary" paragraph>  
                 Services that are specific to the web platform, such as SEO optimization, web accessibility compliance, and cross-browser compatibility testing. These services ensure that the web app performs well across different browsers and devices, and is optimized for search engines to improve visibility and reach
@@ -417,10 +424,10 @@ export const DynamicOptions = ({
             {(['blog','ecom', 'crm', 'chat', 'fintech'] as Array<'blog' | 'ecom' | 'crm' | 'chat' | 'fintech'>).map((key) => {
               const labels = {
                 blog: 'Blog app',
-                ecom: 'E-commerce',
-                crm: 'CRM',
-                fintech: 'Fin tech',
-                chat: 'Chat app'
+                ecom: 'E-commerce app',
+                crm: 'CRM / HR app',
+                chat: 'Chat app',
+                fintech: 'Fin tech app',
               };
 
               const prices = { blog: 500, ecom: 1000, crm: 2000, chat: 5000, fintech: 10000 };
@@ -445,7 +452,6 @@ export const DynamicOptions = ({
               );
             })}
           </Box>
-          <MarketingOptions state={state as any} dispatch={dispatch} isDynamic={true} />
         </Stack>
       </Box>
     </Box>

@@ -88,7 +88,8 @@ export const ProjectTypeSelector: React.FC<ProjectTypeSelectorProps> = ({ projec
         borderRadius={1}
         variant="caption"
         maxWidth={'max-content'}
-        bgcolor={'rgba(0,0,0,0.09)'}
+        color="white"
+        bgcolor={'rgba(0,0,0,1)'}
       >
         { projectType === 'static' ? 
           "Ideal for landing pages or portfolios, blogs, documentation site."

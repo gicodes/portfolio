@@ -38,7 +38,7 @@ export const StaticOptions: React.FC<StaticOptionsProps> = ({ state, staticPages
   return (
     <Box width="100%" /* Static Type */>
       <Box py={1} gap={1} display={'grid'}>
-        <Typography variant='h6' fontWeight={500}>
+        <Typography variant='h6' fontWeight={600}>
           Static Website Options
         </Typography>
         <Typography color="textSecondary" variant='caption'>
@@ -47,16 +47,10 @@ export const StaticOptions: React.FC<StaticOptionsProps> = ({ state, staticPages
       </Box>
 
       <Divider />
-
       <Stack spacing={2} mt={2}>
-        <Typography variant="subtitle2" display="flex" justifyContent="space-between">
-          Layout & Landing Page <span className="text-success"> $65</span>
-        </Typography>
-
         <Typography variant="subtitle2" display="flex" justifyContent="space-between">
           UI/UX Designs <span className="text-success"> $200+</span>
         </Typography>
-
         <Box display="flex" justifyContent="space-between" gap={1.5}>
           <Typography variant="subtitle2">Page(s) as Menu</Typography>
           <TextField
@@ -69,23 +63,30 @@ export const StaticOptions: React.FC<StaticOptionsProps> = ({ state, staticPages
           />
           <Typography variant="subtitle2" color="success"> $125+ </Typography>
         </Box>
-
-        <Stack direction="row" justifyContent="space-between">
-          <Typography variant="subtitle2">Deployment</Typography>
-          <Typography variant="subtitle2" color="success" my="auto"> $0 </Typography>
-        </Stack>
+        <Typography variant="subtitle2" display="flex" justifyContent="space-between">
+          Layout & Landing Page <span className="text-success"> $65</span>
+        </Typography>
 
         <Stack my={1} direction="column" justifyContent="space-between">
           <Stack direction="row" justifyContent="space-between">
             <Typography variant="subtitle2" display="flex" justifyContent="space-between">
-              Hosting <span className='text-secondary'>&nbsp;(You Pay For Tier)</span>
+              Hosting <span className='text-secondary'>&nbsp;<i>(pay for your tier)</i></span>
             </Typography>
             <Typography variant="subtitle2" color="success" my="auto"> $50 </Typography>
           </Stack>
         </Stack>
-
+        <Stack direction="row" justifyContent="space-between">
+          <Typography variant="subtitle2">Deployment</Typography>
+          <Typography variant="subtitle2" color="success" my="auto"> $0 </Typography>
+        </Stack>
         <Divider />
-        <Typography py={1} color="textSecondary" fontWeight={500}> Website Add‑ons</Typography>
+
+        <Box py={1}>
+          <Typography variant='h6'> ⌍ Website Add‑ons</Typography>
+          <Typography variant={'caption'} color='textSecondary'>
+            Lightweight options you can add or build into your static website to make it look better and function dynamically
+          </Typography>
+        </Box>
 
         <Box display="flex" justifyContent="space-between" mb={2}>
           <FormControlLabel
@@ -99,7 +100,7 @@ export const StaticOptions: React.FC<StaticOptionsProps> = ({ state, staticPages
               <Stack>
                 <Typography variant='body2'>Integrated Services</Typography>
                 <Typography variant="caption" color="textSecondary">
-                  Extensions/ plugins or third party services 
+                  Covers Extensions/ Plugins/ Mirroring/ Third-party services 
                 </Typography>
               </Stack>
             }
@@ -162,7 +163,29 @@ export const StaticOptions: React.FC<StaticOptionsProps> = ({ state, staticPages
           )}
           <Typography variant='body2' color="success">${include.forms ? formCount * 25 : 0}</Typography>
         </Box>
+
+        <Box display="flex" justifyContent="space-between" mb={2}>
+          <FormControlLabel
+            control={
+              <Checkbox
+                checked={include.performanceOpt}
+                onChange={() => dispatch({ type: 'TOGGLE_INCLUDE', payload: 'performanceOpt' })}
+              />
+            }
+            label={
+              <Stack>
+                <Typography variant='body2'>Optimize Performance</Typography>
+                <Typography variant="caption" color="textSecondary">
+                  Improve performance with client-side caching, CDN and Network trottling
+                </Typography>
+              </Stack>
+            }
+          />
+          <Typography variant='body2' color="success">$200</Typography>
+        </Box>
+
         <MarketingOptions state={{ include: include } as any} dispatch={dispatch} isDynamic={false} />
+        
       </Stack>
     </Box>
   );

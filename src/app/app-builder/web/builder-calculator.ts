@@ -91,6 +91,46 @@ export const calculateTotal = ({
       total += 50;
       duration += 2;
     }
+    if (include.advancedSeo) {
+      total += 650;
+      duration += 18;
+    }
+    if (include.googleBusiness) {
+      total += 150;
+      duration += 3;
+    }
+    if (include.analytics) {
+      total += 120;
+      duration += 3;
+    }
+    if (include.performanceOpt) {
+      total += 200;
+      duration += 5;
+    }
+    if (include.socialIntegration) {
+      total += 150;
+      duration += 4;
+    }
+    if (include.googleAds) {
+      total += 200;
+      duration += 5;
+    }
+    if (include.metaAds) {
+      total += 200;
+      duration += 5;
+    }
+    if (include.leadGen) {
+      total += 300;
+      duration += 7;
+    }
+    if (include.emailMarketing) {
+      total += 250;
+      duration += 6;
+    }
+    if (include.chatbot) {
+      total += 350;
+      duration += 10;
+    }
   } else {
     if (include.database) {
       total += 200;
